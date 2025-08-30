@@ -1,0 +1,26 @@
+{
+    "repoUrl": "https://github.com/feit-comp30019/2024s2-project-2-felix",
+    "teamName": "Felix",
+    "teamMembers": [
+        {
+            "name": "Vadym Musiienko",
+            "github": "vadymmusiienko",
+            "email": "vmusiienko@student.unimelb.edu.au"
+        },
+        {
+            "name": "Zhukun He",
+            "github": "DecheSte",
+            "email": "zhukuhn@student.unimelb.edu.au"
+        },
+        {
+            "name": "Xinyi Ren",
+            "github": "MoonRen0305",
+            "email": "xr1@student.unimelb.edu.au"
+        },
+        {
+            "name": "Cheng Cheng",
+            "github": "CHCHENG1",
+            "email": "chcheng1@student.unimelb.edu.au"
+        }
+    ]
+}
