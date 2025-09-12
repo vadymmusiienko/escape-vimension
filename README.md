@@ -1,110 +1,77 @@
-# Game Design Document (GDD)
+# Game Design Document: Escape Vimension
 
-Read the [project specification](https://github.com/feit-comp30019/project-2-specification) for details on what _actually_ needs to be covered here. While you should (obviously) delete everything here and replace it with an actual GDD before submitting your project, you may wish to keep a copy of it as a cheat sheet for how to use "GitHub flavoured markdown".
+## Game Overview
 
-Ensure that _your game design document_ is `well written` and formatted **appropriately**.
-Below are examples of markdown features available on GitHub that might be useful, though this is not an exhaustive list, nor is it required that you use all of these features.
+### Core Concept
+In **Escape Vimension**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside the code editor.  
 
-### Table of contents
+To escape back to the real world, you—the player—must master Vim, with the ultimate goal of learning how to exit and return to reality. The journey of learning Vim is not as easy as it may seem. Along the way, you discover that some programmers have never made it back.  
 
-- [Introduction](#introduction)
-- [Emojis and Icons :boom:](#emojis-and-icons)
-- [Using Images](#using-images)
-- [Code Snipets](#code-snippets)
-- [Tables and Lists](#tables-and-lists)
-- [Maths and Diagrams](#maths-and-diagrams)
-- [References](#references)
+Do you think you are built different? Can you master Vim? We will see…
 
-### Introduction
+---
 
-_Exciting title_ is a first-person shooter (FPS) set in... we're not sure yet. It's a bit like _Doom_ meets _Animal Crossing_, but with a twist. The player must...
+### P.S. *What is Vim?*
+Vim is a free, open-source, and highly configurable text editor that originated from the **vi** editor. Designed for efficiency and speed, it allows users to perform complex text-editing tasks entirely with keyboard commands through its command-line interface.  
 
-> "This is a quote from the game designer, explaining why this game is going to be the best thing since sliced bread." - Game Designer
+It is also known to have a steep learning curve, since most of us are used to relying on a mouse to move between lines. In Vim, you use the keyboard for everything!
 
-### Emojis and Icons
+---
 
-Check out [this page](https://github-emoji-picker.rickstaa.dev/) for a list of emojis/icons that you can use in your markdown. For example, you can use :sparkles: to make things sparkle! Use them sparingly and selectively, as too many emojis can be distracting, and some aren't super appropriate for a GDD. :wink: :wink: :wink:
+### Related Genre(s)
+- **Primary Genre:** 3D Puzzle Platformer  
+- **Secondary Genre:** Educational Game  
 
-### Using Images
+**Similar Games:**  
+- *Vim Adventures* (2D browser game teaching Vim)  
+- *Human Resource Machine* (programming puzzle game)  
+- *Superliminal* (perspective/size-based puzzles)  
 
-Remember that your GDD should be a very visual document! It's easy to include images or gifs in your markdown, like this:
+**What Makes Us Different:**  
+Unlike text-based Vim tutorials or 2D educational games, we create an immersive 3D environment where Vim commands have immediate, visible physical effects on the world. Our game also has an engaging plot and inside jokes. Learn Vim in a fun way!
 
-<p align="center">
-  <img src="Images/sample.gif" width="300">
-</p>
+---
 
-### Code Snippets
+### Target Audience
+- **Primary:** Computer science students (18–25) learning programming  
+- **Secondary:** Developers wanting to learn Vim in a fun way  
+- **Tertiary:** Puzzle game enthusiasts who enjoy unique mechanics  
 
-Code is unlikely to be needed much (if at all) in your GDD, but it's still handy to know how to embed it. If you do include any `code snippets`, be sure to explain them properly.
+**Accessibility:** No prior Vim knowledge required—the game teaches from scratch.
 
-```c#
-public class CameraController : MonoBehaviour
-{
-    void Start ()
-    {
-        // Do something...
-    }
-}
-```
+---
 
-### Tables and Lists
+### Unique Selling Points (USPs)
+- **Physical Vim Commands:** Transform abstract text editing into tangible 3D interactions  
+- **Learn by Doing:** No boring tutorials; every command is learned through solving puzzles  
+- **Terminal Aesthetic in 3D:** Unique visual style mixing retro terminal graphics with modern 3D environments  
 
-You can create tables using markdown, though it's a bit fiddly and not super customisable. Here's an example:
+---
 
-| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Row 1    | Row 1    | Row 1    |
-| Row 2    | Row 2    | Row 2    |
-| Row 3    | Row 3    | Row 3    |
+## Story and Narrative
 
-You can also create lists, like this:
+### Backstory
+You’re a college student working late on a programming project. Frustrated with your slow editing speed, you stumble upon Vim. Eager to improve, you open a terminal and type `vim .`.  
 
-- Item 1
-- Item 2
-- Item 3
+Confused, you realize you have no idea how to edit code, navigate, or—most importantly—exit. In frustration, you mash through countless keyboard shortcuts, but nothing works… until you accidentally enter **Vim Tutor**. Suddenly, you’re shrunk down to the size of a microbe!  
 
-Or like this:
+Now, the only way to return to reality is to master Vim—by following the tutor and hoping it finally teaches you how to quit.
 
-1. Item 1
-2. Item 2
-3. Item 3
+---
 
-Or even nested lists like this:
+### Setting
+The game takes place inside a stylized terminal environment that exists somewhere between the digital and physical worlds.  
 
-1. Item 1
-   - Item 1.1
-   - Item 1.2
-2. Item 2
-   - Item 2.1
-   - Item 2.2
+- Giant letters and words form the landscape  
+- Command prompts float in the air like platforms  
+- Oversized desk objects (keyboards, coffee cups, sticky notes) serve as landmarks  
 
-### Maths and Diagrams
+Each level represents a different "document" or "file" you must navigate through.
 
-Like code, maths probably won't feature much in your GDD, but it's worth knowing that you can use LaTeX to write equations, and have them automatically render in your markdown:
+---
 
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+### Characters
+- **The Player (You):** A tiny programmer trying to escape, shown as a small humanoid figure with a glowing cursor hovering above.  
+- **The Vim Tutor (Voice/Guide):** A mysterious voice echoing through the terminal, teaching you commands.  
+- **Lost Programmers:** Along the way, you encounter other programmers who failed to escape. They share their stories, warning that there may be no hope left.  
 
-... [look here](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions) if you want to learn more about this.
-
-It's also possible to [create diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams) via GitHub flavoured markdown using an integrated tool called Mermaid. This is a pretty powerful tool, and it's worth checking out [this](https://mermaid.js.org/intro/) guide for more information on what it can do. As a quick example, here's a flowchart:
-
-```mermaid
-graph LR
-    A[Hard edge] -->|Link text| B(Round edge)
-    B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]
-```
-
-Pretty neat, huh? You can also create sequence diagrams, Gantt charts, class diagrams, and more. Check out the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) to see what's possible.
-
-### References
-
-Need more help? Check out these resources, which everything in this document is based on:
-
-- [GitHub Flavoured Markdown](https://guides.github.com/features/mastering-markdown/) (official guide)
-- [GitHub LaTeX](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
-- [GitHub Diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
-- [Mermaid Docs](https://mermaid-js.github.io/mermaid/#/)
-- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/)
-- [Emoji Picker](https://github-emoji-picker.rickstaa.dev/)
