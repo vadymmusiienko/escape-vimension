@@ -151,3 +151,38 @@ The world is set in a fantasy village with big trees, grass etc.
 
 -   Player collides with enemies and obstacles
 -   Movable objects may appear in puzzles
+
+### Art Style
+-   The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits our game design better.
+
+-   [Overall game aesthetics](Images/FloatingIslands.png)
+-   [Structures in the game](Images/Houses.png)
+
+### Sound and Music
+-   Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without any lyrics. This helps players stay focused on learning Vim while still creating a relaxed and enjoyable atmosphere.
+
+-   Menu page: A mysterious soundtrack that signals the player’s transition into a fantasy world [Click here](https://freetouse.com/music/zambolino/old-world)
+
+-   The game’s background is set in a fantasy village, and the accompanying soundtracks evoke the atmosphere of rural village life, complementing the overall theme and aesthetics.
+-   Village music 1: [Click here](https://freetouse.com/music/pufino/village)
+-   Village music 2: [Click here](https://freetouse.com/music/walen/medieval-village)
+-   Village music 3: [Click here](https://freetouse.com/music/conquest/jester-dance)
+
+-   Instead of using voice acting for the dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy core. Therefore, typing sounds accompany the dialogues in our game design.
+-   Typing sound for dialogues: [Click here](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
+
+-   Since most of the paths in our world are covered with grass, interactions with the ground should produce forest-like, leaf-rustling sounds.
+-   Pick up item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/7b34345f-8e09-4b10-925a-39fb6fbfe457/)
+-   Drop item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/90e1ad5e-aaf4-4382-a5c9-368721d2733c/)
+-   Walking: [Click here](https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/)
+-   Running: [Click here](https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/)
+
+### Assets
+
+-   [The player](Images/Player.png)
+-   [Vim Tutor](Images/VimTutor.png)
+-   [Ghost NPC](Images/Ghost.png)
+-   [Coin Slug](Images/CoinSlug.png)
+-   [Villager](Images/Villager.png)
+-   [Enemies](Images/Enemies.png)
+-   [Health regen melon](Images/RegenerationMelon.png)
