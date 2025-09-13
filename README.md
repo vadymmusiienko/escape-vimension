@@ -184,5 +184,5 @@ Since most of the paths in our world are covered with grass, interactions with t
 -   [Ghost NPC](Images/Ghost.png) ([3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5))
 -   [Coin Slug](Images/CoinSlug.png) ([3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2))
 -   [Villager](Images/Villager.png) ([3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb))
--   [Enemies](Images/Enemies.png) ([3D Model](https://sketchfab.com/3d-models/)spider-low-poly-1029c25a78c543259167cdc72a9ae7a7) ([3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe))
+-   [Enemies](Images/Enemies.png) [3D Model](https://sketchfab.com/3d-models/spider-low-poly-1029c25a78c543259167cdc72a9ae7a7) ([3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe))
 -   [Health regen melon](Images/RegenerationMelon.png) ([3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d))
