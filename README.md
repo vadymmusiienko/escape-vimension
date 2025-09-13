@@ -158,6 +158,13 @@ The overall aesthetics of the game will be more 3D cartoon-like rather than real
 -   [Overall game aesthetics](Images/FloatingIslands.png)
 -   [Structures in the game](Images/Houses.png)
 
+Similar game references:
+-   Ary and the Secret of Seasons
+-   Baldo: The Guardian Owls
+-   Omno
+-   Hob
+-   Eternal Edge+ game
+
 ### Sound and Music
 Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without any lyrics. This helps players stay focused on learning Vim while still creating a relaxed and enjoyable atmosphere.
 
