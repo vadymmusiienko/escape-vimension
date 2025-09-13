@@ -153,7 +153,7 @@ The world is set in a fantasy village with big trees, grass etc.
 -   Movable objects may appear in puzzles
 
 ### Art Style
--   The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits our game design better.
+The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits our game design better.
 
 -   [Overall game aesthetics](Images/FloatingIslands.png)
 -   [Structures in the game](Images/Houses.png)
@@ -179,10 +179,10 @@ Since most of the paths in our world are covered with grass, interactions with t
 
 ### Assets
 
--   [The player](Images/Player.png) [3D Model](https://sketchfab.com/3d-models/walk-man-ca5429ebe74944c7949f05270e99b359)
--   [Vim Tutor](Images/VimTutor.png) [3D Model](https://sketchfab.com/3d-models/stylized-animated-octupus-afd522e7a5cb48bb98aea7c37879000d)
--   [Ghost NPC](Images/Ghost.png) [3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5)
--   [Coin Slug](Images/CoinSlug.png) [3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2)
--   [Villager](Images/Villager.png) [3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb)
--   [Enemies](Images/Enemies.png) [3D Model](https://sketchfab.com/3d-models/spider-low-poly-1029c25a78c543259167cdc72a9ae7a7) [3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe)
--   [Health regen melon](Images/RegenerationMelon.png) [3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d)
+-   [The player](Images/Player.png) ([3D Model](https://sketchfab.com/3d-models/walk-man-ca5429ebe74944c7949f05270e99b359))
+-   [Vim Tutor](Images/VimTutor.png) ([3D Model](https://sketchfab.com/3d-models/stylized-animated-octupus-afd522e7a5cb48bb98aea7c37879000d))
+-   [Ghost NPC](Images/Ghost.png) ([3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5))
+-   [Coin Slug](Images/CoinSlug.png) ([3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2))
+-   [Villager](Images/Villager.png) ([3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb))
+-   [Enemies](Images/Enemies.png) ([3D Model](https://sketchfab.com/3d-models/)spider-low-poly-1029c25a78c543259167cdc72a9ae7a7) ([3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe))
+-   [Health regen melon](Images/RegenerationMelon.png) ([3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d))
