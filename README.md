@@ -159,19 +159,19 @@ The world is set in a fantasy village with big trees, grass etc.
 -   [Structures in the game](Images/Houses.png)
 
 ### Sound and Music
--   Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without any lyrics. This helps players stay focused on learning Vim while still creating a relaxed and enjoyable atmosphere.
+Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without any lyrics. This helps players stay focused on learning Vim while still creating a relaxed and enjoyable atmosphere.
 
 -   Menu page: A mysterious soundtrack that signals the player’s transition into a fantasy world [Click here](https://freetouse.com/music/zambolino/old-world)
 
--   The game’s background is set in a fantasy village, and the accompanying soundtracks evoke the atmosphere of rural village life, complementing the overall theme and aesthetics.
+The game’s background is set in a fantasy village, and the accompanying soundtracks evoke the atmosphere of rural village life, complementing the overall theme and aesthetics.
 -   Village music 1: [Click here](https://freetouse.com/music/pufino/village)
 -   Village music 2: [Click here](https://freetouse.com/music/walen/medieval-village)
 -   Village music 3: [Click here](https://freetouse.com/music/conquest/jester-dance)
 
--   Instead of using voice acting for the dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy core. Therefore, typing sounds accompany the dialogues in our game design.
+Instead of using voice acting for the dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy core. Therefore, typing sounds accompany the dialogues in our game design.
 -   Typing sound for dialogues: [Click here](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
 
--   Since most of the paths in our world are covered with grass, interactions with the ground should produce forest-like, leaf-rustling sounds.
+Since most of the paths in our world are covered with grass, interactions with the ground should produce forest-like, leaf-rustling sounds.
 -   Pick up item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/7b34345f-8e09-4b10-925a-39fb6fbfe457/)
 -   Drop item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/90e1ad5e-aaf4-4382-a5c9-368721d2733c/)
 -   Walking: [Click here](https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/)
@@ -179,10 +179,10 @@ The world is set in a fantasy village with big trees, grass etc.
 
 ### Assets
 
--   [The player](Images/Player.png)
--   [Vim Tutor](Images/VimTutor.png)
--   [Ghost NPC](Images/Ghost.png)
--   [Coin Slug](Images/CoinSlug.png)
--   [Villager](Images/Villager.png)
--   [Enemies](Images/Enemies.png)
--   [Health regen melon](Images/RegenerationMelon.png)
+-   [The player](Images/Player.png) [3D Model](https://sketchfab.com/3d-models/walk-man-ca5429ebe74944c7949f05270e99b359)
+-   [Vim Tutor](Images/VimTutor.png) [3D Model](https://sketchfab.com/3d-models/stylized-animated-octupus-afd522e7a5cb48bb98aea7c37879000d)
+-   [Ghost NPC](Images/Ghost.png) [3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5)
+-   [Coin Slug](Images/CoinSlug.png) [3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2)
+-   [Villager](Images/Villager.png) [3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb)
+-   [Enemies](Images/Enemies.png) [3D Model](https://sketchfab.com/3d-models/spider-low-poly-1029c25a78c543259167cdc72a9ae7a7) [3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe)
+-   [Health regen melon](Images/RegenerationMelon.png) [3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d)
