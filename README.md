@@ -52,8 +52,6 @@ Unlike text-based Vim tutorials or 2D educational games, we create an immersive 
 -   **Learn by Doing:** No boring tutorials; every command is learned through solving puzzles
 -   **Terminal Aesthetic in 3D:** Unique visual style mixing retro terminal graphics with modern 3D environments
 
----
-
 ## Story and Narrative
 
 ### Backstory
@@ -130,31 +128,47 @@ P.S. We will add more controls here once we finilize all abilities
 -   **Health:** The player has a health bar with 10 health points. If all health is lost → **Respawn at the last checkpoint**.
 -   **Target:** Progress through the world by collecting coins and other collectibles to unlock new commands and complete missions assigned by the Vim Tutor. Once all commands are unlocked, the player receives a final mission, after which they learn how to quit Vim and escape Vimension.
 
----
-
 ## World Design
 
 _(Restrict gameplay to two axes but render in 3D → “2.5D” style)_
 
 ### Game World
 
-The world is set in a fantasy village with big trees, grass etc.
+---
+
+The world is set in a fantasy village on a floating island surrounded by other smaller floating islands. The environment includes:
+
+-   Natural elements: Giant trees, oversized flowers, rocks, and streams that create obstacles
+
+-   Interactive environment: Levers, blocks and buttons that the player can manipulate using Vim commands
 
 ### Objects
 
--
--   Terminals allowing player input
--   Enemies (viruses, bugs)
--   Collectibles for healing or unlocking new commands
+---
+
+-   Movable blocks and obstacles for puzzles
+
+-   Enemies such as ants, bugs, or other creatures
+
+-   Collectibles for healing, coins for unlocking new Vim commands
+
+-   Puddles, spikes, small cliffs
 
 ### Physics
 
--   Player collides with enemies and obstacles
--   Movable objects may appear in puzzles
+---
+
+-   Player collides with enemies, obstacles, and environmental hazards (recieves damage)
+
+-   Movable objects can be pushed, pulled, removed and placed to solve puzzles
+
+-   Certain platforms or items may have physics-based interactions (falling, swinging, or bouncing)
 
 ## Art and Audio
 
 The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits the game design better.
+
+---
 
 ### Art Style
 
@@ -168,6 +182,8 @@ Similar game references:
 -   Omno
 -   Hob
 -   Eternal Edge+
+
+---
 
 ### Sound and Music
 
@@ -207,6 +223,8 @@ Since most of the paths in our world are covered with grass, interactions with t
 -   **Running:** `Audio/Running.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/)
 
+---
+
 ### Assets
 
 Main characters:
@@ -231,7 +249,7 @@ Background decorations:
 
 -   [Bird](https://sketchfab.com/3d-models/pigeon-5884a0f5200c44ceaa7d0399bea577f9), [Grass](https://sketchfab.com/3d-models/grass-arch-f5ae7d17dfae48a698ec0cc3809ed35b), [Glowing Grass](https://sketchfab.com/3d-models/stylized-tropical-grass-3494dc78d85e4b6cb1fb49dcb8b1364d), [Grass floor](https://sketchfab.com/3d-models/grass-autumn-update-8f3a475a07e84964bbfa7e6bdbab9782), [Flower floor](https://sketchfab.com/3d-models/phlox-candystrip-flower-cluster-caf0866c9f5f4e39bf73f25e22f51eb8), [Glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-d-08fd71e5aaea403f8e407f7da2937873), [Mushrooms](https://sketchfab.com/3d-models/mushrooms-c2dbb88a5e9c4e82a180e13b472015ed), [Blue glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-cfc2172e2c414b708d8eadcd38d27b0c), [Single mushroom](https://sketchfab.com/3d-models/mushroom-99cd3901e0f94cf7a621c89dfde9e86e), [Giant mushroom](https://sketchfab.com/3d-models/simple-mushroom-house-and-shimeji-5755066cd3804f76b118166598b2b249), [Pond](https://sketchfab.com/3d-models/flower-pool-b657aba3fbde4bc6ae75272173f52f93), [Flower 1](https://sketchfab.com/3d-models/lily-flower-b58f68ed6cbe4e4d8070185a888a8dc6), [Corn flower](https://sketchfab.com/3d-models/bromeliad-flower-f175f9207061436b85420354d3776ba7), [Orange flowers](https://sketchfab.com/3d-models/flower-0fa50cf622f44f2ba59eff6c11cb8fbd), [Egg flower](https://sketchfab.com/3d-models/genshin-impact-sweet-flower-read-desc-58029f5997dc412ba34b7b6905e7e464), [Flower 2](https://sketchfab.com/3d-models/d45e0228caf54a8b91055da132904e0b)
 
-### User Interface (UI)
+## User Interface (UI)
 
 The menu page should look like this:  
 ![Menu Page Draft](Images/MenuPageDraft.png)
@@ -247,3 +265,55 @@ Since the game’s purpose is to provide a basic educational tutorial on Vim, we
 ![Notebook](Images/NotebookDraft.png)
 
 This page records all unlocked commands, allowing the player to review them during gameplay.
+
+## Technology and Tools
+
+To create **Escape Vimension**, our team will use the following software and tools:
+
+-   **Unity 6000.1.9f1** ([Unity Hub](https://unity.com/)): The primary game engine
+-   **C#**: Scripting language
+-   **GitHub** ([GitHub](https://github.com/)): Version control to manage code and collaborate
+-   **Blender** ([Blender](https://www.blender.org/)): _Optional_ 3D modelling and animation tool to customize or create new models if needed
+-   **Audacity** ([Audacity](https://www.audacityteam.org/)): _Optional_ audio editing for trimming or adjusting soundtracks
+-   **Discord**: Primary communication channel
+
+## Communication, Timeline
+
+**Communication**
+
+-   **Primary Channel:** Discord for real-time chat and voice calls; GitHub Issues for task-specific discussions; WhatsApp for other communication.
+-   **Documentation:** GitHub README file and Google Docs
+
+---
+
+**Timeline:**
+
+-   **Week 1-2:** Core mechanics implementation, player movement, and basic environment
+-   **Week 3-4:** Unlockable commands, puzzles, and initial UI setup
+-   **Week 5:** Sound integration, environmental polish, testing, and bug fixes
+-   **Week 6:** Final milestone submission, bug resolution, optimization, and README documentation
+
+## Possible Challenges
+
+1. **Technical Challenges**
+
+    - Unity physics may behave unexpectedly when implementing Vim-command-based interactions
+    - **Solution:** Prototype each command mechanic individually before integrating into the full game
+
+2. **Time Constraints**
+
+    - Limited time for polishing visuals, puzzles, and audio integration (As we are a team of 3)
+    - **Solution:** Prioritize core mechanics and gradually add secondary features
+
+3. **Asset Integration**
+
+    - Imported 3D models and audio may have compatibility issues with Unity
+    - **Solution:** Pre-test assets in isolated Unity scenes and maintain a consistent naming and folder structure
+
+4. **Team Coordination**
+    - Potential misalignment between team members on development priorities.
+    - **Solution:** Weekly meetings, daily check-ins on Discord
+
+## TODO
+
+This document will be updated and modified as the project progresses.
