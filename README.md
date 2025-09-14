@@ -174,72 +174,37 @@ Similar game references:
 Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without lyrics. This helps players stay focused on learning Vim while creating a relaxed and enjoyable atmosphere.
 
 -   **Menu page:** A mysterious soundtrack that signals the player’s transition into a fantasy world  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/OldWorld.mp3" type="audio/mpeg">
-    </audio>
-
+    File: `Audio/OldWorld.mp3`  
     [Original source](https://freetouse.com/music/zambolino/old-world)
 
 The game’s background is set in a fantasy village, and the accompanying soundtracks evoke the atmosphere of rural village life, complementing the overall theme and aesthetics.
 
--   **Village music 1:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/Village.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Village music 1:** `Audio/Village.mp3`  
     [Original source](https://freetouse.com/music/pufino/village)
 
--   **Village music 2:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/MedievalVillage.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Village music 2:** `Audio/MedievalVillage.mp3`  
     [Original source](https://freetouse.com/music/walen/medieval-village)
 
--   **Village music 3:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/JesterDance.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Village music 3:** `Audio/JesterDance.mp3`  
     [Original source](https://freetouse.com/music/conquest/jester-dance)
 
 Instead of voice acting for dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy theme. Typing sounds will accompany the dialogues.
 
--   **Typing sound for dialogues:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/Typing.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Typing sound for dialogues:** `Audio/Typing.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
 
 Since most of the paths in our world are covered with grass, interactions with the ground should produce forest and leaf-rustling sounds.
 
--   **Pick up item:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/PickUp.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Pick up item:** `Audio/PickUp.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/7b34345f-8e09-4b10-925a-39fb6fbfe457/)
 
--   **Drop item:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/Drop.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Drop item:** `Audio/Drop.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/90e1ad5e-aaf4-4382-a5c9-368721d2733c/)
 
--   **Walking:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/Walking.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Walking:** `Audio/Walking.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/)
 
--   **Running:**  
-    <audio controls>
-      <source src="https://raw.githubusercontent.com/feit-comp30019/2025s2-project-2-felix/main/Audio/Running.mp3" type="audio/mpeg">
-    </audio>
-
+-   **Running:** `Audio/Running.mp3`  
     [Original source](https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/)
 
 ### Assets

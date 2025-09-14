@@ -100,3 +100,6 @@ InitTestScene*.unity*
 
 # Auto-generated .vscode file
 .vscode
+
+# DS_Store
+.DS_Store
