@@ -152,61 +152,133 @@ The world is set in a fantasy village with big trees, grass etc.
 -   Player collides with enemies and obstacles
 -   Movable objects may appear in puzzles
 
-### Art Style
-The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits our game design better.
+## Art and Audio
 
--   [Overall game aesthetics](Images/FloatingIslands.png)
--   [Structures in the game](Images/Houses.png)
+The overall aesthetics of the game will be more 3D cartoon-like rather than realistic. Since our player is shrunk into an imaginary Vim world, a more fantasy-like style suits the game design better.
+
+### Art Style
+
+-   ![Overall game aesthetics](Images/FloatingIslands.png)
+-   ![Structures in the game](Images/Houses.png)
 
 Similar game references:
+
 -   Ary and the Secret of Seasons
 -   Baldo: The Guardian Owls
 -   Omno
 -   Hob
--   Eternal Edge+ game
+-   Eternal Edge+
 
 ### Sound and Music
-Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without any lyrics. This helps players stay focused on learning Vim while still creating a relaxed and enjoyable atmosphere.
 
--   Menu page: A mysterious soundtrack that signals the player’s transition into a fantasy world [Click here](https://freetouse.com/music/zambolino/old-world)
+Since this game is an educational puzzle game, the music should be peaceful and calming, leaning toward a lofi style without lyrics. This helps players stay focused on learning Vim while creating a relaxed and enjoyable atmosphere.
+
+-   **Menu page:** A mysterious soundtrack that signals the player’s transition into a fantasy world  
+    <audio controls>
+      <source src="Audio/OldWorld.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://freetouse.com/music/zambolino/old-world)
 
 The game’s background is set in a fantasy village, and the accompanying soundtracks evoke the atmosphere of rural village life, complementing the overall theme and aesthetics.
--   Village music 1: [Click here](https://freetouse.com/music/pufino/village)
--   Village music 2: [Click here](https://freetouse.com/music/walen/medieval-village)
--   Village music 3: [Click here](https://freetouse.com/music/conquest/jester-dance)
 
-Instead of using voice acting for the dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy core. Therefore, typing sounds accompany the dialogues in our game design.
--   Typing sound for dialogues: [Click here](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
+-   **Village music 1:**  
+    <audio controls>
+      <source src="Audio/Village.mp3" type="audio/mpeg">
+    </audio>
 
-Since most of the paths in our world are covered with grass, interactions with the ground should produce forest, leaf-rustling sounds.
--   Pick up item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/7b34345f-8e09-4b10-925a-39fb6fbfe457/)
--   Drop item: [Click here](https://www.epidemicsound.com/sound-effects/tracks/90e1ad5e-aaf4-4382-a5c9-368721d2733c/)
--   Walking: [Click here](https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/)
--   Running: [Click here](https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/)
+    [Original source](https://freetouse.com/music/pufino/village)
+
+-   **Village music 2:**  
+    <audio controls>
+      <source src="Audio/MedievalVillage.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://freetouse.com/music/walen/medieval-village)
+
+-   **Village music 3:**  
+    <audio controls>
+      <source src="Audio/JesterDance.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://freetouse.com/music/conquest/jester-dance)
+
+Instead of voice acting for dialogues, we chose an immersive, lightweight, and flexible sound effect that better aligns with our puzzle/fantasy theme. Typing sounds will accompany the dialogues.
+
+-   **Typing sound for dialogues:**  
+    <audio controls>
+      <source src="Audio/Typing.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
+
+Since most of the paths in our world are covered with grass, interactions with the ground should produce forest and leaf-rustling sounds.
+
+-   **Pick up item:**  
+    <audio controls>
+      <source src="Audio/PickUp.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://www.epidemicsound.com/sound-effects/tracks/7b34345f-8e09-4b10-925a-39fb6fbfe457/)
+
+-   **Drop item:**  
+    <audio controls>
+      <source src="Audio/Drop.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://www.epidemicsound.com/sound-effects/tracks/90e1ad5e-aaf4-4382-a5c9-368721d2733c/)
+
+-   **Walking:**  
+    <audio controls>
+      <source src="Audio/Walking.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/)
+
+-   **Running:**  
+    <audio controls>
+      <source src="Audio/Running.mp3" type="audio/mpeg">
+    </audio>
+
+    [Original source](https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/)
 
 ### Assets
 
 Main characters:
--   [The player](Images/Player.png) ([3D Model](https://sketchfab.com/3d-models/walk-man-ca5429ebe74944c7949f05270e99b359))
--   [Vim Tutor](Images/VimTutor.png) ([3D Model](https://sketchfab.com/3d-models/stylized-animated-octupus-afd522e7a5cb48bb98aea7c37879000d))
--   [Ghost NPC](Images/Ghost.png) ([3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5))
--   [Coin Slug](Images/CoinSlug.png) ([3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2))
--   [Villager](Images/Villager.png) ([3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb))
--   [Enemies](Images/Enemies.png) ([3D Model](https://sketchfab.com/3d-models/spider-low-poly-1029c25a78c543259167cdc72a9ae7a7), [3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe))
--   [Health regen melon](Images/RegenerationMelon.png) ([3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d))
+
+-   ![The player](Images/Player.png) ([3D Model](https://sketchfab.com/3d-models/walk-man-ca5429ebe74944c7949f05270e99b359))
+-   ![Vim Tutor](Images/VimTutor.png) ([3D Model](https://sketchfab.com/3d-models/stylized-animated-octupus-afd522e7a5cb48bb98aea7c37879000d))
+-   ![Ghost NPC](Images/Ghost.png) ([3D Model](https://sketchfab.com/3d-models/ghost-tv-man-f7bc9cc70236499fa09eb185728cf2e5))
+-   ![Coin Slug](Images/CoinSlug.png) ([3D Model](https://sketchfab.com/3d-models/lowpoly-cute-monster-snail-three-animations-8bb433dfbef3479cbaa3bcdf63b5b6a2))
+-   ![Villager](Images/Villager.png) ([3D Model](https://sketchfab.com/3d-models/new-grass-type-starter-pokemon-seedle-aeb918813f8b4de29bd48aa3bd35d6eb))
+-   ![Enemies](Images/Enemies.png) ([3D Model](https://sketchfab.com/3d-models/spider-low-poly-1029c25a78c543259167cdc72a9ae7a7), [3D Model](https://sketchfab.com/3d-models/walking-ant-dcf15f34876e4a90bd0ad67ef55fb9fe))
+-   ![Health regen melon](Images/RegenerationMelon.png) ([3D Model](https://sketchfab.com/3d-models/watermelon-bug-idle-f76e8cbeebcd4b1cae943ab7782ec22d))
 
 Bases:
+
 -   [Floating island with house](https://sketchfab.com/3d-models/stylized-3d-floating-island-and-mine-house-3cb24182a8504d439ee4e3c500565ac5), [Portal 1](https://sketchfab.com/3d-models/interdimensional-zen-gallery-space-1bd9d26e53e044eea56a2837ffd75136), [Portal 2](https://sketchfab.com/3d-models/floating-island-01-3d3460087e8b4494a3754d95619eed0b), [Floating island](https://sketchfab.com/3d-models/floating-island-192393b07d5d4e06a27e9ffc68ac5d89), [Floating treehouse](https://sketchfab.com/3d-models/floating-islands-of-the-west-dwarves-haven-644a09d37ffe4e86978ac8ef8d1b0e32)
 
 Structures:
+
 -   [Mushroom house (small)](https://sketchfab.com/3d-models/mushroom-house-d99d60b4c61a426cb3f8d30599e0c267), [Blue Magic house](https://sketchfab.com/3d-models/magic-house-98020ddd7c244e64aaa1d39dea6e12e9), [Mushroom house (big)](https://sketchfab.com/3d-models/muschroom-housetoadstool-7cbb2103fe2d468aa03417f31f9d667c), [Mushroom shop](https://sketchfab.com/3d-models/mushroom-house-ecbba166336d49ecaf57ee7a9ffccb44), [Cabin](https://sketchfab.com/3d-models/stylized-house-66ea8904172f453098283706bb8afec8), [Floating Cabin](https://sketchfab.com/3d-models/fantasy-island-9d56515291054b558fdbb747f5c74742), [Black Smith](https://sketchfab.com/3d-models/the-viking-blacksmith-dae-villages-0e01a1a363494481b2efc4ea9add8e32), [Small Cabin](https://sketchfab.com/3d-models/rts-human-house-lv2-proto-series-d186eaa8f042412db5964fe4a3e91a96)
 
 Background decorations:
--   [Bird]( https://sketchfab.com/3d-models/pigeon-5884a0f5200c44ceaa7d0399bea577f9), [Grass](https://sketchfab.com/3d-models/grass-arch-f5ae7d17dfae48a698ec0cc3809ed35b), [Glowing Grass](https://sketchfab.com/3d-models/stylized-tropical-grass-3494dc78d85e4b6cb1fb49dcb8b1364d), [Grass floor](https://sketchfab.com/3d-models/grass-autumn-update-8f3a475a07e84964bbfa7e6bdbab9782), [Flower floor](https://sketchfab.com/3d-models/phlox-candystrip-flower-cluster-caf0866c9f5f4e39bf73f25e22f51eb8), [Glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-d-08fd71e5aaea403f8e407f7da2937873), [Mushrooms](https://sketchfab.com/3d-models/mushrooms-c2dbb88a5e9c4e82a180e13b472015ed), [Blue glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-cfc2172e2c414b708d8eadcd38d27b0c), [Single mushroom](https://sketchfab.com/3d-models/mushroom-99cd3901e0f94cf7a621c89dfde9e86e), [Giant mushroom](https://sketchfab.com/3d-models/simple-mushroom-house-and-shimeji-5755066cd3804f76b118166598b2b249), [Pond](https://sketchfab.com/3d-models/flower-pool-b657aba3fbde4bc6ae75272173f52f93), [Flower 1](https://sketchfab.com/3d-models/lily-flower-b58f68ed6cbe4e4d8070185a888a8dc6), [Corn flower](https://sketchfab.com/3d-models/bromeliad-flower-f175f9207061436b85420354d3776ba7), [Orange flowers](https://sketchfab.com/3d-models/flower-0fa50cf622f44f2ba59eff6c11cb8fbd), [Egg flower](https://sketchfab.com/3d-models/genshin-impact-sweet-flower-read-desc-58029f5997dc412ba34b7b6905e7e464), [Flower 2](https://sketchfab.com/3d-models/d45e0228caf54a8b91055da132904e0b)
+
+-   [Bird](https://sketchfab.com/3d-models/pigeon-5884a0f5200c44ceaa7d0399bea577f9), [Grass](https://sketchfab.com/3d-models/grass-arch-f5ae7d17dfae48a698ec0cc3809ed35b), [Glowing Grass](https://sketchfab.com/3d-models/stylized-tropical-grass-3494dc78d85e4b6cb1fb49dcb8b1364d), [Grass floor](https://sketchfab.com/3d-models/grass-autumn-update-8f3a475a07e84964bbfa7e6bdbab9782), [Flower floor](https://sketchfab.com/3d-models/phlox-candystrip-flower-cluster-caf0866c9f5f4e39bf73f25e22f51eb8), [Glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-d-08fd71e5aaea403f8e407f7da2937873), [Mushrooms](https://sketchfab.com/3d-models/mushrooms-c2dbb88a5e9c4e82a180e13b472015ed), [Blue glowing mushroom](https://sketchfab.com/3d-models/glowing-mushroom-cfc2172e2c414b708d8eadcd38d27b0c), [Single mushroom](https://sketchfab.com/3d-models/mushroom-99cd3901e0f94cf7a621c89dfde9e86e), [Giant mushroom](https://sketchfab.com/3d-models/simple-mushroom-house-and-shimeji-5755066cd3804f76b118166598b2b249), [Pond](https://sketchfab.com/3d-models/flower-pool-b657aba3fbde4bc6ae75272173f52f93), [Flower 1](https://sketchfab.com/3d-models/lily-flower-b58f68ed6cbe4e4d8070185a888a8dc6), [Corn flower](https://sketchfab.com/3d-models/bromeliad-flower-f175f9207061436b85420354d3776ba7), [Orange flowers](https://sketchfab.com/3d-models/flower-0fa50cf622f44f2ba59eff6c11cb8fbd), [Egg flower](https://sketchfab.com/3d-models/genshin-impact-sweet-flower-read-desc-58029f5997dc412ba34b7b6905e7e464), [Flower 2](https://sketchfab.com/3d-models/d45e0228caf54a8b91055da132904e0b)
 
 ### User Interface (UI)
-The menu page should be like [Menu Page Draft](Images/MenuPageDraft.png), where we have a fixed title and the player's view in the background rotates around the entire world.
 
-The game page should resemble [Game play interface](Images/GamePageDraft.png), with the player’s health displayed in the top-left corner, a notebook button in the top-right corner, the dialogue box at the bottom of the page, and a single inventory slot in the bottom-right corner. The game is presented in 3D third-person perspective, with the camera following the player’s movements.
+The menu page should look like this:  
+![Menu Page Draft](Images/MenuPageDraft.png)
 
-Since the game’s purpose is to provide a basic educational tutorial on Vim, we included a notebook page [Note book](Images/NotebookDraft.png) that records all unlocked commands, allowing the player to review them during gameplay.
+The player’s view in the background rotates around the entire world while the title remains fixed.
+
+The gameplay page should look like this:  
+![Gameplay Interface](Images/GamePageDraft.png)
+
+Here the player’s health is displayed in the top-left corner, a notebook button in the top-right corner, the dialogue box at the bottom of the page, and a single inventory slot in the bottom-right corner. The game is presented in 3D third-person perspective, with the camera following the player’s movements.
+
+Since the game’s purpose is to provide a basic educational tutorial on Vim, we included a notebook page:  
+![Notebook](Images/NotebookDraft.png)
+
+This page records all unlocked commands, allowing the player to review them during gameplay.
