@@ -117,9 +117,9 @@ P.S. We will add more controls here once we finilize all abilities
 
 ### Progression
 
--   **Unlocked by default:** Movement only, plus command `x` to pick up or destroy simple obstacles.
--   **As the game progresses:** Additional abilities are unlocked; puzzles become more complex and require chaining multiple commands.
--   **Buyable commands:** Using coins, players can purchase numbers (1–9) to repeat a command multiple times, similar to Vim.
+-   **Unlocked by default:** Movement only, plus command `x` to pick up or destroy simple obstacles
+-   **As the game progresses:** Additional abilities are unlocked; puzzles become more complex and require chaining multiple commands
+-   **Buyable commands:** Using coins, players can purchase numbers (1–9) to repeat a command multiple times, similar to Vim
 
 ---
 
@@ -311,9 +311,9 @@ To create **Escape Vimension**, our team will use the following software and too
     - **Solution:** Pre-test assets in isolated Unity scenes and maintain a consistent naming and folder structure
 
 4. **Team Coordination**
-    - Potential misalignment between team members on development priorities.
+    - Potential misalignment between team members on development priorities
     - **Solution:** Weekly meetings, daily check-ins on Discord
 
 ## TODO
 
-This document will be updated and modified as the project progresses.
+This document will be updated and modified as the project progresses
