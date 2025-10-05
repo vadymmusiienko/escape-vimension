@@ -25,7 +25,7 @@ public class Player : Entity
     public float pickupRange = 2f; // How close player needs to be to pick up items
     public LayerMask itemLayer; // Set this in Inspector to detect only items
     private Item nearbyItem; // The item we're currently near
-    private bool isPickingUp = false;
+    public bool isPickingUp = false; // Made public so states can check it
 
     #region States
     public PlayerStateMachine stateMachine;
@@ -160,6 +160,12 @@ public class Player : Entity
             nearbyItem = null;
         }
         
+        // Set isPickingUp to false after 0.7 seconds
+        Invoke(nameof(EndPickup), 1.1f);
+    }
+    
+    private void EndPickup()
+    {
         isPickingUp = false;
     }
     
