@@ -20,6 +20,12 @@ public class Player : Entity
     // Attack system
     private float lastAttackTime = 0f;
     public float attackCooldown = 1.5f;
+    
+    // TODO: Pickup system
+    public float pickupRange = 2f; // How close player needs to be to pick up items
+    public LayerMask itemLayer; // Set this in Inspector to detect only items
+    private Item nearbyItem; // The item we're currently near
+    private bool isPickingUp = false;
 
     #region States
     public PlayerStateMachine stateMachine;
@@ -65,6 +71,15 @@ public class Player : Entity
             PerformAttack();
         }
         
+        // Detect nearby items
+        DetectNearbyItems();
+        
+        // Handle pickup input
+        if (Input.GetKeyDown(KeyCode.X) && nearbyItem != null && !isPickingUp)
+        {
+            PerformPickup();
+        }
+        
         stateMachine.currState.Update();
     }
     
@@ -83,6 +98,69 @@ public class Player : Entity
         Debug.Log("Player attacking!");
         
         // TODO: Add damage detection, effects, etc.
+    }
+    
+    private void DetectNearbyItems()
+    {
+        // Find all items within pickup range
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, pickupRange, itemLayer);
+        
+        if (hitColliders.Length > 0)
+        {
+            // Find the closest item
+            float closestDistance = Mathf.Infinity;
+            Item closestItem = null;
+            
+            foreach (Collider col in hitColliders)
+            {
+                Item item = col.GetComponent<Item>();
+                if (item != null && item.canPickup)
+                {
+                    float distance = Vector3.Distance(transform.position, col.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestItem = item;
+                    }
+                }
+            }
+            
+            nearbyItem = closestItem;
+        }
+        else
+        {
+            nearbyItem = null;
+        }
+    }
+    
+    private void PerformPickup()
+    {
+        if (nearbyItem == null) return;
+        
+        isPickingUp = true;
+        
+        // Trigger the pickup animation
+        anim.SetTrigger("Pickup");
+        
+        Debug.Log($"Picking up item: {nearbyItem.itemName}");
+        
+        // Store reference to item and pick it up after animation
+        Item itemToPickup = nearbyItem;
+        
+        // Actually pick up the item after a delay (when hand reaches down in animation)
+        // Adjust this delay to match animation timing
+        Invoke(nameof(CompletePickup), 0.35f);
+    }
+    
+    private void CompletePickup()
+    {
+        if (nearbyItem != null)
+        {
+            nearbyItem.OnPickup(this);
+            nearbyItem = null;
+        }
+        
+        isPickingUp = false;
     }
     
     // Camera control methods
@@ -108,5 +186,12 @@ public class Player : Entity
         {
             cameraFollow.SnapToTarget();
         }
+    }
+    
+    // Visualize pickup range in editor
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, pickupRange);
     }
 }
