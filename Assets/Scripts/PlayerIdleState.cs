@@ -17,7 +17,9 @@ public class PlayerIdleState : PlayerState
     public override void Update()
     {
         base.Update();
-        if (player.Speed > 0)
+        
+        // Don't change states while picking up
+        if (!player.isPickingUp && player.Speed > 0)
         {
             stateMachine.ChangeState(player.moveState);
         }
