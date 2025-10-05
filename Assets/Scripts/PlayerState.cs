@@ -49,6 +49,7 @@ public class PlayerState
             player.InputY = 1;
         }
         player.Speed = Mathf.Abs(player.InputX) + Mathf.Abs(player.InputY);
+        
         if (player.isGrounded)
         {
             player.verticalVel = -2f;

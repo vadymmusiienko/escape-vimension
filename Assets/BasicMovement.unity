@@ -269,6 +269,10 @@ PrefabInstance:
       value: Jammo_Player
       objectReference: {fileID: 0}
     - target: {fileID: 7635726066119915157, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+    - target: {fileID: 7635726066119915157, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: dda7dd7afcad2dc43ab7f2983d33670e, type: 2}
@@ -396,6 +400,7 @@ MonoBehaviour:
   allowPlayerRotation: 0.1
   verticalVel: 0
   isGrounded: 0
+  attackCooldown: 0.5
 --- !u!1 &1852088882
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +505,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.6002, y: 1, z: 8.9229}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

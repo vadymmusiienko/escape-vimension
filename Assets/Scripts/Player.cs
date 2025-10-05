@@ -12,10 +12,14 @@ public class Player : Entity
 
     public Vector3 desiredMoveDirection;
     public float desiredRotationSpeed = 0.1f;
-    public float allowPlayerRotation = 0.1f;
+    public float allowPlayerRotation = -999f;
 
     public float verticalVel;
     public bool isGrounded;
+    
+    // Attack system
+    private float lastAttackTime = 0f;
+    public float attackCooldown = 1.5f;
 
     #region States
     public PlayerStateMachine stateMachine;
@@ -54,7 +58,31 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+        
+        // Handle attack input independently of state
+        if (Input.GetKeyDown(KeyCode.D) && CanAttack())
+        {
+            PerformAttack();
+        }
+        
         stateMachine.currState.Update();
+    }
+    
+    private bool CanAttack()
+    {
+        return Time.time - lastAttackTime >= attackCooldown;
+    }
+    
+    private void PerformAttack()
+    {
+        // Trigger the attack animation (doesn't change state)
+        anim.SetTrigger("Attack");
+        lastAttackTime = Time.time;
+        
+        // Add attack logic here
+        Debug.Log("Player attacking!");
+        
+        // TODO: Add damage detection, effects, etc.
     }
     
     // Camera control methods
