@@ -18,8 +18,8 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
         
-        // Don't change states while picking up
-        if (!player.isPickingUp && player.Speed > 0)
+        // Don't change states while picking up or copying
+        if (!player.isPickingUp && !player.isCopying && player.Speed > 0)
         {
             stateMachine.ChangeState(player.moveState);
         }

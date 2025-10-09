@@ -26,6 +26,15 @@ public class Player : Entity
     public LayerMask itemLayer; // Set this in Inspector to detect only items
     private Item nearbyItem; // The item we're currently near
     public bool isPickingUp = false; // Made public so states can check it
+    
+    // Copy/Paste system
+    public float copyRange = 2f; // How close player needs to be to copy items
+    public LayerMask copyableLayer; // Set this in Inspector to detect copyable items
+    public LayerMask enemyLayer = -1; // Layer mask for enemies
+    public float enemyDetectionRange = 10f; // Range to detect enemies for paste targeting
+    private CopyableItem nearbyCopyableItem; // The copyable item we're currently near
+    public CopyableItem clipboardItem; // The item currently in clipboard (only one at a time)
+    public bool isCopying = false; // Made public so states can check it
 
     #region States
     public PlayerStateMachine stateMachine;
@@ -74,10 +83,25 @@ public class Player : Entity
         // Detect nearby items
         DetectNearbyItems();
         
+        // Detect nearby copyable items
+        DetectNearbyCopyableItems();
+        
         // Handle pickup input
         if (Input.GetKeyDown(KeyCode.X) && nearbyItem != null && !isPickingUp)
         {
             PerformPickup();
+        }
+        
+        // Handle copy input
+        if (Input.GetKeyDown(KeyCode.Y) && nearbyCopyableItem != null && !isCopying)
+        {
+            PerformCopy();
+        }
+        
+        // Handle paste input
+        if (Input.GetKeyDown(KeyCode.P) && clipboardItem != null && !isCopying)
+        {
+            PerformPaste();
         }
         
         stateMachine.currState.Update();
@@ -169,6 +193,129 @@ public class Player : Entity
         isPickingUp = false;
     }
     
+    private void DetectNearbyCopyableItems()
+    {
+        // Find all copyable items within copy range
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, copyRange, copyableLayer);
+        
+        if (hitColliders.Length > 0)
+        {
+            // Find the closest copyable item
+            float closestDistance = Mathf.Infinity;
+            CopyableItem closestItem = null;
+            
+            foreach (Collider col in hitColliders)
+            {
+                CopyableItem item = col.GetComponent<CopyableItem>();
+                if (item != null && item.CanBeCopied(this))
+                {
+                    float distance = Vector3.Distance(transform.position, col.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestItem = item;
+                    }
+                }
+            }
+            
+            nearbyCopyableItem = closestItem;
+        }
+        else
+        {
+            nearbyCopyableItem = null;
+        }
+    }
+    
+    private void PerformCopy()
+    {
+        if (nearbyCopyableItem == null) return;
+        
+        isCopying = true;
+        
+        // Clear any existing clipboard item
+        if (clipboardItem != null)
+        {
+            clipboardItem = null;
+        }
+        
+        // Copy the item
+        clipboardItem = nearbyCopyableItem;
+        clipboardItem.OnCopied(this);
+        
+        Debug.Log($"Copied: {clipboardItem.itemName}");
+        
+        // Set isCopying to false after a short delay
+        Invoke(nameof(EndCopy), 0.5f);
+    }
+    
+    private void EndCopy()
+    {
+        isCopying = false;
+    }
+    
+    private void PerformPaste()
+    {
+        if (clipboardItem == null) return;
+        
+        isCopying = true;
+        
+        // Find the nearest enemy
+        Transform nearestEnemy = FindNearestEnemy();
+        Vector3 direction;
+        
+        if (nearestEnemy != null)
+        {
+            // Aim at the nearest enemy
+            direction = (nearestEnemy.position - transform.position).normalized;
+            Debug.Log($"Pasting {clipboardItem.itemName} at enemy");
+        }
+        else
+        {
+            // Shoot straight forward
+            direction = transform.forward;
+            Debug.Log($"Pasting {clipboardItem.itemName} straight ahead");
+        }
+        
+        // Create projectile
+        Vector3 spawnPosition = transform.position + Vector3.up * 1.5f + direction * 1f; // Spawn at chest height and slightly in front of player
+        GameObject projectile = clipboardItem.CreateProjectile(spawnPosition, direction);
+        
+        if (projectile != null)
+        {
+            clipboardItem.OnPasted(this);
+        }
+        
+        // Clear clipboard
+        clipboardItem = null;
+        
+        // Set isCopying to false after a short delay
+        Invoke(nameof(EndCopy), 0.5f);
+    }
+    
+    private Transform FindNearestEnemy()
+    {
+        // Find all enemies within detection range
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, enemyDetectionRange, enemyLayer);
+        
+        if (hitColliders.Length == 0) return null;
+        
+        // Find the closest enemy
+        float closestDistance = Mathf.Infinity;
+        Transform closestEnemy = null;
+        
+        foreach (Collider col in hitColliders)
+        {
+            float distance = Vector3.Distance(transform.position, col.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = col.transform;
+            }
+        }
+        
+        return closestEnemy;
+    }
+    
     // Camera control methods
     public void SetCameraOffset(Vector3 offset)
     {
@@ -194,10 +341,19 @@ public class Player : Entity
         }
     }
     
-    // Visualize pickup range in editor
+    // Visualize pickup and copy ranges in editor
     private void OnDrawGizmosSelected()
     {
+        // Pickup range (green)
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, pickupRange);
+        
+        // Copy range (blue)
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, copyRange);
+        
+        // Enemy detection range (red)
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, enemyDetectionRange);
     }
 }
