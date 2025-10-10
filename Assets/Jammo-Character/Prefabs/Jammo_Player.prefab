@@ -2085,6 +2085,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   isPickingUp: 0
+  copyRange: 2
+  copyableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  enemyDetectionRange: 10
+  clipboardItem: {fileID: 0}
+  isCopying: 0
 --- !u!1 &3921334144448749991
 GameObject:
   m_ObjectHideFlags: 0
