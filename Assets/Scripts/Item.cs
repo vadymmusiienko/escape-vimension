@@ -10,7 +10,8 @@ public class Item : MonoBehaviour
     {
         // TODO: logic for picking up an item
         Debug.Log($"Picked up: {itemName}");
-        
+
+        player.AddItem(itemName);
         // Disable or destroy the item
         gameObject.SetActive(false);
         // Or: Destroy(gameObject);

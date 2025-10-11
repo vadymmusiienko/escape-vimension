@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : Entity
@@ -8,6 +9,7 @@ public class Player : Entity
     public float InputX {  get; set; }
     public float InputY { get; set; }
     public float Speed { get; set; }
+    public List<string> inventory = new List<string>();
 
     public Vector3 desiredMoveDirection;
     public float desiredRotationSpeed = 0.1f;
@@ -164,5 +166,19 @@ public class Player : Entity
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, pickupRange);
+    }
+
+    public void AddItem(string itemName)
+    {
+        if (!inventory.Contains(itemName))
+        {
+            inventory.Add(itemName);
+            Debug.Log($"Added {itemName} to inventory.");
+        }
+    }
+
+    public bool HasItem(string itemName)
+    {
+        return inventory.Contains(itemName);
     }
 }
