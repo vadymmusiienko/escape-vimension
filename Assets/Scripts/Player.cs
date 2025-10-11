@@ -5,7 +5,6 @@ public class Player : Entity
     public float moveSpeed;
     public CharacterController controller {  get; private set; }
     public Camera cam { get; private set; }
-    public CameraFollow cameraFollow { get; private set; }
     public float InputX {  get; set; }
     public float InputY { get; set; }
     public float Speed { get; set; }
@@ -47,16 +46,6 @@ public class Player : Entity
         base.Start();
         cam = Camera.main;
         
-        // Setup camera follow
-        if (cam != null)
-        {
-            cameraFollow = cam.GetComponent<CameraFollow>();
-            if (cameraFollow == null)
-            {
-                cameraFollow = cam.gameObject.AddComponent<CameraFollow>();
-            }
-            cameraFollow.SetTarget(transform);
-        }
         
         stateMachine.Initialize(idleState);
     }
@@ -64,7 +53,7 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
-        
+
         // Handle attack input independently of state
         if (Input.GetKeyDown(KeyCode.D) && CanAttack())
         {
@@ -169,30 +158,6 @@ public class Player : Entity
         isPickingUp = false;
     }
     
-    // Camera control methods
-    public void SetCameraOffset(Vector3 offset)
-    {
-        if (cameraFollow != null)
-        {
-            cameraFollow.SetOffset(offset);
-        }
-    }
-    
-    public void SetCameraFollowSpeed(float speed)
-    {
-        if (cameraFollow != null)
-        {
-            cameraFollow.SetFollowSpeed(speed);
-        }
-    }
-    
-    public void SnapCameraToPlayer()
-    {
-        if (cameraFollow != null)
-        {
-            cameraFollow.SnapToTarget();
-        }
-    }
     
     // Visualize pickup range in editor
     private void OnDrawGizmosSelected()

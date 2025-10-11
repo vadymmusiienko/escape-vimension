@@ -23,7 +23,6 @@ public class PlayerMoveState : PlayerState
             var camera = player.cam;
             var forward = camera.transform.forward;
             var right = camera.transform.right;
-
             forward.y = 0f;
             right.y = 0f;
             forward.Normalize();
@@ -31,11 +30,15 @@ public class PlayerMoveState : PlayerState
 
             player.desiredMoveDirection = forward * player.InputY + right * player.InputX;
 
-            player.transform.rotation = Quaternion.Slerp(
-                player.transform.rotation,
-                Quaternion.LookRotation(player.desiredMoveDirection),
-                player.desiredRotationSpeed
-            );
+            Vector3 moveInput = new Vector3(player.InputX, 0, player.InputY);
+            if (moveInput.magnitude > 0)
+            {
+                player.transform.rotation = Quaternion.Slerp(
+                    player.transform.rotation,
+                    Quaternion.LookRotation(player.desiredMoveDirection),
+                    player.desiredRotationSpeed
+                );
+            }
 
             Vector3 horizontalMove = player.desiredMoveDirection * Time.deltaTime * player.moveSpeed;
             player.controller.Move(horizontalMove);
