@@ -97,6 +97,5 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = ""; 
         dialogueParent.SetActive(false);
-        Debug.Log("End dialogue");
     }
 }
