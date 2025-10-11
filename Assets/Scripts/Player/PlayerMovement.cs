@@ -80,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void HandleGravity()
     {
+        // Update ground detection using CharacterController
+        isGrounded = controller.isGrounded;
+        
         if (isGrounded)
         {
             verticalVel = groundedGravity;
