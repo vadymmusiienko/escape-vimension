@@ -12,10 +12,6 @@ public class CopyableItem : Item
     public float projectileLifetime = 5f;
     public int damage = 10;
     
-    [Header("Visual Feedback")]
-    // TODO: change effects (set to NULL for now)
-    public GameObject copyEffect; // Visual effect when copied
-    public GameObject pasteEffect; // Visual effect when pasted
     
     private bool isCopied = false;
     
@@ -35,37 +31,24 @@ public class CopyableItem : Item
     public virtual void OnCopied(Player player)
     {
         isCopied = true;
-        
-        // Show copy effect (if present)
-        if (copyEffect != null)
-        {
-            GameObject effect = Instantiate(copyEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 2f);
-        }
-        
-        Debug.Log($"Copied: {itemName}");
     }
     
     public virtual void OnPasted(Player player)
     {
         isCopied = false;
-        
-        // Show paste effect (if not null)
-        if (pasteEffect != null)
-        {
-            GameObject effect = Instantiate(pasteEffect, player.transform.position, Quaternion.identity);
-            Destroy(effect, 2f);
-        }
-        
-        Debug.Log($"Pasted: {itemName}");
     }
     
     public GameObject CreateProjectile(Vector3 position, Vector3 direction)
     {
         if (projectilePrefab == null)
         {
-            Debug.LogWarning($"No projectile prefab assigned to {itemName}");
             return null;
+        }
+        
+        // Ensure direction is valid
+        if (direction.magnitude < 0.001f)
+        {
+            direction = Vector3.forward;
         }
         
         GameObject projectile = Instantiate(projectilePrefab, position, Quaternion.LookRotation(direction));
@@ -77,15 +60,10 @@ public class CopyableItem : Item
             projectileController = projectile.AddComponent<ProjectileController>();
         }
         
+        // Initialize with proper settings for fast movement
         projectileController.Initialize(direction, projectileSpeed, projectileLifetime, damage);
         
         return projectile;
     }
     
-    // Visualize copy range in editor
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, copyRange);
-    }
 }

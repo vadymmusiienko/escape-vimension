@@ -8,9 +8,6 @@ public class FireballItem : CopyableItem
     public float fireballLifetime = 3f;
     public int fireballDamage = 15;
     
-    [Header("Fireball Effects")]
-    public GameObject fireballCopyEffect;
-    public GameObject fireballPasteEffect;
     
     void Start()
     {
@@ -21,11 +18,7 @@ public class FireballItem : CopyableItem
         projectileLifetime = fireballLifetime;
         damage = fireballDamage;
         
-        // Assign fireball-specific effects
-        if (fireballCopyEffect != null)
-            copyEffect = fireballCopyEffect;
-        if (fireballPasteEffect != null)
-            pasteEffect = fireballPasteEffect;
+        // Assign fireball-specific projectile
         if (fireballProjectilePrefab != null)
             projectilePrefab = fireballProjectilePrefab;
     }
@@ -33,12 +26,10 @@ public class FireballItem : CopyableItem
     public override void OnCopied(Player player)
     {
         base.OnCopied(player);
-        Debug.Log("🔥 Fireball copied to clipboard!");
     }
     
     public override void OnPasted(Player player)
     {
         base.OnPasted(player);
-        Debug.Log("🔥 Fireball pasted - launching projectile!");
     }
 }

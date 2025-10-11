@@ -19,18 +19,8 @@ public class ExpUI : MonoBehaviour
     public Color expBarBackgroundColor = Color.gray;
     public Color expBarGlowColor = Color.cyan;
     
-    [Header("Animation Settings")]
-    public bool animateBarFill = true;
-    public float animationSpeed = 2f;
-    
-    [Header("Level Up Effects")]
-    public Color levelUpFlashColor = Color.yellow;
-    public float flashDuration = 0.5f;
     
     private LevelSystem levelSystem;
-    private Coroutine flashCoroutine;
-    private Coroutine barAnimationCoroutine;
-    private float targetFillAmount = 0f;
     
     void Start()
     {
@@ -90,14 +80,14 @@ public class ExpUI : MonoBehaviour
     }
     
     /// <summary>
-    /// Updates the experience bar fill with smooth animation
+    /// Updates the experience bar fill
     /// </summary>
     private void UpdateExpBar()
     {
         if (expBarFill == null) return;
         
         float progress = levelSystem.GetExpProgress();
-        targetFillAmount = progress;
+        expBarFill.fillAmount = progress;
         
         // Set bar color
         expBarFill.color = expBarColor;
@@ -107,39 +97,8 @@ public class ExpUI : MonoBehaviour
         {
             expBarBackground.color = expBarBackgroundColor;
         }
-        
-        // Animate the bar fill
-        if (animateBarFill && barAnimationCoroutine == null)
-        {
-            barAnimationCoroutine = StartCoroutine(AnimateBarFill());
-        }
-        else if (!animateBarFill)
-        {
-            expBarFill.fillAmount = targetFillAmount;
-        }
     }
     
-    /// <summary>
-    /// Animates the bar fill smoothly
-    /// </summary>
-    private System.Collections.IEnumerator AnimateBarFill()
-    {
-        float startFill = expBarFill.fillAmount;
-        float elapsed = 0f;
-        
-        while (elapsed < 1f)
-        {
-            elapsed += Time.deltaTime * animationSpeed;
-            float t = Mathf.SmoothStep(0f, 1f, elapsed);
-            
-            expBarFill.fillAmount = Mathf.Lerp(startFill, targetFillAmount, t);
-            
-            yield return null;
-        }
-        
-        expBarFill.fillAmount = targetFillAmount;
-        barAnimationCoroutine = null;
-    }
     
     /// <summary>
     /// Called when player levels up
@@ -148,15 +107,6 @@ public class ExpUI : MonoBehaviour
     private void OnLevelUp(int newLevel)
     {
         Debug.Log($"ExpUI: Player reached level {newLevel}!");
-        
-        // Flash effect on level up
-        if (flashCoroutine != null)
-        {
-            StopCoroutine(flashCoroutine);
-        }
-        flashCoroutine = StartCoroutine(LevelUpFlash());
-        
-        // Update display
         UpdateDisplay();
     }
     
@@ -179,20 +129,4 @@ public class ExpUI : MonoBehaviour
         Debug.Log($"ExpUI: Player strength is now {newStrength}!");
     }
     
-    /// <summary>
-    /// Creates a flash effect when leveling up
-    /// </summary>
-    private System.Collections.IEnumerator LevelUpFlash()
-    {
-        if (levelText == null) yield break;
-        
-        Color originalColor = levelText.color;
-        
-        // Flash to level up color
-        levelText.color = levelUpFlashColor;
-        yield return new WaitForSeconds(flashDuration);
-        
-        // Return to original color
-        levelText.color = originalColor;
-    }
 }

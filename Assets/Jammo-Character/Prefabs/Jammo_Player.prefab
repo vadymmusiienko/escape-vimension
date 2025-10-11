@@ -1942,8 +1942,12 @@ GameObject:
   - component: {fileID: 7635726066119915157}
   - component: {fileID: 4757836856755875627}
   - component: {fileID: 4757836856755875625}
-  - component: {fileID: 4832334267335421763}
   - component: {fileID: 7392892030504577778}
+  - component: {fileID: 5681181275854731420}
+  - component: {fileID: 285070418402605971}
+  - component: {fileID: 8258610476914000814}
+  - component: {fileID: 2568751570241878389}
+  - component: {fileID: 7899466792488566552}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -1961,7 +1965,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8447345114822805049}
@@ -2062,41 +2066,6 @@ MonoBehaviour:
   - {r: 0.72790754, g: 2, b: 0.26178014, a: 1}
   - {r: 2, g: 0.87978274, b: 0.26178014, a: 1}
   eyeState: 0
---- !u!114 &4832334267335421763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3541754002163558908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d3a8d1885f2b946bfdfcb3e66b0447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  desiredMoveDirection: {x: 0, y: 0, z: 0}
-  desiredRotationSpeed: 0.1
-  allowPlayerRotation: 0.1
-  verticalVel: 0
-  isGrounded: 0
-  attackCooldown: 0.5
-  pickupRange: 2
-  itemLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  isPickingUp: 0
-  copyRange: 2
-  copyableLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  enemyDetectionRange: 10
-  clipboardItem: {fileID: 0}
-  isCopying: 0
-  levelSystem: {fileID: 0}
 --- !u!114 &7392892030504577778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,9 +2083,99 @@ MonoBehaviour:
   expToNextLevel: 100
   expPerLevel: 50
   strengthPerLevel: 10
-  sizeIncreasePerLevel: 0.1
+  sizeIncreasePerLevel: 0.5
   totalStrength: 0
   currentSize: 1
+--- !u!114 &5681181275854731420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d3a8d1885f2b946bfdfcb3e66b0447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 285070418402605971}
+  combat: {fileID: 8258610476914000814}
+  interaction: {fileID: 2568751570241878389}
+  leveling: {fileID: 7899466792488566552}
+  cameraFollow: {fileID: 0}
+--- !u!114 &285070418402605971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b3ff4c54873419ea4ff5fe7cd7b5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  desiredRotationSpeed: 0.1
+  gravity: 9.8
+  groundedGravity: -2
+  desiredMoveDirection: {x: 0, y: 0, z: 0}
+  verticalVel: 0
+  isGrounded: 0
+--- !u!114 &8258610476914000814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b86ad68180d4bc79f9987eca499096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1.5
+--- !u!114 &2568751570241878389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed8cf3dee974721a8bb215bd45e50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupRange: 2
+  itemLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  copyRange: 2
+  copyableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  enemyDetectionRange: 10
+  clipboardItem: {fileID: 0}
+  isPickingUp: 0
+  isCopying: 0
+--- !u!114 &7899466792488566552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fb3e90582244ff387a0f211b1d91aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSystem: {fileID: 7392892030504577778}
+  expUI: {fileID: 0}
 --- !u!1 &3921334144448749991
 GameObject:
   m_ObjectHideFlags: 0

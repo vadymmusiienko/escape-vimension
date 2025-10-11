@@ -8,9 +8,6 @@ public class ProjectileController : MonoBehaviour
     public int damage = 10;
     public LayerMask enemyLayer = -1; // Layer mask for enemies
     
-    [Header("Effects")]
-    public GameObject hitEffect;
-    public GameObject trailEffect;
     
     private Vector3 direction;
     private float currentLifetime;
@@ -18,26 +15,35 @@ public class ProjectileController : MonoBehaviour
     
     public void Initialize(Vector3 dir, float projectileSpeed, float projectileLifetime, int projectileDamage)
     {
-        direction = dir.normalized;
+        // Ensure direction is not zero
+        if (dir.magnitude < 0.001f)
+        {
+            direction = Vector3.forward; // Default forward direction
+        }
+        else
+        {
+            direction = dir.normalized;
+        }
+        
         speed = projectileSpeed;
         lifetime = projectileLifetime;
         damage = projectileDamage;
         currentLifetime = lifetime;
-        
-        // Create trail effect if assigned
-        if (trailEffect != null)
-        {
-            GameObject trail = Instantiate(trailEffect, transform);
-            trail.transform.localPosition = Vector3.zero;
-        }
     }
     
     void Update()
     {
         if (hasHit) return;
         
-        // Move projectile
-        transform.position += direction * speed * Time.deltaTime;
+        // Move projectile with consistent speed
+        Vector3 movement = direction * speed * Time.deltaTime;
+        transform.position += movement;
+        
+        // Rotate projectile to face movement direction
+        if (direction.magnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
         
         // Check lifetime
         currentLifetime -= Time.deltaTime;
@@ -62,12 +68,6 @@ public class ProjectileController : MonoBehaviour
                 Debug.Log($"Projectile hit enemy for {damage} damage!");
             }
             
-            // Create hit effect
-            if (hitEffect != null)
-            {
-                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-                Destroy(effect, 2f);
-            }
         }
         
         // Destroy projectile on any collision
@@ -83,14 +83,6 @@ public class ProjectileController : MonoBehaviour
     private void DestroyProjectile()
     {
         hasHit = true;
-        
-        // Create destruction effect
-        if (hitEffect != null)
-        {
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 2f);
-        }
-        
         Destroy(gameObject);
     }
 }

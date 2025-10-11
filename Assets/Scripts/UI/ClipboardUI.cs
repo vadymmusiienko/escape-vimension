@@ -8,9 +8,6 @@ public class ClipboardUI : MonoBehaviour
     public Image clipboardIcon;
     public GameObject clipboardPanel;
     
-    [Header("Visual Settings")]
-    public Color emptyColor = Color.gray;
-    public Color filledColor = Color.blue;
     
     private Player player;
     
@@ -41,19 +38,11 @@ public class ClipboardUI : MonoBehaviour
             if (hasClipboardItem)
             {
                 clipboardText.text = $"Clipboard: {player.clipboardItem.itemName}";
-                clipboardText.color = filledColor;
             }
             else
             {
                 clipboardText.text = "Clipboard: Empty";
-                clipboardText.color = emptyColor;
             }
-        }
-        
-        // Update clipboard icon
-        if (clipboardIcon != null)
-        {
-            clipboardIcon.color = hasClipboardItem ? filledColor : emptyColor;
         }
     }
 }
