@@ -1943,6 +1943,7 @@ GameObject:
   - component: {fileID: 4757836856755875627}
   - component: {fileID: 4757836856755875625}
   - component: {fileID: 4832334267335421763}
+  - component: {fileID: 7392892030504577778}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -2095,6 +2096,27 @@ MonoBehaviour:
   enemyDetectionRange: 10
   clipboardItem: {fileID: 0}
   isCopying: 0
+  levelSystem: {fileID: 0}
+--- !u!114 &7392892030504577778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12345678901234567890123456789014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  currentExp: 0
+  expToNextLevel: 100
+  expPerLevel: 50
+  strengthPerLevel: 10
+  sizeIncreasePerLevel: 0.1
+  totalStrength: 0
+  currentSize: 1
 --- !u!1 &3921334144448749991
 GameObject:
   m_ObjectHideFlags: 0

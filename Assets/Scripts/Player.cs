@@ -35,6 +35,11 @@ public class Player : Entity
     private CopyableItem nearbyCopyableItem; // The copyable item we're currently near
     public CopyableItem clipboardItem; // The item currently in clipboard (only one at a time)
     public bool isCopying = false; // Made public so states can check it
+    
+    // Leveling system
+    [Header("Leveling System")]
+    public LevelSystem levelSystem; // Reference to the level system
+    public ExpUI expUI; // Reference to the experience UI
 
     #region States
     public PlayerStateMachine stateMachine;
@@ -55,6 +60,22 @@ public class Player : Entity
     {
         base.Start();
         cam = Camera.main;
+        
+        // Initialize leveling system
+        if (levelSystem == null)
+        {
+            levelSystem = GetComponent<LevelSystem>();
+            if (levelSystem == null)
+            {
+                levelSystem = gameObject.AddComponent<LevelSystem>();
+            }
+        }
+        
+        // Connect ExpUI to LevelSystem
+        if (expUI != null && levelSystem != null)
+        {
+            expUI.SetLevelSystem(levelSystem);
+        }
         
         // Setup camera follow
         if (cam != null)
@@ -356,4 +377,77 @@ public class Player : Entity
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, enemyDetectionRange);
     }
+    
+    #region Leveling System
+    
+    /// <summary>
+    /// Adds experience to the player (replaces direct strength gain)
+    /// </summary>
+    /// <param name="expAmount">Amount of experience to add</param>
+    public void AddExperience(int expAmount)
+    {
+        if (levelSystem != null)
+        {
+            levelSystem.AddExperience(expAmount);
+            Debug.Log($"Experience gained: +{expAmount} EXP!");
+        }
+        else
+        {
+            Debug.LogError("LevelSystem not found! Cannot add experience.");
+        }
+    }
+    
+    /// <summary>
+    /// Gets the current total strength from leveling
+    /// </summary>
+    /// <returns>Current total strength</returns>
+    public int GetCurrentStrength()
+    {
+        if (levelSystem != null)
+        {
+            return levelSystem.GetTotalStrength();
+        }
+        return 10; // Default fallback
+    }
+    
+    /// <summary>
+    /// Gets the current level
+    /// </summary>
+    /// <returns>Current level</returns>
+    public int GetCurrentLevel()
+    {
+        if (levelSystem != null)
+        {
+            return levelSystem.GetCurrentLevel();
+        }
+        return 1; // Default fallback
+    }
+    
+    /// <summary>
+    /// Gets the current experience
+    /// </summary>
+    /// <returns>Current experience</returns>
+    public int GetCurrentExp()
+    {
+        if (levelSystem != null)
+        {
+            return levelSystem.GetCurrentExp();
+        }
+        return 0; // Default fallback
+    }
+    
+    /// <summary>
+    /// Gets the experience needed for next level
+    /// </summary>
+    /// <returns>Experience needed for next level</returns>
+    public int GetExpToNextLevel()
+    {
+        if (levelSystem != null)
+        {
+            return levelSystem.GetExpToNextLevel();
+        }
+        return 100; // Default fallback
+    }
+    
+    #endregion
 }
