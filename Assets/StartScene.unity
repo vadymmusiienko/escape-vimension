@@ -2110,6 +2110,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4832334267335421763, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832334267335421763, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: copyableLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4040,6 +4048,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56fc82813f3f44b48c3f921d10d0a76, type: 3}
+--- !u!1001 &6965439456012427629
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.09311
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.32452
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2021939222576583399, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210052931389115647, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
+      propertyPath: m_Name
+      value: TestFireball
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 45cd7db215ddc437ba410809aa6d4fd2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4074,3 +4139,4 @@ SceneRoots:
   - {fileID: 381482735}
   - {fileID: 115114727}
   - {fileID: 564388887}
+  - {fileID: 6965439456012427629}
