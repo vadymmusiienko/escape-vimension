@@ -8,8 +8,6 @@ public class Player : Entity
     public PlayerInteraction interaction;
     public PlayerLeveling leveling;
     
-    [Header("Camera")]
-    public CameraFollow cameraFollow;
     
     // State Machine
     public PlayerStateMachine stateMachine;
@@ -48,18 +46,7 @@ public class Player : Entity
     {
         base.Start();
         
-        // Setup camera
-        Camera cam = Camera.main;
-        if (cam != null)
-        {
-            cameraFollow = cam.GetComponent<CameraFollow>();
-            if (cameraFollow == null)
-            {
-                cameraFollow = cam.gameObject.AddComponent<CameraFollow>();
-            }
-            cameraFollow.SetTarget(transform);
-        }
-        
+        // Initialize state machine
         stateMachine.Initialize(idleState);
     }
     
@@ -95,21 +82,6 @@ public class Player : Entity
         return leveling?.GetExpToNextLevel() ?? 100;
     }
     
-    // Camera control methods
-    public void SetCameraOffset(Vector3 offset)
-    {
-        cameraFollow?.SetOffset(offset);
-    }
-    
-    public void SetCameraFollowSpeed(float speed)
-    {
-        cameraFollow?.SetFollowSpeed(speed);
-    }
-    
-    public void SnapCameraToPlayer()
-    {
-        cameraFollow?.SnapToTarget();
-    }
     
     // Inventory methods
     public bool HasItem(string itemName)

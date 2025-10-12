@@ -22,12 +22,10 @@ public class PlayerMovement : MonoBehaviour
     
     // Components
     public CharacterController controller;
-    private Camera cam;
     
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-        cam = Camera.main;
     }
     
     void Update()
@@ -47,23 +45,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Speed > 0)
         {
-            // Calculate movement direction relative to camera
-            Vector3 forward = cam.transform.forward;
-            Vector3 right = cam.transform.right;
-            
-            forward.y = 0f;
-            right.y = 0f;
-            forward.Normalize();
-            right.Normalize();
-            
-            desiredMoveDirection = forward * InputY + right * InputX;
+            // For bird's eye view, use world space movement
+            // InputX = left/right (X axis), InputY = forward/back (Z axis)
+            desiredMoveDirection = new Vector3(InputX, 0, InputY);
+            desiredMoveDirection.Normalize();
             
             // Rotate player to face movement direction
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                Quaternion.LookRotation(desiredMoveDirection),
-                desiredRotationSpeed
-            );
+            if (desiredMoveDirection.magnitude > 0.1f)
+            {
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    Quaternion.LookRotation(desiredMoveDirection),
+                    desiredRotationSpeed
+                );
+            }
             
             // Move player
             Vector3 horizontalMove = desiredMoveDirection * Time.deltaTime * moveSpeed;
