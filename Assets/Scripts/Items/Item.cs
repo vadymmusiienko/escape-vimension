@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     // Called when the item is picked up
     public virtual void OnPickup(Player player)
     {
+        // Add item to player's inventory
+        player.AddItem(itemName);
         Destroy(gameObject);
     }
 }

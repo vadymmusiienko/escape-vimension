@@ -25,6 +25,9 @@ public class Player : Entity
     public bool isCopying => interaction?.isCopying ?? false;
     public CopyableItem clipboardItem => interaction?.clipboardItem;
     
+    // Inventory system
+    private System.Collections.Generic.List<string> inventory = new System.Collections.Generic.List<string>();
+    
     protected override void Awake()
     {
         base.Awake();
@@ -106,5 +109,34 @@ public class Player : Entity
     public void SnapCameraToPlayer()
     {
         cameraFollow?.SnapToTarget();
+    }
+    
+    // Inventory methods
+    public bool HasItem(string itemName)
+    {
+        return inventory.Contains(itemName);
+    }
+    
+    public void AddItem(string itemName)
+    {
+        if (!inventory.Contains(itemName))
+        {
+            inventory.Add(itemName);
+            Debug.Log($"Added {itemName} to inventory");
+        }
+    }
+    
+    public void RemoveItem(string itemName)
+    {
+        if (inventory.Contains(itemName))
+        {
+            inventory.Remove(itemName);
+            Debug.Log($"Removed {itemName} from inventory");
+        }
+    }
+    
+    public System.Collections.Generic.List<string> GetInventory()
+    {
+        return new System.Collections.Generic.List<string>(inventory);
     }
 }
