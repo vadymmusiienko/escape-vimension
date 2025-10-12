@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     // Components
     public CharacterController controller;
     
+    // Gravity control
+    private bool gravityEnabled = true;
+    
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -85,6 +88,12 @@ public class PlayerMovement : MonoBehaviour
         // Update ground detection using CharacterController
         isGrounded = controller.isGrounded;
         
+        if (!gravityEnabled)
+        {
+            // Gravity disabled - don't apply any vertical movement
+            return;
+        }
+        
         if (isGrounded)
         {
             verticalVel = groundedGravity;
@@ -96,6 +105,15 @@ public class PlayerMovement : MonoBehaviour
         
         Vector3 gravityMove = new Vector3(0, verticalVel * Time.deltaTime, 0);
         controller.Move(gravityMove);
+    }
+    
+    public void SetGravityEnabled(bool enabled)
+    {
+        gravityEnabled = enabled;
+        if (!enabled)
+        {
+            verticalVel = 0; // Reset vertical velocity when disabling gravity
+        }
     }
     
 }

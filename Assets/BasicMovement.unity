@@ -1361,9 +1361,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 7266864660262217418, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266864660262217418, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: dashDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266864660262217418, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: dashDuration
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5899,10 +5907,6 @@ SceneRoots:
   - {fileID: 829407142}
   - {fileID: 219565551}
   - {fileID: 356831286}
-  - {fileID: 1560593972}
-  - {fileID: 288533865}
-  - {fileID: 1058976575}
-  - {fileID: 401305551}
   - {fileID: 6905364}
   - {fileID: 1147818424}
   - {fileID: 468775003}
