@@ -3999,7 +3999,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6116531347517222288, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
   m_PrefabInstance: {fileID: 258414697}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Test
 --- !u!1001 &1490750276
 PrefabInstance:
   m_ObjectHideFlags: 0
