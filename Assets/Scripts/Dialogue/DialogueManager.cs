@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         dialogueParent.SetActive(false);
     }
 
+    /*
     void Update()
     {
         if (dialogueParent.activeSelf && Input.GetKeyDown(KeyCode.Space))
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
                 isTyping = false;
             }
         }
-    }
+    }*/
 
     public void DialogueStart(List<dialogueString> textToPrint)
     {
@@ -68,11 +69,25 @@ public class DialogueManager : MonoBehaviour
             dialogueString line = dialogueList[currentDialogueIndex];
             line.startDialogueEvent?.Invoke();
 
-            yield return StartCoroutine(typeText(line.text));
+            Coroutine typingCoroutine = StartCoroutine(typeText(line.text));
+
+            while (isTyping)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    StopCoroutine(typingCoroutine);
+                    dialogueText.text = line.text;
+                    isTyping = false;
+                }
+                yield return null;
+            }
+
+            line.endDialogueEvent?.Invoke();
 
             if (!line.isEnd)
             {
-                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+                yield return null;
             }
 
             currentDialogueIndex++;

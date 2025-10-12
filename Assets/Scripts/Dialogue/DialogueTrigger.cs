@@ -8,14 +8,12 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private List<dialogueString> dialogueStrings = new List<dialogueString>();
 
-    private bool hasSpoken = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !hasSpoken)
+        if (other.CompareTag("Player"))
         {
             DialogueManager.instance.DialogueStart(dialogueStrings);
-            hasSpoken = true;
         }
     }
 }
