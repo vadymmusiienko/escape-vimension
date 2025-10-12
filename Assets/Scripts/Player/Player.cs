@@ -28,6 +28,9 @@ public class Player : Entity
     // Inventory system
     private System.Collections.Generic.List<string> inventory = new System.Collections.Generic.List<string>();
     
+    // Dash unlock system
+    private bool dashUnlocked = false;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -122,9 +125,28 @@ public class Player : Entity
         return new System.Collections.Generic.List<string>(inventory);
     }
     
+    // Dash unlock methods
+    public void UnlockDash()
+    {
+        dashUnlocked = true;
+        Debug.Log("Dash ability unlocked! You can now use number keys to dash.");
+    }
+    
+    public bool IsDashUnlocked()
+    {
+        return dashUnlocked;
+    }
+    
     // Dash system
     private void HandleDashInput(int multiplier, Vector2 direction)
     {
+        // Check if dash is unlocked
+        if (!dashUnlocked)
+        {
+            Debug.Log("Dash not unlocked yet! Find the number 5 to unlock dash ability.");
+            return;
+        }
+        
         // Check if we can dash (not already dashing)
         if (stateMachine.currState == dashState)
         {
