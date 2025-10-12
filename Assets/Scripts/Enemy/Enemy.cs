@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class Enemy : Entity
 {
@@ -13,6 +14,7 @@ public class Enemy : Entity
 
     [Header("Component")]
     public NavMeshAgent agent;
+    public HealthbarEnemy healthBar;
 
     [Header("AI behaviour")]
     public Transform[] patrolPoints;
@@ -20,6 +22,10 @@ public class Enemy : Entity
     public float CurrentHealth {  get; private set; }
     public bool isDead = false;
     public float lastAttackTime;
+    
+    // Health system events
+    public static event Action<Enemy, float, float> OnEnemyHealthChanged; // enemy, currentHealth, maxHealth
+    public static event Action<Enemy> OnEnemyDied;
 
     public Transform playerTarget;
 
@@ -55,6 +61,13 @@ public class Enemy : Entity
         {
             agent.speed = moveSpeed;
         }
+        
+        // Initialize health bar
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(maxHealth, CurrentHealth);
+        }
+        
         stateMachine.Initialize(idleState);
     }
 
@@ -69,7 +82,18 @@ public class Enemy : Entity
     {
         if (isDead) return;
 
+        float previousHealth = CurrentHealth;
         CurrentHealth -= damage;
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, maxHealth);
+        
+        // Update health bar
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(maxHealth, CurrentHealth);
+        }
+        
+        // Trigger health changed event
+        OnEnemyHealthChanged?.Invoke(this, CurrentHealth, maxHealth);
 
         if (CurrentHealth <= 0)
         {
@@ -81,6 +105,11 @@ public class Enemy : Entity
             anim?.SetTrigger("TakeDamage");
         }
     }
+    
+    public float GetHealthPercentage()
+    {
+        return CurrentHealth / maxHealth;
+    }
 
     protected virtual void Die()
     {
@@ -88,6 +117,9 @@ public class Enemy : Entity
         Debug.Log($"{gameObject.name} is dead");
 
         if (agent != null) agent.isStopped = true;
+        
+        // Trigger death event
+        OnEnemyDied?.Invoke(this);
 
         anim?.SetTrigger("Die");
         Destroy(gameObject, 2f);
