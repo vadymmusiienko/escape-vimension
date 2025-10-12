@@ -103,9 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Exp Potion
   canPickup: 1
-  expAmount: 25
-  pickupEffect: {fileID: 0}
-  expEffect: {fileID: 0}
+  expAmount: 1000
 --- !u!136 &6824614119877771295
 CapsuleCollider:
   m_ObjectHideFlags: 0
