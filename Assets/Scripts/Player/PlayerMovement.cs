@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     
     // Components
-    private CharacterController controller;
+    public CharacterController controller;
     private Camera cam;
     
     void Awake()
