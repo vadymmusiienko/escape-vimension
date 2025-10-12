@@ -21,11 +21,8 @@
             "name": "Casey Watt-Calder",
             "github": "kc-mist",
             "email": "cwattcalder@student.unimelb.edu.au"
-        },
-    ],
-        {
-            "gameTitle": "Escape Vimension",
-            "gameBlurb": "Escape Vimension is a 3D puzzle platformer where you play as a programmer trapped inside the bizarre world of Vim—a fantasy realm where keyboard commands become physical actions. Shrunk down to the size of a microbe, your only way back to reality is to master Vim. Move with h, j, k, l, manipulate objects with x and y, and solve puzzles by chaining commands to overcome obstacles, outsmart enemies, and explore floating islands filled with interactive environments."
         }
-
+    ],
+    "gameTitle": "Escape Vimension",
+    "gameBlurb": "Escape Vimension is a 3D puzzle platformer where you play as a programmer trapped inside the bizarre world of Vim—a fantasy realm where keyboard commands become physical actions. Shrunk down to the size of a microbe, your only way back to reality is to master Vim. Move with h, j, k, l, manipulate objects with x and y, and solve puzzles by chaining commands to overcome obstacles, outsmart enemies, and explore floating islands filled with interactive environments."
 }
