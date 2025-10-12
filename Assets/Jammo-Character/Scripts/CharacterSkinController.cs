@@ -52,7 +52,8 @@ public class CharacterSkinController : MonoBehaviour
 
     void ChangeAnimatorIdle(string trigger)
     {
-        animator.SetTrigger(trigger);
+        // Commented out to prevent animation errors
+        // animator.SetTrigger(trigger);
     }
 
     void ChangeMaterialSettings(int index)

@@ -7,12 +7,14 @@ public class Player : Entity
     public PlayerCombat combat;
     public PlayerInteraction interaction;
     public PlayerLeveling leveling;
+    public PlayerDashInput dashInput;
     
     
     // State Machine
     public PlayerStateMachine stateMachine;
     public PlayerIdleState idleState;
     public PlayerMoveState moveState;
+    public PlayerDashState dashState;
     
     // Properties for state machine compatibility
     public float InputX => movement?.InputX ?? 0f;
@@ -26,6 +28,9 @@ public class Player : Entity
     // Inventory system
     private System.Collections.Generic.List<string> inventory = new System.Collections.Generic.List<string>();
     
+    // Dash unlock system
+    private bool dashUnlocked = false;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -35,11 +40,13 @@ public class Player : Entity
         combat = GetComponent<PlayerCombat>();
         interaction = GetComponent<PlayerInteraction>();
         leveling = GetComponent<PlayerLeveling>();
+        dashInput = GetComponent<PlayerDashInput>();
         
         // Initialize state machine
         stateMachine = new PlayerStateMachine();
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
+        dashState = new PlayerDashState(this, stateMachine, "Dash");
     }
     
     protected override void Start()
@@ -48,6 +55,12 @@ public class Player : Entity
         
         // Initialize state machine
         stateMachine.Initialize(idleState);
+        
+        // Setup dash input event
+        if (dashInput != null)
+        {
+            dashInput.OnDashInput += HandleDashInput;
+        }
     }
     
     protected override void Update()
@@ -110,5 +123,40 @@ public class Player : Entity
     public System.Collections.Generic.List<string> GetInventory()
     {
         return new System.Collections.Generic.List<string>(inventory);
+    }
+    
+    // Dash unlock methods
+    public void UnlockDash()
+    {
+        dashUnlocked = true;
+        Debug.Log("Dash ability unlocked! You can now use number keys to dash.");
+    }
+    
+    public bool IsDashUnlocked()
+    {
+        return dashUnlocked;
+    }
+    
+    // Dash system
+    private void HandleDashInput(int multiplier, Vector2 direction)
+    {
+        // Check if dash is unlocked
+        if (!dashUnlocked)
+        {
+            Debug.Log("Dash not unlocked yet! Find the number 5 to unlock dash ability.");
+            return;
+        }
+        
+        // Check if we can dash (not already dashing)
+        if (stateMachine.currState == dashState)
+        {
+            return;
+        }
+        
+        // Initialize and start dash
+        dashState.InitializeDash(multiplier, direction, dashInput.dashDuration, dashInput.dashDistance);
+        stateMachine.ChangeState(dashState);
+        
+        Debug.Log($"Dashing {multiplier} units in direction {direction}");
     }
 }
