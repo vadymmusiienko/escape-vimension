@@ -168,42 +168,26 @@ public class PlayerInteraction : MonoBehaviour
         Camera cam = Camera.main;
         if (cam == null) cam = FindFirstObjectByType<Camera>();
         
-        // Find nearest enemy or use input direction
+        // Find nearest enemy or use mouse cursor or input direction
         Transform nearestEnemy = FindNearestEnemy();
         Vector3 direction;
         
         if (nearestEnemy != null)
         {
+            // Priority 1: Target nearest enemy
             direction = (nearestEnemy.position - transform.position).normalized;
         }
         else if (cam != null)
         {
-            // Calculate direction based on current input (H, J, K, L keys)
-            float inputX = 0;
-            float inputY = 0;
-            
-            if (Input.GetKey(KeyCode.H)) inputX = -1;
-            if (Input.GetKey(KeyCode.L)) inputX = 1;
-            if (Input.GetKey(KeyCode.J)) inputY = -1;
-            if (Input.GetKey(KeyCode.K)) inputY = 1;
-            
-            if (inputX != 0 || inputY != 0)
+            // Priority 2: Target mouse cursor position
+            Vector3 mouseWorldPos = GetMouseWorldPosition(cam);
+            if (mouseWorldPos != Vector3.zero)
             {
-                // Use camera-relative direction based on input
-                Vector3 forward = cam.transform.forward;
-                Vector3 right = cam.transform.right;
-                
-                forward.y = 0f;
-                right.y = 0f;
-                forward.Normalize();
-                right.Normalize();
-                
-                direction = (forward * inputY + right * inputX).normalized;
+                direction = (mouseWorldPos - transform.position).normalized;
             }
             else
             {
-                // No input, use camera forward
-                direction = cam.transform.forward;
+                    direction = cam.transform.forward;
             }
         }
         else
@@ -253,6 +237,30 @@ public class PlayerInteraction : MonoBehaviour
         }
         
         return closestEnemy;
+    }
+    
+    private Vector3 GetMouseWorldPosition(Camera cam)
+    {
+        // Get mouse position in screen coordinates
+        Vector3 mouseScreenPos = Input.mousePosition;
+        
+        // For top-down view, we need to project the mouse position onto the ground plane
+        // Create a ray from the camera through the mouse position
+        Ray ray = cam.ScreenPointToRay(mouseScreenPos);
+        
+        // Create a plane at the player's height (ground level)
+        Plane groundPlane = new Plane(Vector3.up, transform.position);
+        
+        // Check if the ray intersects with the ground plane
+        if (groundPlane.Raycast(ray, out float distance))
+        {
+            // Get the world position where the ray hits the ground
+            Vector3 worldPos = ray.GetPoint(distance);
+            return worldPos;
+        }
+        
+        // If no intersection, return zero vector (will fall back to keyboard input)
+        return Vector3.zero;
     }
     
 }
