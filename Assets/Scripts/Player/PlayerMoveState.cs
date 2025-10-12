@@ -18,12 +18,13 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
 
-        if (player.movement != null && player.Speed > 0)
+        if (player.movement != null)
         {
-            // Use the movement component's HandleMovement method
-            player.movement.HandleMovement();
+            // Update movement based on current input
+            player.movement.UpdateMovement();
         }
 
+        // Check if we should transition to idle state
         if (player.Speed == 0)
         {
             stateMachine.ChangeState(player.idleState);

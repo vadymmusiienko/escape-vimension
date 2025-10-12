@@ -18,21 +18,42 @@ public class PlayerState
 
     public virtual void Enter()
     {
-        // Animation handling would go here if animator exists
-        // player.anim?.SetBool(animBoolName, true);
+        // Set animation bool to true when entering state
+        if (player.anim != null)
+        {
+            player.anim.SetBool(animBoolName, true);
+        }
     }
 
     public virtual void Exit() 
     {
-        // Animation handling would go here if animator exists
-        // player.anim?.SetBool(animBoolName, false);
+        // Set animation bool to false when exiting state
+        if (player.anim != null)
+        {
+            player.anim.SetBool(animBoolName, false);
+        }
     }
 
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
         
-        // The PlayerMovement component handles input and gravity automatically
-        // States just need to handle state-specific logic
+        // Handle input and pass to movement component
+        if (player.movement != null)
+        {
+            // Get input
+            float inputX = 0;
+            float inputY = 0;
+            
+            if (Input.GetKey(KeyCode.H)) inputX = -1;
+            if (Input.GetKey(KeyCode.L)) inputX = 1;
+            if (Input.GetKey(KeyCode.J)) inputY = -1;
+            if (Input.GetKey(KeyCode.K)) inputY = 1;
+            
+            // Set input on movement component
+            player.movement.InputX = inputX;
+            player.movement.InputY = inputY;
+            player.movement.Speed = Mathf.Abs(inputX) + Mathf.Abs(inputY);
+        }
     }
 }

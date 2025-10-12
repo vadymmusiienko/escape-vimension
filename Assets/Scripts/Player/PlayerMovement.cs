@@ -32,8 +32,15 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        HandleInput();
+        // Only handle gravity automatically
+        // Input and movement are handled by the state machine system
         HandleGravity();
+    }
+    
+    // Public method to be called by state machine
+    public void UpdateMovement()
+    {
+        HandleMovement();
     }
     
     public void HandleMovement()
