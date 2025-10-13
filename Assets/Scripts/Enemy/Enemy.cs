@@ -9,8 +9,10 @@ public class Enemy : Entity
     [SerializeField] protected float maxHealth = 100f;
     [SerializeField] protected float attackDamage = 10f;
     [SerializeField] public float attackCooldown = 2f;
-    [SerializeField] public float attackRange = 1.5f;
+    [SerializeField] public float attackRange = 2f;
     [SerializeField] public float aggroRange = 10f;
+    [Range(0, 360)] public float attackAngle = 90f;
+    [SerializeField] private LayerMask playerLayer;
 
     [Header("Component")]
     public NavMeshAgent agent;
@@ -128,5 +130,46 @@ public class Enemy : Entity
     public virtual void Attack()
     {
         if (isDead) return;
+
+        CheckAttackRange();
+    }
+
+    protected virtual void CheckAttackRange()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, playerLayer);
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                Vector3 directionToPlayer = (hit.transform.position - transform.position).normalized;
+
+                float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
+
+                if (angleToPlayer < attackAngle / 2f)
+                {
+                    PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeDamage(attackDamage);
+                        Debug.Log($"Deal {attackDamage} to player");
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    protected virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Vector3 forward = transform.forward;
+        Vector3 leftBoundary = Quaternion.Euler(0, -attackAngle / 2, 0) * forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, attackAngle / 2, 0) * forward;
+
+        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * attackRange);
+        Gizmos.DrawLine(transform.position, transform.position +  rightBoundary * attackRange);
     }
 }
