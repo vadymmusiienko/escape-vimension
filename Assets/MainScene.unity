@@ -1861,7 +1861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_Name
-      value: Jammo_Player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7899466792488566552, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: expUI
@@ -1968,6 +1968,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1977722649762494825, guid: 1b55ea7e33c97ac44b1076695c21ec0d, type: 3}
+      propertyPath: 'patrolPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1033361267}
+    - target: {fileID: 1977722649762494825, guid: 1b55ea7e33c97ac44b1076695c21ec0d, type: 3}
+      propertyPath: 'patrolPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1760505591}
     - target: {fileID: 6693363768763298502, guid: 1b55ea7e33c97ac44b1076695c21ec0d, type: 3}
       propertyPath: m_Name
       value: TurtleShellPBR Variant 1
@@ -4974,7 +4982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d621847d4437a4b87908ceba1c1d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 20
+  deathDelay: 1
 --- !u!4 &1114751667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
