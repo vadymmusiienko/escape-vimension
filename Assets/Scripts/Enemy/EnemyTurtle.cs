@@ -39,6 +39,6 @@ public class EnemyTurtle : Enemy
 
     public override void Attack()
     {
-        stateMachine.ChangeState(attackState);
+        base.Attack();
     }
 }
