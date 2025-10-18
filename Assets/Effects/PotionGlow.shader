@@ -1,14 +1,14 @@
- Shader "PotionGlow"
+ Shader "Unlit/PotionGlow"
  { 
-     Properties
-     {
-        _MainTexture("Texture", 2D) = "white" {}
-        _BaseColour("Base colour", Color) = (1, 1, 1, 1)
-        _GlowIntensity("Glow Intensity", Range(0, 5)) = 1
-        _GlowDuration("Glow Duration", Range(1, 10)) = 2
-     }
-     SubShader
-     {
+    Properties
+    {
+    _MainTexture("Texture", 2D) = "white" {}
+    _BaseColour("Base colour", Color) = (1, 1, 1, 1)
+    _GlowIntensity("Glow Intensity", Range(0, 5)) = 1
+    _GlowDuration("Glow Duration", Range(1, 10)) = 2
+    }
+    SubShader
+    {
         Tags
         {
             "RenderType"="Opaque" "Queue"="Geometry"
@@ -30,13 +30,13 @@
             struct v2f {
                 float4 position: SV_POSITION;
                 float2 uv: TEXCOORD0;
-            }
+            };
 
             fixed4 _BaseColour;
             sampler2D _MainTexture;
+            float4 _MainTexture_ST;
             float _GlowIntensity;
             float _GlowDuration;
-            float4 _Time;
 
             v2f vertexFunction(appdata INPUT)
             {
@@ -55,5 +55,5 @@
 
             ENDCG
         }
-     }
+    }
  }

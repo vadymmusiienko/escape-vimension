@@ -1,6 +1,6 @@
  // MainTex-Normal MaskTex-Cloud
- 
- Shader "ErosionEffect"
+
+ Shader "Unlit/ErosionEffect"
  {
     Properties
     {
@@ -50,6 +50,8 @@
             fixed4 _ErodeColor;
             sampler2D _MainTexture;
             sampler2D _MaskTexture;
+            float4 _MainTexture_ST;
+            float4 _MaskTexture_ST;
             float _ShowValue, _FeatherValue; 
 
             v2f vertexFunction(appdata INPUT)
