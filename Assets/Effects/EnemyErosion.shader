@@ -1,6 +1,6 @@
  // MainTex-Normal MaskTex-Cloud
 
- Shader "Unlit/ErosionEffect"
+ Shader "Custom/ErosionEffect"
  {
     Properties
     {

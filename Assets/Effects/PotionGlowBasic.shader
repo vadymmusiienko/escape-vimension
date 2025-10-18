@@ -1,20 +1,25 @@
- Shader "Unlit/PotionGlow"
+ Shader "Custom/PotionGlowBasic"
  { 
     Properties
     {
-    _MainTexture("Texture", 2D) = "white" {}
-    _BaseColour("Base colour", Color) = (1, 1, 1, 1)
-    _GlowIntensity("Glow Intensity", Range(0, 5)) = 1
-    _GlowDuration("Glow Duration", Range(1, 10)) = 2
+        _MainTexture("Texture", 2D) = "white" {}
+        _BaseColour("Base colour", Color) = (1, 1, 1, 1)
+        _GlowIntensity("Glow Intensity", Range(0, 5)) = 1
+        _GlowDuration("Glow Duration", Range(0.01, 5)) = 1
+        _Opacity ("Opacity", Range(0,1)) = 1
     }
     SubShader
     {
         Tags
         {
-            "RenderType"="Opaque" "Queue"="Geometry"
+            "RenderType"="Transparent" "Queue"="Transparent"
         }
         Pass
         {
+            Blend SrcAlpha OneMinusSrcAlpha
+            ZWrite Off
+            Cull Back
+
             CGPROGRAM
             
             #pragma vertex vertexFunction
@@ -37,6 +42,7 @@
             float4 _MainTexture_ST;
             float _GlowIntensity;
             float _GlowDuration;
+            float _Opacity;
 
             v2f vertexFunction(appdata INPUT)
             {
@@ -50,6 +56,8 @@
             {
                 fixed4 pixelColour = tex2D(_MainTexture, INPUT.uv);
                 pixelColour.rgb += _BaseColour.rgb * (_GlowIntensity * abs(sin(_Time.y / _GlowDuration)));
+                pixelColour.a *= _Opacity;
+                
                 return pixelColour;
             }
 
