@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1985a41f5eb5d4477be066c8fe383ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Key
+  itemName: Key1
   canPickup: 1
 --- !u!65 &2692010928005889780
 BoxCollider:
