@@ -2207,6 +2207,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2568751570241878389, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2220,8 +2224,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1087757602}
     - target: {fileID: 7266864660262217418, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: dashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266864660262217418, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: baseDashDistance
-      value: 1.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7392892030504577778, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: currentSize
@@ -2247,6 +2255,10 @@ PrefabInstance:
       propertyPath: expUI
       value: 
       objectReference: {fileID: 1791063082}
+    - target: {fileID: 8258610476914000814, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8258610476914000814, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 512
@@ -4361,7 +4373,7 @@ MonoBehaviour:
   minDistance: 1
   maxDistance: 50
   level1DistanceChange: 0
-  level2DistanceChange: 1
+  level2DistanceChange: 2
   level3DistanceChange: 2
   generalLevelDistanceChange: 1
   distanceChangeSpeed: 3
