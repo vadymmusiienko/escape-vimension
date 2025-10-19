@@ -6,12 +6,14 @@ public class PlayerAudioController : MonoBehaviour
     [SerializeField] private AudioClip runningClip;
     [SerializeField] private AudioClip pickupClip;
     [SerializeField] private AudioClip dropClip;
+    [SerializeField] private AudioClip dashClip;
     
     [Header("Audio Settings")]
     [SerializeField] private float runningVolume = 0.6f;
     [SerializeField] private float runningPitch = 0.8f; // Higher pitch = faster sound
     [SerializeField] private float pickupVolume = 0.8f;
     [SerializeField] private float dropVolume = 0.7f;
+    [SerializeField] private float dashVolume = 0.7f;
     
     [Header("Drop Sound Timing")]
     [SerializeField] private float dropSoundDelay = 0.5f; // Delay before drop sound plays
@@ -23,6 +25,7 @@ public class PlayerAudioController : MonoBehaviour
     private AudioSource runningAudioSource;
     private AudioSource pickupAudioSource;
     private AudioSource dropAudioSource;
+    private AudioSource dashAudioSource;
     
     // State tracking
     private bool wasMoving = false;
@@ -79,6 +82,14 @@ public class PlayerAudioController : MonoBehaviour
         dropAudioSource.volume = dropVolume;
         dropAudioSource.playOnAwake = false;
         dropAudioSource.priority = 16; // Highest priority for drop sound
+        
+        // Create dash audio source
+        dashAudioSource = gameObject.AddComponent<AudioSource>();
+        dashAudioSource.clip = dashClip;
+        dashAudioSource.loop = false; // Will be controlled manually for duration
+        dashAudioSource.volume = dashVolume;
+        dashAudioSource.playOnAwake = false;
+        dashAudioSource.priority = 32; // High priority for dash sound
     }
     
     private void LoadDefaultAudioClips()
@@ -110,6 +121,16 @@ public class PlayerAudioController : MonoBehaviour
             if (dropClip == null)
             {
                 Debug.LogWarning("Drop audio clip not found! Please assign it manually.");
+            }
+        }
+        
+        // Try to load Dash.mp3 from the Audio folder
+        if (dashClip == null)
+        {
+            dashClip = Resources.Load<AudioClip>("Audio/Dash");
+            if (dashClip == null)
+            {
+                Debug.LogWarning("Dash audio clip not found! Please assign it manually.");
             }
         }
     }
@@ -217,5 +238,47 @@ public class PlayerAudioController : MonoBehaviour
     public void SetDropSoundDelay(float delay)
     {
         dropSoundDelay = Mathf.Max(0f, delay);
+    }
+    
+    // Dash audio methods
+    public void PlayDashSound(float duration)
+    {
+        if (dashAudioSource != null && dashClip != null)
+        {
+            // Stop any currently playing dash sound
+            dashAudioSource.Stop();
+            
+            // Set the clip and play it
+            dashAudioSource.clip = dashClip;
+            dashAudioSource.volume = dashVolume;
+            dashAudioSource.Play();
+            
+            // Stretch the audio to match the dash duration
+            if (dashClip.length > 0)
+            {
+                dashAudioSource.pitch = dashClip.length / duration;
+            }
+            
+            Debug.Log($"Playing dash sound for {duration:F2} seconds");
+        }
+    }
+    
+    public void StopDashSound()
+    {
+        if (dashAudioSource != null && dashAudioSource.isPlaying)
+        {
+            dashAudioSource.Stop();
+            dashAudioSource.pitch = 1f; // Reset pitch
+            Debug.Log("Stopped dash sound");
+        }
+    }
+    
+    public void SetDashVolume(float volume)
+    {
+        dashVolume = Mathf.Clamp01(volume);
+        if (dashAudioSource != null)
+        {
+            dashAudioSource.volume = dashVolume;
+        }
     }
 }
