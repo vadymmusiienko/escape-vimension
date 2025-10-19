@@ -194,7 +194,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                    direction = cam.transform.forward;
+                direction = cam.transform.forward;
             }
         }
         else

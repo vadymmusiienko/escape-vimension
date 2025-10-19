@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using System.Collections;
 
 public class Enemy : Entity
 {
@@ -14,12 +15,21 @@ public class Enemy : Entity
     [Range(0, 360)] public float attackAngle = 90f;
     [SerializeField] private LayerMask playerLayer;
 
+    [Header("Spoils")]
+    [SerializeField] private GameObject itemToDropOnDeath;
+
     [Header("Component")]
     public NavMeshAgent agent;
     public HealthbarEnemy healthBar;
 
     [Header("AI behaviour")]
     public Transform[] patrolPoints;
+
+    [Header("Hit effect")]
+    [SerializeField] protected GameObject hitEffectPrefab;
+    [SerializeField] private float flashDuration = 0.15f;
+    private Renderer enemyRenderer;
+    private Color originalColor;
 
     public float CurrentHealth {  get; private set; }
     public bool isDead = false;
@@ -41,6 +51,12 @@ public class Enemy : Entity
     {
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
+
+        enemyRenderer = GetComponentInChildren<Renderer>();
+        if (enemyRenderer != null)
+        {
+            originalColor = enemyRenderer.material.color;
+        }
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
@@ -80,7 +96,7 @@ public class Enemy : Entity
         stateMachine.currentState.Update();
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, Vector3 hitPoint)
     {
         if (isDead) return;
 
@@ -97,6 +113,8 @@ public class Enemy : Entity
         // Trigger health changed event
         OnEnemyHealthChanged?.Invoke(this, CurrentHealth, maxHealth);
 
+        TriggerHitEffects(hitPoint);
+        
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
@@ -107,7 +125,29 @@ public class Enemy : Entity
             anim?.SetTrigger("TakeDamage");
         }
     }
-    
+
+    private void TriggerHitEffects(Vector3 hitPoint)
+    {
+        if (hitEffectPrefab != null)
+        {
+            Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+        }
+
+        if (enemyRenderer != null)
+        {
+            StartCoroutine(FlashEffectCoroutine());
+        }
+    }
+
+    private IEnumerator FlashEffectCoroutine()
+    {
+        enemyRenderer.material.color = Color.white;
+
+        yield return new WaitForSeconds(flashDuration);
+
+        enemyRenderer.material.color = originalColor;
+    }
+
     public float GetHealthPercentage()
     {
         return CurrentHealth / maxHealth;
@@ -124,6 +164,7 @@ public class Enemy : Entity
         OnEnemyDied?.Invoke(this);
 
         anim?.SetTrigger("Die");
+        DropItem();
         Destroy(gameObject, 2f);
     }
 
@@ -157,6 +198,15 @@ public class Enemy : Entity
                     break;
                 }
             }
+        }
+    }
+
+    private void DropItem()
+    {
+        if (itemToDropOnDeath != null)
+        {
+            Instantiate(itemToDropOnDeath, transform.position, Quaternion.identity);
+            Debug.Log($"{gameObject.name} drops {itemToDropOnDeath.name}");
         }
     }
 

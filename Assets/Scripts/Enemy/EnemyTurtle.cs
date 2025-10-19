@@ -12,7 +12,7 @@ public class EnemyTurtle : Enemy
     {
         base.Awake();
 
-        defendState = new EnemyDefendState(this, stateMachine, "defend");
+        defendState = new EnemyDefendState(this, stateMachine, "Defend");
     }
 
     protected override void Start()
@@ -21,7 +21,7 @@ public class EnemyTurtle : Enemy
         stateMachine.Initialize(patrolState);
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Vector3 hitPoint)
     {
         if (isDefending)
         {
@@ -29,7 +29,12 @@ public class EnemyTurtle : Enemy
             return;
         }
 
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, hitPoint);
+
+        if (hitEffectPrefab != null)
+        {
+            Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+        }
 
         if (!isDead)
         {

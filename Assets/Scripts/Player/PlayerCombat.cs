@@ -4,6 +4,10 @@ public class PlayerCombat : MonoBehaviour
 {
     [Header("Combat Settings")]
     public float attackCooldown = 1.5f;
+    [SerializeField] private float attackDamage = 25f;
+    [SerializeField] private float attackRange = 2f;
+    [SerializeField] [Range(0, 360)] private float attackAngle = 90f;
+    [SerializeField] private LayerMask enemyLayer;
     
     private float lastAttackTime = 0f;
     private Animator anim;
@@ -30,5 +34,34 @@ public class PlayerCombat : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         lastAttackTime = Time.time;
+
+        Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        foreach (Collider hit in hits)
+        {
+            Enemy enemy = hit.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
+
+                if (Vector3.Angle(transform.forward, directionToEnemy) < attackAngle / 2f)
+                {
+                    Debug.Log($"Attack hit: {enemy.name}");
+                    enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Vector3 forward = transform.forward;
+        Vector3 leftBoundary = Quaternion.Euler(0, -attackAngle / 2, 0) * forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, attackAngle / 2, 0) * forward;
+
+        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * attackRange);
+        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * attackRange);
     }
 }
