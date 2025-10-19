@@ -153,10 +153,11 @@ public class Player : Entity
             return;
         }
         
-        // Initialize and start dash
-        dashState.InitializeDash(multiplier, direction, dashInput.dashDuration, dashInput.dashDistance);
+        // Initialize and start dash with size-scaled distance
+        float effectiveDashDistance = dashInput.GetEffectiveDashDistance();
+        dashState.InitializeDash(multiplier, direction, dashInput.dashDuration, effectiveDashDistance);
         stateMachine.ChangeState(dashState);
         
-        Debug.Log($"Dashing {multiplier} units in direction {direction}");
+        Debug.Log($"Dashing {multiplier} units (distance: {effectiveDashDistance:F2}) in direction {direction}");
     }
 }

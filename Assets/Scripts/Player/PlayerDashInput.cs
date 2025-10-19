@@ -6,7 +6,10 @@ public class PlayerDashInput : MonoBehaviour
     [Header("Dash Settings")]
     public float dashCooldown = 5f;
     public float dashDuration = 0.3f;
-    public float dashDistance = 1f; // Base distance for multiplier 1
+    public float baseDashDistance = 1f; // Base distance for multiplier 1 (for size 1.0)
+    
+    [Header("References")]
+    public LevelSystem levelSystem; // Assign manually in Inspector
     
     private float lastDashTime = 0f;
     private bool isDashInputActive = false;
@@ -29,10 +32,10 @@ public class PlayerDashInput : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3)) StartDashInput(3);
         else if (Input.GetKeyDown(KeyCode.Alpha4)) StartDashInput(4);
         else if (Input.GetKeyDown(KeyCode.Alpha5)) StartDashInput(5);
-        else if (Input.GetKeyDown(KeyCode.Alpha6)) StartDashInput(6);
-        else if (Input.GetKeyDown(KeyCode.Alpha7)) StartDashInput(7);
-        else if (Input.GetKeyDown(KeyCode.Alpha8)) StartDashInput(8);
-        else if (Input.GetKeyDown(KeyCode.Alpha9)) StartDashInput(9);
+        // else if (Input.GetKeyDown(KeyCode.Alpha6)) StartDashInput(6);
+        // else if (Input.GetKeyDown(KeyCode.Alpha7)) StartDashInput(7);
+        // else if (Input.GetKeyDown(KeyCode.Alpha8)) StartDashInput(8);
+        // else if (Input.GetKeyDown(KeyCode.Alpha9)) StartDashInput(9);
         
         // If we have an active dash input, check for direction keys
         if (isDashInputActive)
@@ -109,6 +112,19 @@ public class PlayerDashInput : MonoBehaviour
         
         lastDashTime = Time.time;
         isDashInputActive = false;
+    }
+    
+    /// <summary>
+    /// Gets the effective dash distance based on player size
+    /// </summary>
+    public float GetEffectiveDashDistance()
+    {
+        if (levelSystem != null)
+        {
+            float playerSize = levelSystem.GetCurrentSize();
+            return baseDashDistance * playerSize;
+        }
+        return baseDashDistance; // Fallback if no level system assigned
     }
     
     private IEnumerator DashInputTimeout()
