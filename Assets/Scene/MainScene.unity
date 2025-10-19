@@ -9991,26 +9991,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1578554354}
     m_Modifications:
-    - target: {fileID: 1772670862225505841, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
-      propertyPath: 'fogCoversToControl.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1443248415}
-    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3889
-      objectReference: {fileID: 0}
-    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: -2.538215
-      objectReference: {fileID: 0}
-    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3889
-      objectReference: {fileID: 0}
-    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.0908
-      objectReference: {fileID: 0}
     - target: {fileID: 4609699368226000789, guid: b199a70239b64d84d89607452f5c1fa2, type: 3}
       propertyPath: itemName
       value: Key
@@ -10058,6 +10038,26 @@ PrefabInstance:
     - target: {fileID: 7708670457289830827, guid: b199a70239b64d84d89607452f5c1fa2, type: 3}
       propertyPath: m_Name
       value: rust_key
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772670862225505841, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: 'fogCoversToControl.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1443248415}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -2.538215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0908
       objectReference: {fileID: 0}
     - target: {fileID: 8559895709426362294, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
       propertyPath: m_Size.x
@@ -10112,6 +10112,14 @@ PrefabInstance:
       propertyPath: 'fogCoversToControl.Array.data[1]'
       value: 
       objectReference: {fileID: 1128338515}
+    - target: {fileID: 2910278954984146767, guid: 6f71438ddf40e64489f686552c7f32a2, type: 3}
+      propertyPath: m_Size.y
+      value: 4.868098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910278954984146767, guid: 6f71438ddf40e64489f686552c7f32a2, type: 3}
+      propertyPath: m_Center.y
+      value: 1.9340489
+      objectReference: {fileID: 0}
     - target: {fileID: 3696965163747028432, guid: 6f71438ddf40e64489f686552c7f32a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.20994
