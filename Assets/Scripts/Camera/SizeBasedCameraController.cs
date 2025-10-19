@@ -11,6 +11,16 @@ public class SizeBasedCameraController : MonoBehaviour
     public float minDistance = 3f; // Minimum distance (for very small players)
     public float maxDistance = 20f; // Maximum distance (for very large players)
     
+    [Header("Level-based Camera Distance Changes")]
+    [Tooltip("Camera distance change for level 1")]
+    public float level1DistanceChange = 0f;
+    [Tooltip("Camera distance change for level 2")]
+    public float level2DistanceChange = 3f;
+    [Tooltip("Camera distance change for level 3")]
+    public float level3DistanceChange = 2f;
+    [Tooltip("Camera distance change for all levels 4 and above")]
+    public float generalLevelDistanceChange = 2f;
+    
     [Header("Smoothing")]
     public float distanceChangeSpeed = 2f; // How fast the camera adjusts
     
@@ -31,11 +41,16 @@ public class SizeBasedCameraController : MonoBehaviour
     {
         if (levelSystem != null)
         {
-            // Calculate target distance based on player size
-            // Smaller players = closer camera (smaller distance)
-            // Larger players = further camera (larger distance)
+            // Calculate target distance based on player size (original logic)
             float playerSize = levelSystem.GetCurrentSize();
-            targetDistance = baseCameraDistance * playerSize; // Direct relationship
+            float sizeBasedDistance = baseCameraDistance * playerSize;
+            
+            // Add level-based distance changes on top of size-based distance
+            int currentLevel = levelSystem.GetCurrentLevel();
+            float levelDistanceChange = GetDistanceChangeForLevel(currentLevel);
+            
+            // Calculate final target distance: size-based + level-based changes
+            targetDistance = sizeBasedDistance + levelDistanceChange;
             
             // Clamp the distance to min/max values
             targetDistance = Mathf.Clamp(targetDistance, minDistance, maxDistance);
@@ -50,6 +65,28 @@ public class SizeBasedCameraController : MonoBehaviour
         {
             Debug.LogWarning("SizeBasedCameraController: LevelSystem is null!");
         }
+    }
+    
+    /// <summary>
+    /// Calculates the cumulative distance change for a given level
+    /// </summary>
+    private float GetDistanceChangeForLevel(int level)
+    {
+        float totalDistanceChange = 0f;
+        
+        // Add distance changes for the first 3 levels
+        if (level >= 1) totalDistanceChange += level1DistanceChange;
+        if (level >= 2) totalDistanceChange += level2DistanceChange;
+        if (level >= 3) totalDistanceChange += level3DistanceChange;
+        
+        // Add distance changes for levels 4 and above
+        if (level > 3)
+        {
+            int additionalLevels = level - 3;
+            totalDistanceChange += additionalLevels * generalLevelDistanceChange;
+        }
+        
+        return totalDistanceChange;
     }
     
     /// <summary>
@@ -86,7 +123,7 @@ public class SizeBasedCameraController : MonoBehaviour
                     // Debug output
                     if (Time.frameCount % 60 == 0) // Log every 60 frames
                     {
-                        Debug.Log($"Camera Distance: {currentDistance:F2}, Player size: {(levelSystem != null ? levelSystem.GetCurrentSize() : 0):F2}");
+                        Debug.Log($"Camera Distance: {currentDistance:F2}, Player size: {(levelSystem != null ? levelSystem.GetCurrentSize() : 0):F2}, Level: {(levelSystem != null ? levelSystem.GetCurrentLevel() : 0)}");
                     }
                 }
                 else
@@ -127,5 +164,13 @@ public class SizeBasedCameraController : MonoBehaviour
     public void SetBaseDistance(float newBaseDistance)
     {
         baseCameraDistance = newBaseDistance;
+    }
+    
+    /// <summary>
+    /// Gets the current player level
+    /// </summary>
+    public int GetCurrentLevel()
+    {
+        return levelSystem != null ? levelSystem.GetCurrentLevel() : 0;
     }
 }

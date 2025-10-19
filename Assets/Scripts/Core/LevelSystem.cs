@@ -10,7 +10,16 @@ public class LevelSystem : MonoBehaviour
     
     [Header("Level Benefits")]
     public int strengthPerLevel = 10; // Strength gained per level
-    public float sizeIncreasePerLevel = 0.1f; // Size increase per level (10% bigger)
+    
+    [Header("Level-based Growth Settings")]
+    [Tooltip("Size increase for level 1")]
+    public float level1SizeIncrease = 0.3f;
+    [Tooltip("Size increase for level 2")]
+    public float level2SizeIncrease = 0.2f;
+    [Tooltip("Size increase for level 3")]
+    public float level3SizeIncrease = 0.1f;
+    [Tooltip("Size increase for all levels 4 and above")]
+    public float generalLevelSizeIncrease = 0.1f;
     
     [Header("Current Stats")]
     public int totalStrength; // Total strength from all levels
@@ -64,16 +73,35 @@ public class LevelSystem : MonoBehaviour
         // Gain strength from leveling
         totalStrength += strengthPerLevel;
         
-        // Increase size
-        currentSize += sizeIncreasePerLevel;
+        // Increase size based on level-specific growth
+        float sizeIncrease = GetSizeIncreaseForLevel(currentLevel);
+        currentSize += sizeIncrease;
         UpdatePlayerSize();
         
-        Debug.Log($"LEVEL UP! Now level {currentLevel}! +{strengthPerLevel} strength! Size increased!");
+        Debug.Log($"LEVEL UP! Now level {currentLevel}! +{strengthPerLevel} strength! Size increased by {sizeIncrease:F2}!");
         
         // Notify listeners
         OnLevelUp?.Invoke(currentLevel);
         OnStrengthGained?.Invoke(totalStrength);
         OnExpGained?.Invoke(currentExp, expToNextLevel);
+    }
+    
+    /// <summary>
+    /// Calculates the size increase for a given level
+    /// </summary>
+    private float GetSizeIncreaseForLevel(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                return level1SizeIncrease;
+            case 2:
+                return level2SizeIncrease;
+            case 3:
+                return level3SizeIncrease;
+            default:
+                return generalLevelSizeIncrease;
+        }
     }
     
     /// <summary>
