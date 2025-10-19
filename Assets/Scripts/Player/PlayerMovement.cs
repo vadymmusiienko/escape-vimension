@@ -26,9 +26,19 @@ public class PlayerMovement : MonoBehaviour
     // Gravity control
     private bool gravityEnabled = true;
     
+    // Movement lock for spawn
+    private bool movementLocked = true;
+    private float spawnLockDuration = 3f;
+    
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+    }
+    
+    void Start()
+    {
+        // Unlock movement after spawn lock duration
+        Invoke(nameof(UnlockMovement), spawnLockDuration);
     }
     
     void Update()
@@ -46,6 +56,12 @@ public class PlayerMovement : MonoBehaviour
     
     public void HandleMovement()
     {
+        // Don't allow movement if locked
+        if (movementLocked)
+        {
+            return;
+        }
+        
         if (Speed > 0)
         {
             // For bird's eye view, use world space movement
@@ -114,6 +130,17 @@ public class PlayerMovement : MonoBehaviour
         {
             verticalVel = 0; // Reset vertical velocity when disabling gravity
         }
+    }
+    
+    private void UnlockMovement()
+    {
+        movementLocked = false;
+        Debug.Log("Player movement unlocked!");
+    }
+    
+    public bool IsMovementLocked()
+    {
+        return movementLocked;
     }
     
 }

@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 6905362}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 4.432, y: 10.578171, z: -5.8815513}
+  m_LocalPosition: {x: 4.432, y: 12.87517, z: -5.8815513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1876,7 +1876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: 2.297
       objectReference: {fileID: 0}
     - target: {fileID: 539745478100655087, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3971,7 +3971,7 @@ Transform:
   m_GameObject: {fileID: 829407139}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 4.432, y: 10.578171, z: -5.8815513}
+  m_LocalPosition: {x: 4.432, y: 12.87517, z: -5.8815513}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5121,8 +5121,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runningClip: {fileID: 8300000, guid: b145d00daec264fd8a260753255d8af3, type: 3}
+  pickupClip: {fileID: 8300000, guid: 7699f369b762547bda32321960972667, type: 3}
+  dropClip: {fileID: 8300000, guid: ac38adc2e499340f4a92057f0b1f0e83, type: 3}
   runningVolume: 0.6
-  runningPitch: 0.8
+  runningPitch: 0.7
+  pickupVolume: 0.4
+  dropVolume: 0.7
+  dropSoundDelay: 0.5
 --- !u!4 &1114751667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
@@ -9038,6 +9043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hidden room cover
       objectReference: {fileID: 0}
+    - target: {fileID: 6739987667601121402, guid: c894162ae9cce424098d96a2aeab4af6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9535,6 +9544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Room Cover
       objectReference: {fileID: 0}
+    - target: {fileID: 6739987667601121402, guid: c894162ae9cce424098d96a2aeab4af6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9635,16 +9648,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1443248415}
     - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -2.538215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.79
+      value: -1.0908
       objectReference: {fileID: 0}
     - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.04
+      value: -0.87
       objectReference: {fileID: 0}
     - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.94
+      value: -3.872
       objectReference: {fileID: 0}
     - target: {fileID: 7316455865502253162, guid: 3e68562d42356644cbcfd71bb47d0c7a, type: 3}
       propertyPath: m_LocalRotation.w

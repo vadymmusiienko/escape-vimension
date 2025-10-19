@@ -5,11 +5,16 @@ public class PlayerAudioController : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField] private AudioClip runningClip;
     [SerializeField] private AudioClip pickupClip;
+    [SerializeField] private AudioClip dropClip;
     
     [Header("Audio Settings")]
     [SerializeField] private float runningVolume = 0.6f;
     [SerializeField] private float runningPitch = 0.8f; // Higher pitch = faster sound
     [SerializeField] private float pickupVolume = 0.8f;
+    [SerializeField] private float dropVolume = 0.7f;
+    
+    [Header("Drop Sound Timing")]
+    [SerializeField] private float dropSoundDelay = 0.5f; // Delay before drop sound plays
     
     // References
     private Player player;
@@ -17,6 +22,7 @@ public class PlayerAudioController : MonoBehaviour
     private PlayerInteraction interaction;
     private AudioSource runningAudioSource;
     private AudioSource pickupAudioSource;
+    private AudioSource dropAudioSource;
     
     // State tracking
     private bool wasMoving = false;
@@ -35,6 +41,9 @@ public class PlayerAudioController : MonoBehaviour
     {
         // Load audio clips if not assigned
         LoadDefaultAudioClips();
+        
+        // Play drop sound with delay when player spawns
+        Invoke(nameof(PlayDropSound), dropSoundDelay);
     }
     
     private void Update()
@@ -62,6 +71,14 @@ public class PlayerAudioController : MonoBehaviour
         pickupAudioSource.volume = pickupVolume;
         pickupAudioSource.playOnAwake = false;
         pickupAudioSource.priority = 32; // High priority for pickup sounds
+        
+        // Create drop audio source
+        dropAudioSource = gameObject.AddComponent<AudioSource>();
+        dropAudioSource.clip = dropClip;
+        dropAudioSource.loop = false;
+        dropAudioSource.volume = dropVolume;
+        dropAudioSource.playOnAwake = false;
+        dropAudioSource.priority = 16; // Highest priority for drop sound
     }
     
     private void LoadDefaultAudioClips()
@@ -85,10 +102,31 @@ public class PlayerAudioController : MonoBehaviour
                 Debug.LogWarning("PickUp audio clip not found! Please assign it manually.");
             }
         }
+        
+        // Try to load Drop.mp3 from the Audio folder
+        if (dropClip == null)
+        {
+            dropClip = Resources.Load<AudioClip>("Audio/Drop");
+            if (dropClip == null)
+            {
+                Debug.LogWarning("Drop audio clip not found! Please assign it manually.");
+            }
+        }
     }
     
     private void HandleMovementAudio()
     {
+        // Don't play audio if movement is locked
+        if (movement.IsMovementLocked())
+        {
+            if (wasMoving)
+            {
+                StopRunningAudio();
+                wasMoving = false;
+            }
+            return;
+        }
+        
         bool isCurrentlyMoving = movement.Speed > 0.01f;
         
         // Start audio when moving starts
@@ -156,5 +194,28 @@ public class PlayerAudioController : MonoBehaviour
         {
             pickupAudioSource.volume = pickupVolume;
         }
+    }
+    
+    public void PlayDropSound()
+    {
+        if (dropAudioSource != null && dropClip != null)
+        {
+            dropAudioSource.Play();
+            Debug.Log("Played drop sound");
+        }
+    }
+    
+    public void SetDropVolume(float volume)
+    {
+        dropVolume = Mathf.Clamp01(volume);
+        if (dropAudioSource != null)
+        {
+            dropAudioSource.volume = dropVolume;
+        }
+    }
+    
+    public void SetDropSoundDelay(float delay)
+    {
+        dropSoundDelay = Mathf.Max(0f, delay);
     }
 }
