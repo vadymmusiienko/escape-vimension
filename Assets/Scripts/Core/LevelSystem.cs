@@ -25,7 +25,9 @@ public class LevelSystem : MonoBehaviour
     {
         // Initialize starting values
         totalStrength = 10; // Base strength
-        currentSize = 1f;
+        
+        // Don't reset currentSize - preserve Inspector values
+        // Only apply the size if it's not already applied
         UpdatePlayerSize();
     }
     
