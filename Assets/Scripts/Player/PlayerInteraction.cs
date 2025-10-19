@@ -129,6 +129,13 @@ public class PlayerInteraction : MonoBehaviour
         isPickingUp = true;
         anim.SetTrigger("Pickup");
         
+        // Play pickup sound
+        PlayerAudioController audioController = GetComponent<PlayerAudioController>();
+        if (audioController != null)
+        {
+            audioController.PlayPickupSound();
+        }
+        
         // Pick up immediately
         nearbyItem.OnPickup(GetComponent<Player>());
         nearbyItem = null;

@@ -4,15 +4,19 @@ public class PlayerAudioController : MonoBehaviour
 {
     [Header("Audio Clips")]
     [SerializeField] private AudioClip runningClip;
+    [SerializeField] private AudioClip pickupClip;
     
     [Header("Audio Settings")]
     [SerializeField] private float runningVolume = 0.6f;
     [SerializeField] private float runningPitch = 0.8f; // Higher pitch = faster sound
+    [SerializeField] private float pickupVolume = 0.8f;
     
     // References
     private Player player;
     private PlayerMovement movement;
+    private PlayerInteraction interaction;
     private AudioSource runningAudioSource;
+    private AudioSource pickupAudioSource;
     
     // State tracking
     private bool wasMoving = false;
@@ -21,6 +25,7 @@ public class PlayerAudioController : MonoBehaviour
     {
         player = GetComponent<Player>();
         movement = GetComponent<PlayerMovement>();
+        interaction = GetComponent<PlayerInteraction>();
         
         // Create dedicated audio sources for movement sounds
         SetupAudioSources();
@@ -49,6 +54,14 @@ public class PlayerAudioController : MonoBehaviour
         runningAudioSource.pitch = runningPitch;
         runningAudioSource.playOnAwake = false;
         runningAudioSource.priority = 64; // Medium priority for movement sounds
+        
+        // Create pickup audio source
+        pickupAudioSource = gameObject.AddComponent<AudioSource>();
+        pickupAudioSource.clip = pickupClip;
+        pickupAudioSource.loop = false;
+        pickupAudioSource.volume = pickupVolume;
+        pickupAudioSource.playOnAwake = false;
+        pickupAudioSource.priority = 32; // High priority for pickup sounds
     }
     
     private void LoadDefaultAudioClips()
@@ -60,6 +73,16 @@ public class PlayerAudioController : MonoBehaviour
             if (runningClip == null)
             {
                 Debug.LogWarning("Running audio clip not found! Please assign it manually.");
+            }
+        }
+        
+        // Try to load PickUp.mp3 from the Audio folder
+        if (pickupClip == null)
+        {
+            pickupClip = Resources.Load<AudioClip>("Audio/PickUp");
+            if (pickupClip == null)
+            {
+                Debug.LogWarning("PickUp audio clip not found! Please assign it manually.");
             }
         }
     }
@@ -114,6 +137,24 @@ public class PlayerAudioController : MonoBehaviour
         if (runningAudioSource != null)
         {
             runningAudioSource.pitch = runningPitch;
+        }
+    }
+    
+    public void PlayPickupSound()
+    {
+        if (pickupAudioSource != null && pickupClip != null)
+        {
+            pickupAudioSource.Play();
+            Debug.Log("Played pickup sound");
+        }
+    }
+    
+    public void SetPickupVolume(float volume)
+    {
+        pickupVolume = Mathf.Clamp01(volume);
+        if (pickupAudioSource != null)
+        {
+            pickupAudioSource.volume = pickupVolume;
         }
     }
 }
