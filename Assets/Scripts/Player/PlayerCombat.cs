@@ -11,10 +11,12 @@ public class PlayerCombat : MonoBehaviour
     
     private float lastAttackTime = 0f;
     private Animator anim;
+    private PlayerAudioController audioController;
     
     void Awake()
     {
         anim = GetComponent<Animator>();
+        audioController = GetComponent<PlayerAudioController>();
     }
     
     void Update()
@@ -34,8 +36,16 @@ public class PlayerCombat : MonoBehaviour
     {
         anim.SetTrigger("Attack");
         lastAttackTime = Time.time;
+        
+        // Play attack swing sound on every attack attempt
+        if (audioController != null)
+        {
+            audioController.PlayAttackSwingSound();
+        }
 
         Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        bool hitEnemy = false;
+        
         foreach (Collider hit in hits)
         {
             Enemy enemy = hit.GetComponent<Enemy>();
@@ -47,8 +57,15 @@ public class PlayerCombat : MonoBehaviour
                 {
                     Debug.Log($"Attack hit: {enemy.name}");
                     enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
+                    hitEnemy = true;
                 }
             }
+        }
+        
+        // Play hit enemy sound if we actually hit an enemy
+        if (hitEnemy && audioController != null)
+        {
+            audioController.PlayHitEnemySound();
         }
     }
 

@@ -7,6 +7,8 @@ public class PlayerAudioController : MonoBehaviour
     [SerializeField] private AudioClip pickupClip;
     [SerializeField] private AudioClip dropClip;
     [SerializeField] private AudioClip dashClip;
+    [SerializeField] private AudioClip hitEnemyClip;
+    [SerializeField] private AudioClip attackSwingClip;
     
     [Header("Audio Settings")]
     [SerializeField] private float runningVolume = 0.6f;
@@ -14,6 +16,8 @@ public class PlayerAudioController : MonoBehaviour
     [SerializeField] private float pickupVolume = 0.8f;
     [SerializeField] private float dropVolume = 0.7f;
     [SerializeField] private float dashVolume = 0.7f;
+    [SerializeField] private float hitEnemyVolume = 0.8f;
+    [SerializeField] private float attackSwingVolume = 0.7f;
     
     [Header("Drop Sound Timing")]
     [SerializeField] private float dropSoundDelay = 0.5f; // Delay before drop sound plays
@@ -26,6 +30,8 @@ public class PlayerAudioController : MonoBehaviour
     private AudioSource pickupAudioSource;
     private AudioSource dropAudioSource;
     private AudioSource dashAudioSource;
+    private AudioSource hitEnemyAudioSource;
+    private AudioSource attackSwingAudioSource;
     
     // State tracking
     private bool wasMoving = false;
@@ -42,9 +48,6 @@ public class PlayerAudioController : MonoBehaviour
     
     private void Start()
     {
-        // Load audio clips if not assigned
-        LoadDefaultAudioClips();
-        
         // Play drop sound with delay when player spawns
         Invoke(nameof(PlayDropSound), dropSoundDelay);
     }
@@ -90,50 +93,24 @@ public class PlayerAudioController : MonoBehaviour
         dashAudioSource.volume = dashVolume;
         dashAudioSource.playOnAwake = false;
         dashAudioSource.priority = 32; // High priority for dash sound
+        
+        // Create hit enemy audio source
+        hitEnemyAudioSource = gameObject.AddComponent<AudioSource>();
+        hitEnemyAudioSource.clip = hitEnemyClip;
+        hitEnemyAudioSource.loop = false;
+        hitEnemyAudioSource.volume = hitEnemyVolume;
+        hitEnemyAudioSource.playOnAwake = false;
+        hitEnemyAudioSource.priority = 16; // Highest priority for hit sounds
+        
+        // Create attack swing audio source
+        attackSwingAudioSource = gameObject.AddComponent<AudioSource>();
+        attackSwingAudioSource.clip = attackSwingClip;
+        attackSwingAudioSource.loop = false;
+        attackSwingAudioSource.volume = attackSwingVolume;
+        attackSwingAudioSource.playOnAwake = false;
+        attackSwingAudioSource.priority = 32; // High priority for attack sounds
     }
     
-    private void LoadDefaultAudioClips()
-    {
-        // Try to load Running.mp3 from the Audio folder
-        if (runningClip == null)
-        {
-            runningClip = Resources.Load<AudioClip>("Audio/Running");
-            if (runningClip == null)
-            {
-                Debug.LogWarning("Running audio clip not found! Please assign it manually.");
-            }
-        }
-        
-        // Try to load PickUp.mp3 from the Audio folder
-        if (pickupClip == null)
-        {
-            pickupClip = Resources.Load<AudioClip>("Audio/PickUp");
-            if (pickupClip == null)
-            {
-                Debug.LogWarning("PickUp audio clip not found! Please assign it manually.");
-            }
-        }
-        
-        // Try to load Drop.mp3 from the Audio folder
-        if (dropClip == null)
-        {
-            dropClip = Resources.Load<AudioClip>("Audio/Drop");
-            if (dropClip == null)
-            {
-                Debug.LogWarning("Drop audio clip not found! Please assign it manually.");
-            }
-        }
-        
-        // Try to load Dash.mp3 from the Audio folder
-        if (dashClip == null)
-        {
-            dashClip = Resources.Load<AudioClip>("Audio/Dash");
-            if (dashClip == null)
-            {
-                Debug.LogWarning("Dash audio clip not found! Please assign it manually.");
-            }
-        }
-    }
     
     private void HandleMovementAudio()
     {
@@ -279,6 +256,44 @@ public class PlayerAudioController : MonoBehaviour
         if (dashAudioSource != null)
         {
             dashAudioSource.volume = dashVolume;
+        }
+    }
+    
+    // Hit enemy audio methods
+    public void PlayHitEnemySound()
+    {
+        if (hitEnemyAudioSource != null && hitEnemyClip != null)
+        {
+            hitEnemyAudioSource.Play();
+            Debug.Log("Played hit enemy sound");
+        }
+    }
+    
+    public void SetHitEnemyVolume(float volume)
+    {
+        hitEnemyVolume = Mathf.Clamp01(volume);
+        if (hitEnemyAudioSource != null)
+        {
+            hitEnemyAudioSource.volume = hitEnemyVolume;
+        }
+    }
+    
+    // Attack swing audio methods
+    public void PlayAttackSwingSound()
+    {
+        if (attackSwingAudioSource != null && attackSwingClip != null)
+        {
+            attackSwingAudioSource.Play();
+            Debug.Log("Played attack swing sound");
+        }
+    }
+    
+    public void SetAttackSwingVolume(float volume)
+    {
+        attackSwingVolume = Mathf.Clamp01(volume);
+        if (attackSwingAudioSource != null)
+        {
+            attackSwingAudioSource.volume = attackSwingVolume;
         }
     }
 }

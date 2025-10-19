@@ -2237,7 +2237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7392892030504577778, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: level2SizeIncrease
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7392892030504577778, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: level3SizeIncrease
@@ -5655,11 +5655,15 @@ MonoBehaviour:
   pickupClip: {fileID: 8300000, guid: 7699f369b762547bda32321960972667, type: 3}
   dropClip: {fileID: 8300000, guid: ac38adc2e499340f4a92057f0b1f0e83, type: 3}
   dashClip: {fileID: 8300000, guid: 90eec7b3576ed4282883a053b50da45a, type: 3}
+  hitEnemyClip: {fileID: 8300000, guid: 0ebe4ef6a952c4591a99be09d26ffee3, type: 3}
+  attackSwingClip: {fileID: 8300000, guid: 3d50e8e7d5f0346b3baada1307a7d3ad, type: 3}
   runningVolume: 0.6
   runningPitch: 0.7
   pickupVolume: 0.4
   dropVolume: 0.7
   dashVolume: 0.5
+  hitEnemyVolume: 0.8
+  attackSwingVolume: 0.7
   dropSoundDelay: 0.5
 --- !u!114 &1087757602 stripped
 MonoBehaviour:
