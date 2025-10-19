@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void HandleInput()
     {
-        // Handle input directly (fallback if InputManager not available)
+        // Handle input directly
         InputX = 0;
         InputY = 0;
         

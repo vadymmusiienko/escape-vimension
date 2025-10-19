@@ -47,11 +47,6 @@ public class GameManager : MonoBehaviour
             clipboardUI = FindFirstObjectByType<ClipboardUI>();
         }
         
-        // Setup input manager
-        if (InputManager.Instance == null)
-        {
-            GameObject inputManagerObj = new GameObject("InputManager");
-            inputManagerObj.AddComponent<InputManager>();
-        }
+        // Input is handled directly in individual scripts
     }
 }
