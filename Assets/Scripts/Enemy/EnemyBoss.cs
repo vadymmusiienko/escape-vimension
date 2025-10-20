@@ -8,6 +8,7 @@ using UnityEditor;
 public class BossCursor : Enemy
 {
     public GameObject attackHitbox;
+    public ParticleSystem sweepPrefab;
     [Header("Boss: Attack parameters")]
     public float startAngle = 45f;
     public float endAngle = -45f;
@@ -55,6 +56,24 @@ public class BossCursor : Enemy
             transform.rotation = Quaternion.RotateTowards(transform.rotation, startRotation, prepareRotationSpeed * Time.deltaTime);
             yield return null;
         }
+
+        if (sweepPrefab != null)
+        {
+            // 1. 计算斩击弧线的中心角度
+            float centerAngle = (startAngle + endAngle) / 2f;
+
+            // 2. 结合Boss的初始朝向，计算出特效最终应该朝向哪个角度
+            Quaternion vfxRotation = initialRotation * Quaternion.Euler(0, centerAngle, 0) * Quaternion.Euler(90, 0, 0);
+
+            // 3. 在Boss的轴心点生成特效，并赋予它我们计算好的、固定的旋转
+            //    我们稍微抬高一点位置(Y+0.1f)，防止它生成在地面以下
+            Vector3 spawnPosition = transform.position + new Vector3(0, 0.1f, 0);
+            ParticleSystem vfxInstance = Instantiate(sweepPrefab, spawnPosition, vfxRotation);
+
+            // 4. 播放完毕后销毁
+            Destroy(vfxInstance.gameObject, vfxInstance.main.duration);
+        }
+
         if (attackHitbox != null) { attackHitbox.SetActive(true); }
 
         Quaternion endRotation = initialRotation * Quaternion.Euler(0, endAngle, 0);
