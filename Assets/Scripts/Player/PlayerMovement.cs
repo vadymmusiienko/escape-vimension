@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 9.8f;
     public float groundedGravity = -2f;
     
+    [Header("Spawn Settings")]
+    [SerializeField] private float spawnLockDuration = 3f;
+    
     // Input
     public float InputX { get; set; }
     public float InputY { get; set; }
@@ -32,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     
     // Movement lock for spawn
     private bool movementLocked = true;
-    private float spawnLockDuration = 3f;
     
     void Awake()
     {
@@ -75,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     public void HandleMovement()
     {
         // Don't allow movement if locked
-        if (movementLocked)
+        if (IsMovementLocked())
         {
             return;
         }
@@ -159,7 +161,12 @@ public class PlayerMovement : MonoBehaviour
     
     public bool IsMovementLocked()
     {
-        return movementLocked;
+        return movementLocked || IsDialogueActive();
+    }
+    
+    private bool IsDialogueActive()
+    {
+        return DialogueManager.instance != null && DialogueManager.instance.IsDialogueActive();
     }
     
 }

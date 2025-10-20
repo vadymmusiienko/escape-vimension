@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     private int currentDialogueIndex = 0;
     private bool isTyping = false;
+    private bool isDialogueActive = false;
 
     public void Awake()
     {
@@ -58,6 +59,7 @@ public class DialogueManager : MonoBehaviour
         dialogueList = textToPrint;
         currentDialogueIndex = 0;
         isTyping = false;
+        isDialogueActive = true;
 
         StartCoroutine(DisplayDialogue());
     }
@@ -112,5 +114,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueText.text = ""; 
         dialogueParent.SetActive(false);
+        isDialogueActive = false;
+    }
+    
+    public bool IsDialogueActive()
+    {
+        return isDialogueActive;
     }
 }
