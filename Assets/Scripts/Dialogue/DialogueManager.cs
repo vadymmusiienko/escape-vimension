@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
 
     private List<dialogueString> dialogueList;
+    private DialogueTrigger currentTrigger;
 
     private int currentDialogueIndex = 0;
     private bool isTyping = false;
@@ -51,12 +52,13 @@ public class DialogueManager : MonoBehaviour
         }
     }*/
 
-    public void DialogueStart(List<dialogueString> textToPrint)
+    public void DialogueStart(List<dialogueString> textToPrint, DialogueTrigger trigger = null)
     {
         if (dialogueParent.activeSelf) return;
         
         dialogueParent.SetActive(true);
         dialogueList = textToPrint;
+        currentTrigger = trigger;
         currentDialogueIndex = 0;
         isTyping = false;
         isDialogueActive = true;
@@ -115,6 +117,13 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = ""; 
         dialogueParent.SetActive(false);
         isDialogueActive = false;
+        
+        // Delete trigger if it should be deleted after dialogue
+        if (currentTrigger != null)
+        {
+            currentTrigger.DeleteTrigger();
+            currentTrigger = null;
+        }
     }
     
     public bool IsDialogueActive()
