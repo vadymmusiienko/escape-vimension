@@ -10,9 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 9.8f;
     public float groundedGravity = -2f;
     
-    [Header("Spawn Settings")]
-    [SerializeField] private float spawnLockDuration = 3f;
-    
     // Input
     public float InputX { get; set; }
     public float InputY { get; set; }
@@ -33,19 +30,10 @@ public class PlayerMovement : MonoBehaviour
     // Gravity control
     private bool gravityEnabled = true;
     
-    // Movement lock for spawn
-    private bool movementLocked = true;
-    
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         levelSystem = GetComponent<LevelSystem>();
-    }
-    
-    void Start()
-    {
-        // Unlock movement after spawn lock duration
-        Invoke(nameof(UnlockMovement), spawnLockDuration);
     }
     
     /// <summary>
@@ -153,15 +141,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    private void UnlockMovement()
-    {
-        movementLocked = false;
-        Debug.Log("Player movement unlocked!");
-    }
-    
     public bool IsMovementLocked()
     {
-        return movementLocked || IsDialogueActive();
+        return IsDialogueActive();
     }
     
     private bool IsDialogueActive()
