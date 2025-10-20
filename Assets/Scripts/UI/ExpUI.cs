@@ -106,7 +106,6 @@ public class ExpUI : MonoBehaviour
     /// <param name="newLevel">The new level</param>
     private void OnLevelUp(int newLevel)
     {
-        Debug.Log($"ExpUI: Player reached level {newLevel}!");
         UpdateDisplay();
     }
     
@@ -126,7 +125,6 @@ public class ExpUI : MonoBehaviour
     /// <param name="newStrength">New total strength</param>
     private void OnStrengthGained(int newStrength)
     {
-        Debug.Log($"ExpUI: Player strength is now {newStrength}!");
     }
     
 }

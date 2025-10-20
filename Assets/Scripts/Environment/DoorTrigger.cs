@@ -21,10 +21,8 @@ public class DoorTrigger : MonoBehaviour
         {
             if (!Door.IsOpen && canOpen)
             {
-                Debug.Log("Entered");
                 if (playerScript.HasItem(keyName))
                 {
-                    Debug.Log("Has key");
                 }
                 if (!requiresKey || playerScript.HasItem(keyName))
                 {
@@ -34,7 +32,6 @@ public class DoorTrigger : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("It's locked, you need a " +  keyName);
                 }
             }
         }

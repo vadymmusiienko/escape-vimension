@@ -4,10 +4,10 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour, IDialogueTrigger
 {
     [SerializeField] private List<dialogueString> dialogueStrings = new List<dialogueString>();
-    [SerializeField] private bool deleteAfterDialogue = false;
+    [SerializeField] private bool deleteAfterDialogue = true;
 
     private void OnTriggerEnter(Collider other)
     {

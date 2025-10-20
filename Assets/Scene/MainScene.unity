@@ -3026,31 +3026,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.size
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Well done!
+      value: "Nicely done! You\u2019re moving like a true Vim apprentice."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[1].text
-      value: Next crucial command in vim is "x".
+      value: "Next up\u2014an essential command: \"x\"."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].text
-      value: It is used to cut/remove a single letter.
+      value: "It\u2019s used to cut (remove) a single character or object."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].text
-      value: Once you cut something in vim, it is placed in Vim's internal registers.
+      value: "Try using \"x\" on these potions in front of you. Let\u2019s see what
+        happens..."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].text
-      value: Think of it as an internal clipboard.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].text
-      value: Try using "x" on these potions in front of you
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].isEnd
@@ -3061,8 +3062,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].isEnd
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[6].isEnd
@@ -5348,6 +5353,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 199478227}
   - {fileID: 339795785}
   - {fileID: 1541695988}
   - {fileID: 1698346996}
@@ -5975,7 +5981,7 @@ MonoBehaviour:
   level2DistanceChange: 2
   level3DistanceChange: 2
   generalLevelDistanceChange: 1
-  distanceChangeSpeed: 3
+  distanceChangeSpeed: 1.5
 --- !u!1001 &829566977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6100,7 +6106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Size.x
-      value: 0.6437708
+      value: 2.8465586
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Size.y
@@ -6108,11 +6114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Size.z
-      value: 0.9892383
+      value: 0.66858065
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.x
-      value: 0.6464525
+      value: -0.45494273
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.y
@@ -6120,7 +6126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.z
-      value: 0.087296024
+      value: 0.24762477
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: deleteAfterDialogue
@@ -6128,19 +6134,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Oh no, you can't reach it...
+      value: Hm, looks like the key is just out of reach...
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[1].text
-      value: Well, I'm sure you will find a way
+      value: Maybe you need to grow a bit more before you can grab it.
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].text
-      value: 
+      value: "Keep mastering Vim commands\u2014you\u2019ll get there soon enough."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].text
@@ -6164,7 +6170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].isEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].isEnd
@@ -6412,6 +6418,131 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
+--- !u!1001 &896733053
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.x
+      value: 4.354744
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0095484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2236032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.x
+      value: 0.1183963
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0047762
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.z
+      value: -0.114707164
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: deleteAfterDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].text
+      value: You did it! You escaped the first chamber of the VimEnsion.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: "The air feels... different here, doesn\u2019t it?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: "Don\u2019t get too comfortable\u2014it was just the basics."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: Ahead lie trickier challenges, and more mysterious Vim commands.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].text
+      value: 'Remember: every keystroke counts in this world.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].text
+      value: "Now go on\u2014see what awaits beyond the next corner."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Name
+      value: Dialogue_trigger (Door)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.993
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37a4747495d511d4999de37f253e5804, type: 3}
 --- !u!1001 &898034127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7054,6 +7185,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1527960877}
+  - {fileID: 1549736211}
   - {fileID: 2047651354}
   - {fileID: 1630513438}
   - {fileID: 993240203}
@@ -7203,19 +7335,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1578554354}
+    m_TransformParent: {fileID: 692020359}
     m_Modifications:
     - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.551197
+      value: -3.5857716
       objectReference: {fileID: 0}
     - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7799997
+      value: 0.04137019
       objectReference: {fileID: 0}
     - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.0763501
+      value: -0.23505998
       objectReference: {fileID: 0}
     - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7247,7 +7379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 943730213807263082, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: expAmount
-      value: 140
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 6800510950618195169, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
       propertyPath: m_Name
@@ -9963,6 +10095,78 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1527960881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527960876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b463019c5f74bc8a3c7c0aba7f5127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStrings:
+  - text: You feel a strange surge of power flowing through your keystrokes!
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "You\u2019ve unlocked the Power of Numbers (1-5)."
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: In Vim, numbers multiply your actions.
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "Combine a number with a direction \u2014 like \u201C5l\u201D or \u201C3j\u201D
+      \u2014 to move faster and farther!"
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Try using this new dash to cross that pit ahead.
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "Careful though\u2026 precision still matters here."
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: 
+    isEnd: 1
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  deleteAfterDialogue: 1
+  triggerOnlyOnce: 1
 --- !u!1001 &1530056906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10185,6 +10389,104 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
   m_PrefabInstance: {fileID: 1560593972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1549736210
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 970120754}
+    m_Modifications:
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 943730213807263082, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: expAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800510950618195169, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Name
+      value: ExperiencePotion (Hidden room corridor)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824614119877771295, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Height
+      value: 0.4281351
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824614119877771295, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Radius
+      value: 0.08646059
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824614119877771295, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Center.x
+      value: 0.009516358
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824614119877771295, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Center.y
+      value: 0.21176414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824614119877771295, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+      propertyPath: m_Center.z
+      value: -0.004481475
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+--- !u!4 &1549736211 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 286608292016458695, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+  m_PrefabInstance: {fileID: 1549736210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1551693626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 935806930815462672, guid: 7a937ee5bc40ba142a195e3a41fa7258, type: 3}
@@ -10364,7 +10666,6 @@ Transform:
   - {fileID: 1278849892}
   - {fileID: 269315823}
   - {fileID: 356411970}
-  - {fileID: 199478227}
   - {fileID: 1864196373}
   - {fileID: 5858933}
   - {fileID: 520362494}
@@ -11369,24 +11670,46 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Welcome to "Escape the VimEnsion"!
+      value: Welcome to "Escape the VimEnsion"! (Press "Space" to continue)
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[1].text
-      value: In order to escape this mini-universe, you need to master vim commands.
+      value: "You\u2019ve been shrunk into the mysterious world of Vim.."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].text
-      value: It's not that hard, I promise.
+      value: "To escape and return to your normal size, you\u2019ll need to master
+        the ancient Vim commands."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].text
-      value: First things first, use "h", "j", "k" and "l" to move!
+      value: "Don\u2019t worry\u2014it\u2019s not as scary as it sounds."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].text
-      value: Try following the arrows.
+      value: "Let\u2019s start simple: use \"h\", \"j\", \"k\", and \"l\" to move
+        around!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].text
+      value: Follow the arrows to learn more.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
@@ -11506,6 +11829,139 @@ PrefabInstance:
       addedObject: {fileID: 1746686046}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a937ee5bc40ba142a195e3a41fa7258, type: 3}
+--- !u!1001 &1878518895
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6986187
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0095484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.z
+      value: 2.937001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.x
+      value: -0.2096647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0047762
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.z
+      value: -0.21633105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: deleteAfterDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].text
+      value: "Wait\u2026 what\u2019s this place? A hidden chamber?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: "That glowing \u201C5\u201D looks important\u2026 try picking it up."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Name
+      value: Dialogue_trigger (Hidden room 1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.108
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.525
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.634
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37a4747495d511d4999de37f253e5804, type: 3}
 --- !u!4 &1888058738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
@@ -13351,6 +13807,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9925bfed46b14b6fb5c808557fe3888, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1527960878}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a9925bfed46b14b6fb5c808557fe3888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1527960881}
   m_SourcePrefab: {fileID: 100100000, guid: a9925bfed46b14b6fb5c808557fe3888, type: 3}
 --- !u!1001 &3601181385726235582
 PrefabInstance:
@@ -13846,6 +14305,42 @@ PrefabInstance:
       propertyPath: deleteAfterDialogue
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].text
+      value: "Whoa! Look at you\u2014growing already!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: "You\u2019ve reached Level 2 and gained some size."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: Not bad for a beginner. But the way out is still far ahead.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: Keep exploring... and keep learning.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].isEnd
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
       value: Dialogue_trigger (Book)
@@ -13906,10 +14401,12 @@ SceneRoots:
   - {fileID: 468775003}
   - {fileID: 291826852}
   - {fileID: 649533971}
-  - {fileID: 8681031820928620629}
   - {fileID: 1868688111}
   - {fileID: 384863667}
+  - {fileID: 8681031820928620629}
   - {fileID: 844648406}
+  - {fileID: 896733053}
+  - {fileID: 1878518895}
   - {fileID: 1578554354}
   - {fileID: 2065541697}
   - {fileID: 144288794}

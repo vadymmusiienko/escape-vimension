@@ -50,14 +50,12 @@ public class PlayerDashInput : MonoBehaviour
         Player player = GetComponent<Player>();
         if (player != null && !player.IsDashUnlocked())
         {
-            Debug.Log("Dash not unlocked yet! Find the number 5 to unlock dash ability.");
             return;
         }
         
         // Check cooldown
         if (Time.time - lastDashTime < dashCooldown)
         {
-            Debug.Log($"Dash on cooldown. {dashCooldown - (Time.time - lastDashTime):F1}s remaining");
             return;
         }
         
@@ -134,7 +132,6 @@ public class PlayerDashInput : MonoBehaviour
         if (isDashInputActive)
         {
             isDashInputActive = false;
-            Debug.Log("Dash input timed out");
         }
     }
     

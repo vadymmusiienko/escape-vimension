@@ -34,7 +34,6 @@ public class SizeBasedCameraController : MonoBehaviour
         currentDistance = baseCameraDistance;
         targetDistance = baseCameraDistance;
         
-        Debug.Log($"SizeBasedCameraController: Initialized with base distance {baseCameraDistance}");
     }
     
     void Update()
@@ -63,7 +62,7 @@ public class SizeBasedCameraController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("SizeBasedCameraController: LevelSystem is null!");
+            // LevelSystem is null
         }
     }
     
@@ -120,25 +119,20 @@ public class SizeBasedCameraController : MonoBehaviour
                 {
                     cameraDistanceField.SetValue(positionComposer, currentDistance);
                     
-                    // Debug output
-                    if (Time.frameCount % 60 == 0) // Log every 60 frames
-                    {
-                        Debug.Log($"Camera Distance: {currentDistance:F2}, Player size: {(levelSystem != null ? levelSystem.GetCurrentSize() : 0):F2}, Level: {(levelSystem != null ? levelSystem.GetCurrentLevel() : 0)}");
-                    }
                 }
                 else
                 {
-                    Debug.LogWarning("Could not find CameraDistance field on Position Composer");
+                    // Could not find CameraDistance field on Position Composer
                 }
             }
             catch (System.Exception e)
             {
-                Debug.LogError($"Error updating camera distance: {e.Message}");
+                // Error updating camera distance
             }
         }
         else
         {
-            Debug.LogWarning("Position Composer reference is null!");
+            // Position Composer reference is null
         }
     }
     

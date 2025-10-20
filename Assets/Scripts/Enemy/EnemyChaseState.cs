@@ -7,7 +7,6 @@ public class EnemyChaseState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Chasing!!!");
         // May play some intense music here.
     }
 

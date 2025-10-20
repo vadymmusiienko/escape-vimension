@@ -19,7 +19,6 @@ public class CopyableItem : Item
     {
         // Don't destroy copyable items when picked up normally
         // They should only be copied, not picked up
-        Debug.Log($"Cannot pick up copyable item: {itemName}. Use Y to copy instead.");
     }
     
     public bool CanBeCopied(Player player)

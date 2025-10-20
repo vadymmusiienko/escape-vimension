@@ -23,7 +23,6 @@ public class HealthSystemExample : MonoBehaviour
     private void OnEnemyHealthChanged(Enemy enemy, float currentHealth, float maxHealth)
     {
         float healthPercentage = (currentHealth / maxHealth) * 100f;
-        Debug.Log($"Enemy {enemy.name} health changed: {currentHealth}/{maxHealth} ({healthPercentage:F1}%)");
         
         // You can add custom logic here, such as:
         // - Update UI elements
@@ -34,7 +33,6 @@ public class HealthSystemExample : MonoBehaviour
 
     private void OnEnemyDied(Enemy enemy)
     {
-        Debug.Log($"Enemy {enemy.name} has died!");
         
         // You can add custom logic here, such as:
         // - Award experience points

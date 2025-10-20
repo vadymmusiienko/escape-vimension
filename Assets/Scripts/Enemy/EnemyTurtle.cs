@@ -25,7 +25,6 @@ public class EnemyTurtle : Enemy
     {
         if (isDefending)
         {
-            Debug.Log("invalid attack, defending!!!!");
             return;
         }
 

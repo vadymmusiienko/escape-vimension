@@ -148,7 +148,6 @@ public class PlayerAudioController : MonoBehaviour
             runningAudioSource.volume = runningVolume;
             runningAudioSource.pitch = runningPitch;
             runningAudioSource.Play();
-            Debug.Log("Started running audio");
         }
     }
     
@@ -157,7 +156,6 @@ public class PlayerAudioController : MonoBehaviour
         if (runningAudioSource != null)
         {
             runningAudioSource.Stop();
-            Debug.Log("Stopped running audio");
         }
     }
     
@@ -181,7 +179,6 @@ public class PlayerAudioController : MonoBehaviour
         if (pickupAudioSource != null && pickupClip != null)
         {
             pickupAudioSource.Play();
-            Debug.Log("Played pickup sound");
         }
     }
     
@@ -199,7 +196,6 @@ public class PlayerAudioController : MonoBehaviour
         if (dropAudioSource != null && dropClip != null)
         {
             dropAudioSource.Play();
-            Debug.Log("Played drop sound");
         }
     }
     
@@ -236,7 +232,6 @@ public class PlayerAudioController : MonoBehaviour
                 dashAudioSource.pitch = dashClip.length / duration;
             }
             
-            Debug.Log($"Playing dash sound for {duration:F2} seconds");
         }
     }
     
@@ -246,7 +241,6 @@ public class PlayerAudioController : MonoBehaviour
         {
             dashAudioSource.Stop();
             dashAudioSource.pitch = 1f; // Reset pitch
-            Debug.Log("Stopped dash sound");
         }
     }
     
@@ -265,7 +259,6 @@ public class PlayerAudioController : MonoBehaviour
         if (hitEnemyAudioSource != null && hitEnemyClip != null)
         {
             hitEnemyAudioSource.Play();
-            Debug.Log("Played hit enemy sound");
         }
     }
     
@@ -284,7 +277,6 @@ public class PlayerAudioController : MonoBehaviour
         if (attackSwingAudioSource != null && attackSwingClip != null)
         {
             attackSwingAudioSource.Play();
-            Debug.Log("Played attack swing sound");
         }
     }
     

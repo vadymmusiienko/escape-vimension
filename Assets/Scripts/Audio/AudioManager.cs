@@ -85,11 +85,9 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = backgroundMusic;
             musicSource.Play();
-            Debug.Log("Playing background music: " + backgroundMusic.name);
         }
         else
         {
-            Debug.LogWarning("Background music clip or music source is not assigned!");
         }
     }
     
@@ -98,7 +96,6 @@ public class AudioManager : MonoBehaviour
         if (musicSource != null)
         {
             musicSource.Stop();
-            Debug.Log("Stopped background music");
         }
     }
     
@@ -107,7 +104,6 @@ public class AudioManager : MonoBehaviour
         if (musicSource != null)
         {
             musicSource.Pause();
-            Debug.Log("Paused background music");
         }
     }
     
@@ -116,7 +112,6 @@ public class AudioManager : MonoBehaviour
         if (musicSource != null)
         {
             musicSource.UnPause();
-            Debug.Log("Resumed background music");
         }
     }
     

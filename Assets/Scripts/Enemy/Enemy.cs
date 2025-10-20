@@ -156,7 +156,6 @@ public class Enemy : Entity
     protected virtual void Die()
     {
         isDead = true;
-        Debug.Log($"{gameObject.name} is dead");
 
         if (agent != null) agent.isStopped = true;
         
@@ -193,7 +192,6 @@ public class Enemy : Entity
                     if (playerHealth != null)
                     {
                         playerHealth.TakeDamage(attackDamage);
-                        Debug.Log($"Deal {attackDamage} to player");
                     }
                     break;
                 }
@@ -206,7 +204,6 @@ public class Enemy : Entity
         if (itemToDropOnDeath != null)
         {
             Instantiate(itemToDropOnDeath, transform.position, Quaternion.identity);
-            Debug.Log($"{gameObject.name} drops {itemToDropOnDeath.name}");
         }
     }
 

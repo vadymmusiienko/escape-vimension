@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
     [Range(0f, 1f)] [SerializeField] private float typingVolume = 0.5f;
 
     private List<dialogueString> dialogueList;
-    private DialogueTrigger currentTrigger;
+    private IDialogueTrigger currentTrigger;
 
     private int currentDialogueIndex = 0;
     private bool isTyping = false;
@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         }
     }*/
 
-    public void DialogueStart(List<dialogueString> textToPrint, DialogueTrigger trigger = null)
+    public void DialogueStart(List<dialogueString> textToPrint, IDialogueTrigger trigger = null)
     {
         if (dialogueParent.activeSelf) return;
         

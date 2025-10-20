@@ -55,7 +55,6 @@ public class PlayerCombat : MonoBehaviour
 
                 if (Vector3.Angle(transform.forward, directionToEnemy) < attackAngle / 2f)
                 {
-                    Debug.Log($"Attack hit: {enemy.name}");
                     enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
                     hitEnemy = true;
                 }

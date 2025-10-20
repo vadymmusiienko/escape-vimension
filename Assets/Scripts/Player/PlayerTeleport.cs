@@ -6,17 +6,14 @@ public class PlayerTeleport : MonoBehaviour
 
     public void TeleportPlayer()
     {
-        Debug.Log("Trying to teleport");
         if (respawnPoint == null)
         {
-            Debug.Log("Respawn point does not set up.");
         }
 
         GameObject player = GameObject.FindWithTag("Player");
 
         if (player == null)
         {
-            Debug.Log("Cannot find player");
             return;
         }
 
@@ -34,6 +31,5 @@ public class PlayerTeleport : MonoBehaviour
             controller.enabled = true;
         }
 
-        Debug.Log("Teleported.");
     }
 }

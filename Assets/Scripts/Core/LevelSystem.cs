@@ -47,7 +47,6 @@ public class LevelSystem : MonoBehaviour
     public void AddExperience(int expAmount)
     {
         currentExp += expAmount;
-        Debug.Log($"Gained {expAmount} EXP! Total: {currentExp}/{expToNextLevel}");
         
         // Notify UI of exp gain
         OnExpGained?.Invoke(currentExp, expToNextLevel);
@@ -78,7 +77,6 @@ public class LevelSystem : MonoBehaviour
         currentSize += sizeIncrease;
         UpdatePlayerSize();
         
-        Debug.Log($"LEVEL UP! Now level {currentLevel}! +{strengthPerLevel} strength! Size increased by {sizeIncrease:F2}!");
         
         // Notify listeners
         OnLevelUp?.Invoke(currentLevel);

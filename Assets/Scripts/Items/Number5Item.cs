@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Number5Item : Item
 {
@@ -7,19 +9,46 @@ public class Number5Item : Item
     
     public override void OnPickup(Player player)
     {
-        // Add the number 5 to inventory
-        player.AddItem("Number 5");
+        // Check if there are any dialogue triggers
+        bool hasDialogueTriggers = dialogueTriggers.Count > 0 && dialogueTriggers.Any(t => t != null);
         
-        // Enable dash ability
-        player.UnlockDash();
-        
-        // Show unlock message
-        Debug.Log(unlockMessage);
-        
-        // You could also show a UI message here
-        // For example: UIManager.Instance.ShowMessage(unlockMessage);
-        
-        // Destroy the object
-        Destroy(gameObject);
+        if (hasDialogueTriggers)
+        {
+            // Add the number 5 to inventory
+            player.AddItem("Number 5");
+            
+            // Enable dash ability
+            player.UnlockDash();
+            
+            // Show unlock message
+            Debug.Log(unlockMessage);
+            
+            // Make item invisible but keep GameObject alive for dialogue
+            SetItemInvisible();
+            
+            // Trigger dialogue
+            foreach (var trigger in dialogueTriggers)
+            {
+                if (trigger != null)
+                {
+                    trigger.OnItemPickedUp(player);
+                }
+            }
+            // Don't destroy - let the dialogue trigger handle it
+        }
+        else
+        {
+            // Add the number 5 to inventory
+            player.AddItem("Number 5");
+            
+            // Enable dash ability
+            player.UnlockDash();
+            
+            // Show unlock message
+            Debug.Log(unlockMessage);
+            
+            // Destroy the object
+            Destroy(gameObject);
+        }
     }
 }
