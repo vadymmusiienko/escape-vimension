@@ -52,9 +52,14 @@ public class PlayerCombat : MonoBehaviour
             if (enemy != null)
             {
                 Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
-
-                enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
-                hitEnemy = true;
+                
+                // Check if enemy is within attack angle
+                float angleToEnemy = Vector3.Angle(transform.forward, directionToEnemy);
+                if (angleToEnemy < attackAngle / 2f)
+                {
+                    enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
+                    hitEnemy = true;
+                }
             }
         }
         
@@ -64,4 +69,5 @@ public class PlayerCombat : MonoBehaviour
             audioController.PlayHitEnemySound();
         }
     }
+
 }
