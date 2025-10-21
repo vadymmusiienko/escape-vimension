@@ -55,11 +55,8 @@ public class PlayerCombat : MonoBehaviour
                 
                 // Check if enemy is within attack angle
                 float angleToEnemy = Vector3.Angle(transform.forward, directionToEnemy);
-                if (angleToEnemy < attackAngle / 2f)
-                {
-                    enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
-                    hitEnemy = true;
-                }
+                enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
+                hitEnemy = true;
             }
         }
         

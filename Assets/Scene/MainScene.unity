@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 6905362}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 11.75847, z: -6.5810313}
+  m_LocalPosition: {x: 6.16, y: 12.959378, z: -7.3005476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 10.67998
+  CameraDistance: 12.07994
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -6201,7 +6201,7 @@ Transform:
   m_GameObject: {fileID: 829407139}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 11.75847, z: -6.5810313}
+  m_LocalPosition: {x: 6.16, y: 12.959378, z: -7.3005476}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
