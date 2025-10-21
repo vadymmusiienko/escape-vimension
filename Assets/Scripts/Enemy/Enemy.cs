@@ -18,7 +18,7 @@ public class Enemy : Entity
     [SerializeField] private LayerMask playerLayer;
 
     [Header("Spoils")]
-    [SerializeField] private GameObject itemToDropOnDeath;
+    [SerializeField] private GameObject[] itemsToDropOnDeath = new GameObject[2];
 
     [Header("Component")]
     public NavMeshAgent agent;
@@ -273,9 +273,21 @@ public class Enemy : Entity
 
     private void DropItem()
     {
-        if (itemToDropOnDeath != null)
+        if (itemsToDropOnDeath != null && itemsToDropOnDeath.Length > 0)
         {
-            Instantiate(itemToDropOnDeath, transform.position, Quaternion.identity);
+            foreach (GameObject item in itemsToDropOnDeath)
+            {
+                if (item != null)
+                {
+                    // Add slight random offset to prevent items from overlapping
+                    Vector3 randomOffset = new Vector3(
+                        UnityEngine.Random.Range(-0.5f, 0.5f),
+                        0f,
+                        UnityEngine.Random.Range(-0.5f, 0.5f)
+                    );
+                    Instantiate(item, transform.position + randomOffset, Quaternion.identity);
+                }
+            }
         }
     }
 
@@ -320,6 +332,36 @@ public class Enemy : Entity
         {
             attackAudioSource.clip = attackSoundClip;
         }
+    }
+
+    // Item drop management methods
+    public void SetDropItem(int index, GameObject item)
+    {
+        if (itemsToDropOnDeath != null && index >= 0 && index < itemsToDropOnDeath.Length)
+        {
+            itemsToDropOnDeath[index] = item;
+        }
+    }
+
+    public GameObject GetDropItem(int index)
+    {
+        if (itemsToDropOnDeath != null && index >= 0 && index < itemsToDropOnDeath.Length)
+        {
+            return itemsToDropOnDeath[index];
+        }
+        return null;
+    }
+
+    public int GetDropItemCount()
+    {
+        if (itemsToDropOnDeath == null) return 0;
+        
+        int count = 0;
+        foreach (GameObject item in itemsToDropOnDeath)
+        {
+            if (item != null) count++;
+        }
+        return count;
     }
 
     protected virtual void OnDrawGizmosSelected()

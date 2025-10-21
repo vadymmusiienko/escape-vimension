@@ -18,8 +18,12 @@ public class SizeBasedCameraController : MonoBehaviour
     public float level2DistanceChange = 3f;
     [Tooltip("Camera distance change for level 3")]
     public float level3DistanceChange = 2f;
-    [Tooltip("Camera distance change for all levels 4 and above")]
-    public float generalLevelDistanceChange = 2f;
+    [Tooltip("Camera distance change for level 4")]
+    public float level4DistanceChange = 2f;
+    [Tooltip("Camera distance change for level 5")]
+    public float level5DistanceChange = 2f;
+    [Tooltip("Camera distance change for level 6")]
+    public float level6DistanceChange = 2f;
     
     [Header("Smoothing")]
     public float distanceChangeSpeed = 2f; // How fast the camera adjusts
@@ -73,17 +77,13 @@ public class SizeBasedCameraController : MonoBehaviour
     {
         float totalDistanceChange = 0f;
         
-        // Add distance changes for the first 3 levels
+        // Add distance changes for each level individually
         if (level >= 1) totalDistanceChange += level1DistanceChange;
         if (level >= 2) totalDistanceChange += level2DistanceChange;
         if (level >= 3) totalDistanceChange += level3DistanceChange;
-        
-        // Add distance changes for levels 4 and above
-        if (level > 3)
-        {
-            int additionalLevels = level - 3;
-            totalDistanceChange += additionalLevels * generalLevelDistanceChange;
-        }
+        if (level >= 4) totalDistanceChange += level4DistanceChange;
+        if (level >= 5) totalDistanceChange += level5DistanceChange;
+        if (level >= 6) totalDistanceChange += level6DistanceChange;
         
         return totalDistanceChange;
     }

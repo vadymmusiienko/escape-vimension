@@ -63,20 +63,45 @@ public class ExpUI : MonoBehaviour
     {
         if (levelSystem == null) return;
         
+        // Check if player is at max level
+        bool isAtMaxLevel = levelSystem.IsAtMaxLevel();
+        
         // Update level text
         if (levelText != null)
         {
             levelText.text = $"{levelLabel}{levelSystem.GetCurrentLevel()}";
         }
         
-        // Update exp text
+        // Hide/show exp text based on max level
         if (expText != null)
         {
-            expText.text = $"{expLabel}{levelSystem.GetCurrentExp()}/{levelSystem.GetExpToNextLevel()}";
+            if (isAtMaxLevel)
+            {
+                expText.gameObject.SetActive(false);
+            }
+            else
+            {
+                expText.gameObject.SetActive(true);
+                expText.text = $"{expLabel}{levelSystem.GetCurrentExp()}/{levelSystem.GetExpToNextLevel()}";
+            }
         }
         
-        // Update exp bar
-        UpdateExpBar();
+        // Hide/show exp bar based on max level
+        if (expBarFill != null)
+        {
+            expBarFill.gameObject.SetActive(!isAtMaxLevel);
+        }
+        
+        if (expBarBackground != null)
+        {
+            expBarBackground.gameObject.SetActive(!isAtMaxLevel);
+        }
+        
+        // Update exp bar only if not at max level
+        if (!isAtMaxLevel)
+        {
+            UpdateExpBar();
+        }
     }
     
     /// <summary>

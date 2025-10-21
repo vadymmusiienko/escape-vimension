@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float baseMoveSpeed = 5f; // Base movement speed (for size 1.0)
     public float desiredRotationSpeed = 0.1f;
     
+    
     [Header("Gravity")]
     public float gravity = 9.8f;
     public float groundedGravity = -2f;
@@ -37,14 +38,13 @@ public class PlayerMovement : MonoBehaviour
     }
     
     /// <summary>
-    /// Gets the effective movement speed based on player size
+    /// Gets the effective movement speed based on player level
     /// </summary>
     private float GetEffectiveMoveSpeed()
     {
         if (levelSystem != null)
         {
-            float currentSize = levelSystem.GetCurrentSize();
-            return baseMoveSpeed * currentSize;
+            return levelSystem.GetCurrentSpeed();
         }
         return baseMoveSpeed; // Fallback if no level system
     }
@@ -150,5 +150,6 @@ public class PlayerMovement : MonoBehaviour
     {
         return DialogueManager.instance != null && DialogueManager.instance.IsDialogueActive();
     }
+    
     
 }
