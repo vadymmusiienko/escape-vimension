@@ -14,43 +14,60 @@ public class BossCursor : Enemy
     public float endAngle = -45f;
     public float prepareRotationSpeed = 90f;
     public float sweepRotationSpeed = 180f;
-    public float sweepCooldown = 2.0f;
-    private bool isBusy = false;
-    private Quaternion initialRotation;
+    public float sweepCooldown = 3.0f;
     private HashSet<PlayerHealth> playerHit;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        stateMachine = new EnemyStateMachine();
+        idleState = new EnemyIdleState(this, stateMachine, "Idle");
+        chaseState = new EnemyChaseState(this, stateMachine, "Chase");
+        attackState = new BossAttackState(this, stateMachine, "Attack");
+    }
 
     protected override void Start()
     {
         base.Start();
-        initialRotation = transform.rotation;
 
         if (agent != null)
         {
-            agent.enabled = false;
+            agent.enabled = true;
+            agent.isStopped = false;
+            agent.updatePosition = true;
+            agent.updateRotation = true;
         }
+
+        stateMachine.Initialize(idleState);
         if (attackHitbox != null) { attackHitbox.SetActive(false); }
     }
 
     protected override void Update()
     {
-        if (isDead || isBusy) return;
-
-        if (playerTarget != null && Vector3.Distance(transform.position, playerTarget.position) <= aggroRange || Input.GetKeyDown(KeyCode.P))
-        {
-            StartCoroutine(RotationalSweepAttack());
-        }
+        if (isDead) return;
+        stateMachine.currentState.Update();
     }
 
-    private IEnumerator RotationalSweepAttack()
+    public IEnumerator RotationalSweepAttack()
     {
-        isBusy = true;
         if (playerHit == null)
         {
             playerHit = new HashSet<PlayerHealth>();
         }
         playerHit.Clear();
 
-        Quaternion startRotation = initialRotation * Quaternion.Euler(0, startAngle, 0);
+        if (playerTarget == null)
+        {
+            stateMachine.ChangeState(chaseState);
+            yield break;
+        }
+
+        Vector3 directionToPlayer = (playerTarget.position - transform.position).normalized;
+        directionToPlayer.y = 0;
+        Quaternion facePlayerRotation = Quaternion.LookRotation(directionToPlayer);
+
+        Quaternion startRotation = facePlayerRotation * Quaternion.Euler(0, startAngle, 0);
         while (Quaternion.Angle(transform.rotation, startRotation) > 1f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, startRotation, prepareRotationSpeed * Time.deltaTime);
@@ -61,7 +78,7 @@ public class BossCursor : Enemy
         {
             float centerAngle = (startAngle + endAngle) / 2f;
 
-            Quaternion vfxRotation = initialRotation * Quaternion.Euler(0, centerAngle, 0) * Quaternion.Euler(90, 0, 0);
+            Quaternion vfxRotation = facePlayerRotation * Quaternion.Euler(0, centerAngle, 0) * Quaternion.Euler(90, 0, 0);
 
             Vector3 spawnPosition = transform.position + new Vector3(0, 0.1f, 0);
             ParticleSystem vfxInstance = Instantiate(sweepPrefab, spawnPosition, vfxRotation);
@@ -71,7 +88,7 @@ public class BossCursor : Enemy
 
         if (attackHitbox != null) { attackHitbox.SetActive(true); }
 
-        Quaternion endRotation = initialRotation * Quaternion.Euler(0, endAngle, 0);
+        Quaternion endRotation = facePlayerRotation * Quaternion.Euler(0, endAngle, 0);
         while (Quaternion.Angle(transform.rotation, endRotation) > 1f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, endRotation, sweepRotationSpeed * Time.deltaTime);
@@ -80,17 +97,16 @@ public class BossCursor : Enemy
 
         if (attackHitbox != null) { attackHitbox.SetActive(false); }
 
-        Quaternion initialRot = initialRotation;
-        while (Quaternion.Angle(transform.rotation, initialRotation) > 1f)
+        while (Quaternion.Angle(transform.rotation, facePlayerRotation) > 1f)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, initialRotation, prepareRotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, facePlayerRotation, prepareRotationSpeed * Time.deltaTime);
             yield return null;
         }
-        transform.rotation = initialRotation;
+        transform.rotation = facePlayerRotation;
 
         yield return new WaitForSeconds(sweepCooldown);
 
-        isBusy = false;
+        stateMachine.ChangeState(chaseState);
     }
 
     public void DealDamageToPlayer(PlayerHealth player)
