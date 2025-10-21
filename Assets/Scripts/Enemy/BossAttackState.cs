@@ -25,7 +25,13 @@ public class BossAttackState : EnemyAttackState
 
     public override void Update()
     {
-        base.Update();
+        // Don't call base.Update() to prevent double audio playing
+        // The boss attack is handled entirely by RotationalSweepAttack() coroutine
+        // Only check if player is out of range to transition back to chase
+        if (Vector3.Distance(boss.transform.position, boss.playerTarget.position) > boss.attackRange)
+        {
+            stateMachine.ChangeState(boss.chaseState);
+        }
     }
 
     public override void Exit()

@@ -87,6 +87,8 @@ public class BossCursor : Enemy
         }
 
         if (attackHitbox != null) { attackHitbox.SetActive(true); }
+        
+        PlayAttackSound();
 
         Quaternion endRotation = facePlayerRotation * Quaternion.Euler(0, endAngle, 0);
         while (Quaternion.Angle(transform.rotation, endRotation) > 1f)
@@ -118,6 +120,7 @@ public class BossCursor : Enemy
             Debug.Log("Boss hit the player and deal " + attackDamage + " damage!");
         }
     }
+
 
     protected override void OnDrawGizmosSelected()
     {

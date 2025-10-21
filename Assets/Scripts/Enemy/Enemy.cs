@@ -31,6 +31,11 @@ public class Enemy : Entity
     private Renderer enemyRenderer;
     private Color originalColor;
 
+    [Header("Boss Audio")]
+    [SerializeField] protected AudioClip attackSoundClip;
+    [SerializeField] protected float attackSoundVolume = 0.8f;
+    private AudioSource attackAudioSource;
+
     public float CurrentHealth {  get; private set; }
     public bool isDead = false;
     public float lastAttackTime;
@@ -63,6 +68,9 @@ public class Enemy : Entity
         chaseState = new EnemyChaseState(this, stateMachine, "Chase");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
         patrolState = new EnemyPatrolState(this, stateMachine, "Patrol");
+        
+        // Setup audio source for attack sounds
+        SetupAttackAudioSource();
     }
 
     protected override void Start()
@@ -171,6 +179,9 @@ public class Enemy : Entity
     {
         if (isDead) return;
 
+        // Play attack sound
+        PlayAttackSound();
+        
         CheckAttackRange();
     }
 
@@ -204,6 +215,49 @@ public class Enemy : Entity
         if (itemToDropOnDeath != null)
         {
             Instantiate(itemToDropOnDeath, transform.position, Quaternion.identity);
+        }
+    }
+
+    private void SetupAttackAudioSource()
+    {
+        // Create dedicated audio source for boss attack sounds
+        attackAudioSource = gameObject.AddComponent<AudioSource>();
+        attackAudioSource.clip = attackSoundClip;
+        attackAudioSource.loop = false;
+        attackAudioSource.volume = attackSoundVolume;
+        attackAudioSource.playOnAwake = false;
+        attackAudioSource.priority = 16; // Highest priority for boss attack sounds
+    }
+
+    protected virtual void PlayAttackSound()
+    {
+        if (attackSoundClip != null && attackAudioSource != null)
+        {
+            attackAudioSource.Play();
+        }
+        else if (attackSoundClip != null && AudioManager.Instance != null)
+        {
+            // Fallback to AudioManager if dedicated audio source is not available
+            AudioManager.Instance.PlaySFX(attackSoundClip);
+        }
+    }
+
+    // Public methods for external audio control
+    public void SetAttackSoundVolume(float volume)
+    {
+        attackSoundVolume = Mathf.Clamp01(volume);
+        if (attackAudioSource != null)
+        {
+            attackAudioSource.volume = attackSoundVolume;
+        }
+    }
+
+    public void SetAttackSoundClip(AudioClip newClip)
+    {
+        attackSoundClip = newClip;
+        if (attackAudioSource != null)
+        {
+            attackAudioSource.clip = attackSoundClip;
         }
     }
 
