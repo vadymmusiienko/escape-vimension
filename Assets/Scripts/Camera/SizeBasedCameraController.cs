@@ -125,7 +125,7 @@ public class SizeBasedCameraController : MonoBehaviour
                     // Could not find CameraDistance field on Position Composer
                 }
             }
-            catch (System.Exception e)
+            catch (System.Exception)
             {
                 // Error updating camera distance
             }
