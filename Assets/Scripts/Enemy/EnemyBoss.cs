@@ -17,14 +17,18 @@ public class BossCursor : Enemy
     public float sweepCooldown = 3.0f;
     private HashSet<PlayerHealth> playerHit;
 
+    public new BossAttackState attackState;
+    public BossChaseState BosschaseState;
+
     protected override void Awake()
     {
         base.Awake();
 
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
-        chaseState = new EnemyChaseState(this, stateMachine, "Chase");
+        chaseState = new BossChaseState(this, stateMachine, "Chase");
         attackState = new BossAttackState(this, stateMachine, "Attack");
+        patrolState = new EnemyPatrolState(this, stateMachine, "Patrol");
     }
 
     protected override void Start()
@@ -37,6 +41,7 @@ public class BossCursor : Enemy
             agent.isStopped = false;
             agent.updatePosition = true;
             agent.updateRotation = true;
+            agent.stoppingDistance = 1.5f;
         }
 
         stateMachine.Initialize(idleState);
@@ -66,6 +71,15 @@ public class BossCursor : Enemy
         Vector3 directionToPlayer = (playerTarget.position - transform.position).normalized;
         directionToPlayer.y = 0;
         Quaternion facePlayerRotation = Quaternion.LookRotation(directionToPlayer);
+
+        if (directionToPlayer.sqrMagnitude < 0.1f * 0.1f)
+        {
+            facePlayerRotation = transform.rotation;
+        }
+        else
+        {
+            facePlayerRotation = Quaternion.LookRotation(directionToPlayer.normalized);
+        }
 
         Quaternion startRotation = facePlayerRotation * Quaternion.Euler(0, startAngle, 0);
         while (Quaternion.Angle(transform.rotation, startRotation) > 1f)

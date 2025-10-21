@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 6905362}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 11.75846, z: -6.5810256}
+  m_LocalPosition: {x: 6.16, y: 3.6892068, z: -1.7463883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 10.67997
+  CameraDistance: 1.27324
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -878,9 +878,9 @@ MonoBehaviour:
   sweepPrefab: {fileID: 1329927784210828049, guid: 4e8e24ead1593e4438298de0424cdd15, type: 3}
   startAngle: 45
   endAngle: -45
-  prepareRotationSpeed: 90
-  sweepRotationSpeed: 180
-  sweepCooldown: 2.5
+  prepareRotationSpeed: 720
+  sweepRotationSpeed: 360
+  sweepCooldown: 4
 --- !u!65 &119088125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6072,7 +6072,7 @@ Transform:
   m_GameObject: {fileID: 829407139}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 11.75846, z: -6.5810256}
+  m_LocalPosition: {x: 6.16, y: 3.6892068, z: -1.7463883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

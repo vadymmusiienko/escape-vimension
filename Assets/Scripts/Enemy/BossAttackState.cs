@@ -13,6 +13,7 @@ public class BossAttackState : EnemyAttackState
     {
         base.Enter();
 
+        boss.lastAttackTime = Time.time;
         if (boss.agent != null)
         {
             boss.agent.isStopped = true;
