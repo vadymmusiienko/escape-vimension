@@ -1,25 +1,20 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
-    [SerializeField] private Slider healthSlider;
+    public Slider slider;
 
-    private void OnEnable()
+    public void Awake()
     {
-        PlayerHealth.OnHealthChanged += UpdateHealthBar;
+        if (slider == null) slider = GetComponent<Slider>();
     }
 
-    private void OnDisable()
+    public void UpdateHealthbar(float currentHealth, float maxHealth)
     {
-        PlayerHealth.OnHealthChanged -= UpdateHealthBar;
-    }
+        if (slider == null) return;
+        float fillValue = currentHealth / maxHealth;
 
-    private void UpdateHealthBar(float currentHealth, float maxHealth)
-    {
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth / maxHealth;
-        }
+        slider.value = fillValue;
     }
 }

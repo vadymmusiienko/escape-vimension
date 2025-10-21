@@ -1,34 +1,42 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float deathDelay = 2f; // Timeout before loading death scene
+    public float maxHealth = 100f;
+    public float currentHealth;
 
-    public float CurrentHealth {  get; private set; }
 
-    public static event Action<float, float> OnHealthChanged;
+    public PlayerHealthUI healthbar;
 
-    private void Awake()
+    private bool isDead = false;
+
+    void Start()
     {
-        CurrentHealth = maxHealth;
-    }
+        currentHealth = maxHealth;
 
-    private void Start()
-    {
-        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        if (healthbar != null)
+        {
+            healthbar.UpdateHealthbar(currentHealth, maxHealth);
+        }
     }
 
     public void TakeDamage(float damage)
     {
-        if (CurrentHealth <= 0) return;
-        CurrentHealth = Mathf.Max(CurrentHealth - damage, 0f);
-        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+        if (currentHealth <= 0) return;
 
-        if (CurrentHealth <= 0)
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("Player health: " + currentHealth);
+
+        if (healthbar != null)
+        {
+            healthbar.UpdateHealthbar(currentHealth, maxHealth);
+        }
+
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -36,10 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        // TODO: add effect of death
-
-        // Use Invoke instead of coroutine for more reliable timing
-        Invoke(nameof(LoadDeathScene), deathDelay);
+        Invoke(nameof(LoadDeathScene), 2.0f);
     }
 
     private void LoadDeathScene()
