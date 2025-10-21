@@ -4878,30 +4878,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.size
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Say something about the trap
+      value: "Huh... the path ahead looks dangerous. That pit doesn\u2019t seem crossable
+        on foot."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[1].text
-      value: Say something about the turtle boss
+      value: "Maybe there\u2019s another way around... or perhaps a hidden power
+        nearby?"
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].text
-      value: Say that you can use "D" to attack the boss
+      value: " And look\u2014what\u2019s that beyond the pit?"
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].text
-      value: 
+      value: "A turtle? No, not just any turtle... it\u2019s guarding something."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].text
-      value: 
+      value: You might have to fight it.
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].text
+      value: You might have to fight it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].text
+      value: " In Vim, \u201CD\u201D stands for delete. Use it to strike enemies."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].text
+      value: Just like text, remove what stands in your way!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[8].text
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
@@ -4910,23 +4924,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].isEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].isEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].isEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[8].isEnd
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
-      value: Dialogue_trigger (Turtle)
+      value: Dialogue_trigger (Before Turtle/Trap)
       objectReference: {fileID: 0}
     - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13188,7 +13206,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueStrings:
-  - text: 'good job! TODO:'
+  - text: "You did it! The turtle has been deleted\u2014permanently."
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "Looks like it dropped something shiny\u2026"
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: That must be the Key to the Main Gate!
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "And an EXP potion\u2014your reward for a clean delete."
+    isEnd: 1
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "You\u2019re getting stronger, command by command."
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "But don\u2019t let your guard down\u2014the VimEnsion still has much to
+      teach."
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "Go on, hero of Normal Mode\u2026 your journey continues."
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -14914,13 +14981,69 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Chagne this dialogue
+      value: Nice dive! 10/10 form, 0/10 execution.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: "Maybe try a\u2026 faster move next time?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: dialogueStrings.Array.data[2].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 184078996}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 184078996}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TeleportPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTeleport, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TeleportPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.22851
@@ -14963,7 +15086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9190502484423769198, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: m_Name
-      value: Trap trigger
+      value: Dialogue_trigger (Trap)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15142,6 +15265,7 @@ SceneRoots:
   - {fileID: 896733053}
   - {fileID: 1878518895}
   - {fileID: 603748001}
+  - {fileID: 7654263097902926248}
   - {fileID: 1578554354}
   - {fileID: 2065541697}
   - {fileID: 144288794}
@@ -15153,7 +15277,6 @@ SceneRoots:
   - {fileID: 1596735593}
   - {fileID: 477740267}
   - {fileID: 719655803}
-  - {fileID: 7654263097902926248}
   - {fileID: 702368101}
   - {fileID: 184078997}
   - {fileID: 1283761304}
