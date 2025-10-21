@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Enemy : Entity
 {
@@ -40,6 +42,9 @@ public class Enemy : Entity
     public bool isDead = false;
     public float lastAttackTime;
     
+    // Events for dialogue triggers
+    protected List<EnemyDeathDialogueTrigger> dialogueTriggers = new List<EnemyDeathDialogueTrigger>();
+    
     // Health system events
     public static event Action<Enemy, float, float> OnEnemyHealthChanged; // enemy, currentHealth, maxHealth
     public static event Action<Enemy> OnEnemyDied;
@@ -68,6 +73,9 @@ public class Enemy : Entity
         chaseState = new EnemyChaseState(this, stateMachine, "Chase");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
         patrolState = new EnemyPatrolState(this, stateMachine, "Patrol");
+        
+        // Find all EnemyDeathDialogueTrigger components on this GameObject
+        dialogueTriggers.AddRange(GetComponents<EnemyDeathDialogueTrigger>());
         
         // Setup audio source for attack sounds
         SetupAttackAudioSource();
@@ -167,12 +175,65 @@ public class Enemy : Entity
 
         if (agent != null) agent.isStopped = true;
         
+        // Always drop item immediately when enemy dies
+        DropItem();
+        
+        // Check if there are any dialogue triggers
+        bool hasDialogueTriggers = dialogueTriggers.Count > 0 && dialogueTriggers.Any(t => t != null);
+        
+        if (hasDialogueTriggers)
+        {
+            // Make enemy invisible but keep GameObject alive for dialogue
+            SetEnemyInvisible();
+            
+            // Trigger dialogue
+            foreach (var trigger in dialogueTriggers)
+            {
+                if (trigger != null)
+                {
+                    trigger.TriggerDialogue();
+                }
+            }
+            // Don't destroy - let the dialogue trigger handle it
+        }
+        else
+        {
+            // No dialogue triggers, proceed normally
+            anim?.SetTrigger("Die");
+            Destroy(gameObject, 2f);
+        }
+        
         // Trigger death event
         OnEnemyDied?.Invoke(this);
-
-        anim?.SetTrigger("Die");
-        DropItem();
-        Destroy(gameObject, 2f);
+    }
+    
+    protected void SetEnemyInvisible()
+    {
+        // Disable all renderers to make enemy invisible
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
+        
+        // Disable colliders so player can't interact with it
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+        
+        // Disable the agent so it doesn't move
+        if (agent != null)
+        {
+            agent.enabled = false;
+        }
+        
+        // Destroy the healthbar
+        if (healthBar != null)
+        {
+            Destroy(healthBar.gameObject);
+        }
     }
 
     public virtual void Attack()

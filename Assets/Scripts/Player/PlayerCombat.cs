@@ -43,26 +43,18 @@ public class PlayerCombat : MonoBehaviour
             audioController.PlayAttackSwingSound();
         }
 
-        Debug.Log("--- 玩家发动攻击 ---");
-
         Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
-        Debug.Log("OverlapSphere 在 " + enemyLayer.ToString() + " 层上找到了 " + hits.Length + " 个碰撞体。");
         bool hitEnemy = false;
         
         foreach (Collider hit in hits)
         {
-            Debug.Log("检测到碰撞体：" + hit.gameObject.name);
             Enemy enemy = hit.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
-                Debug.Log("成功在 " + enemy.gameObject.name + " 上找到了 Enemy 脚本！");
                 Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
 
-                //if (Vector3.Angle(transform.forward, directionToEnemy) < attackAngle / 2f)
-                //{
                 enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
                 hitEnemy = true;
-                //}
             }
         }
         
@@ -71,18 +63,5 @@ public class PlayerCombat : MonoBehaviour
         {
             audioController.PlayHitEnemySound();
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        Vector3 forward = transform.forward;
-        Vector3 leftBoundary = Quaternion.Euler(0, -attackAngle / 2, 0) * forward;
-        Vector3 rightBoundary = Quaternion.Euler(0, attackAngle / 2, 0) * forward;
-
-        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * attackRange);
-        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * attackRange);
     }
 }

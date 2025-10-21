@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerEyes
   - Enemy
+  - HealthBar Turtle
   layers:
   - Default
   - TransparentFX
