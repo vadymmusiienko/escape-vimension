@@ -1431,51 +1431,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1834b6441f5f964186d094e8fd881e5, type: 3}
---- !u!1 &184078995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 184078997}
-  - component: {fileID: 184078996}
-  m_Layer: 0
-  m_Name: TeleportManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &184078996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184078995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ad8a64b56079ba49915b949acd504cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 702368101}
---- !u!4 &184078997
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184078995}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48977, y: -2.32583, z: 17.43572}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &188338225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4858,7 +4813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Size.z
-      value: 2.5965192
+      value: 1.1110873
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.x
@@ -4870,7 +4825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.z
-      value: -0.8011652
+      value: -0.058450773
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: deleteAfterDialogue
@@ -14977,73 +14932,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: deleteAfterDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[0].text
-      value: Nice dive! 10/10 form, 0/10 execution.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[1].text
-      value: "Maybe try a\u2026 faster move next time?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[2].text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[2].isEnd
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].isEnd
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      propertyPath: dialogueStrings.Array.data[2].endDialogueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: dialogueStrings.Array.data[2].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 184078996}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051804938782962328, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: respawnPoint
       value: 
-      objectReference: {fileID: 184078996}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TeleportPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerTeleport, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TeleportPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
-      propertyPath: dialogueStrings.Array.data[3].endDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 702368101}
     - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.22851
@@ -15278,7 +15177,6 @@ SceneRoots:
   - {fileID: 477740267}
   - {fileID: 719655803}
   - {fileID: 702368101}
-  - {fileID: 184078997}
   - {fileID: 1283761304}
   - {fileID: 4298125752962712561}
   - {fileID: 1820115577}

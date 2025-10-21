@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5965537807693100351}
   - component: {fileID: 2833430335298853480}
   - component: {fileID: 3121043364932249727}
+  - component: {fileID: 5051804938782962328}
   m_Layer: 0
   m_Name: Trap trigger
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueStrings:
-  - text: Bruh! You fall into a trap!
+  - text: Nice dive! 10/10 form, 0/10 execution.
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -75,7 +76,7 @@ MonoBehaviour:
     endDialogueEvent:
       m_PersistentCalls:
         m_Calls: []
-  - text: Maybe look around, and you may find a way pass through it.
+  - text: "Maybe try a\u2026 faster move next time?"
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -90,16 +91,21 @@ MonoBehaviour:
         m_Calls: []
     endDialogueEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: PlayerTeleport, Assembly-CSharp
-          m_MethodName: TeleportPlayer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: TeleportPlayer
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+  deleteAfterDialogue: 0
+  triggerOnlyOnce: 1
+--- !u!114 &5051804938782962328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190502484423769198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2876940f6e64a47d58dbab8ebbc8796b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
+  teleportOnTrigger: 1
+  waitForDialogueOnFirstTime: 1
