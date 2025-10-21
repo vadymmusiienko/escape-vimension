@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,8 +8,6 @@ public class PlayerHealth : MonoBehaviour
 
 
     public PlayerHealthUI healthbar;
-
-    private bool isDead = false;
 
     void Start()
     {

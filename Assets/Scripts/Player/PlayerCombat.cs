@@ -43,21 +43,26 @@ public class PlayerCombat : MonoBehaviour
             audioController.PlayAttackSwingSound();
         }
 
+        Debug.Log("--- 玩家发动攻击 ---");
+
         Collider[] hits = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+        Debug.Log("OverlapSphere 在 " + enemyLayer.ToString() + " 层上找到了 " + hits.Length + " 个碰撞体。");
         bool hitEnemy = false;
         
         foreach (Collider hit in hits)
         {
-            Enemy enemy = hit.GetComponent<Enemy>();
+            Debug.Log("检测到碰撞体：" + hit.gameObject.name);
+            Enemy enemy = hit.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
+                Debug.Log("成功在 " + enemy.gameObject.name + " 上找到了 Enemy 脚本！");
                 Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
 
-                if (Vector3.Angle(transform.forward, directionToEnemy) < attackAngle / 2f)
-                {
-                    enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
-                    hitEnemy = true;
-                }
+                //if (Vector3.Angle(transform.forward, directionToEnemy) < attackAngle / 2f)
+                //{
+                enemy.TakeDamage(attackDamage, hit.ClosestPoint(transform.position));
+                hitEnemy = true;
+                //}
             }
         }
         
