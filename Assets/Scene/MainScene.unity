@@ -3225,6 +3225,30 @@ PrefabInstance:
       propertyPath: dialogueStrings.Array.data[6].isEnd
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].unlockCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].unlockCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].unlockCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[2].unlockCommands.Array.data[0]'
+      value: x
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[3].unlockCommands.Array.data[0]'
+      value: x
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[4].unlockCommands.Array.data[0]'
+      value: x
+      objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
       value: Dialogue_trigger (Pick up)
@@ -4896,6 +4920,14 @@ PrefabInstance:
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[8].isEnd
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].unlockCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[6].unlockCommands.Array.data[0]'
+      value: d
       objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
@@ -10845,6 +10877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueStrings:
   - text: You feel a strange surge of power flowing through your keystrokes!
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10853,6 +10886,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "You\u2019ve unlocked the Power of Numbers (1-5)."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10861,6 +10895,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: In Vim, numbers multiply your actions.
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10870,6 +10905,8 @@ MonoBehaviour:
         m_Calls: []
   - text: "Combine a number with a direction \u2014 like \u201C5l\u201D or \u201C3j\u201D
       \u2014 to move faster and farther!"
+    unlockCommands:
+    - 1-5
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10878,6 +10915,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: Try using this new dash to cross that pit ahead.
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10886,6 +10924,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "Careful though\u2026 precision still matters here."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -10894,6 +10933,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: 
+    unlockCommands: []
     isEnd: 1
     startDialogueEvent:
       m_PersistentCalls:
@@ -12451,6 +12491,58 @@ PrefabInstance:
       propertyPath: dialogueStrings.Array.data[6].isEnd
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].unlockCommands.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[4].unlockCommands.Array.data[0]'
+      value: h
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[4].unlockCommands.Array.data[1]'
+      value: j
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[4].unlockCommands.Array.data[2]'
+      value: k
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[4].unlockCommands.Array.data[3]'
+      value: l
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: d5b1ac9873e45404e8752d27c64774d3, type: 3}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_name
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: findCommand
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].startDialogueEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
       value: Dialogue_trigger (Spawn)
@@ -13391,6 +13483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueStrings:
   - text: "You did it! The turtle has been deleted\u2014permanently."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13399,6 +13492,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "Looks like it dropped something shiny\u2026"
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13407,6 +13501,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: That must be the Key to the Main Gate!
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13415,6 +13510,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "And an EXP potion\u2014your reward for a clean delete."
+    unlockCommands: []
     isEnd: 1
     startDialogueEvent:
       m_PersistentCalls:
@@ -13423,6 +13519,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "You\u2019re getting stronger, command by command."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13432,6 +13529,7 @@ MonoBehaviour:
         m_Calls: []
   - text: "But don\u2019t let your guard down\u2014the VimEnsion still has much to
       teach."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13440,6 +13538,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: "Go on, hero of Normal Mode\u2026 your journey continues."
+    unlockCommands: []
     isEnd: 0
     startDialogueEvent:
       m_PersistentCalls:
@@ -13448,6 +13547,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: 
+    unlockCommands: []
     isEnd: 1
     startDialogueEvent:
       m_PersistentCalls:

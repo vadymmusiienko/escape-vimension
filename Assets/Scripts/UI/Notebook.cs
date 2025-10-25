@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using UnityEngine.UIElements.InputSystem;
 
 public class Notebook : MonoBehaviour
 {
@@ -20,11 +17,12 @@ public class Notebook : MonoBehaviour
 
     private static Dictionary<string, Command> commands = new Dictionary<string, Command>()
     {
-        {"h", new Command { description = "Left", found = true}},
-        {"j", new Command { description = "Down", found = true}},
-        {"k", new Command { description = "Up", found = true}},
-        {"l", new Command { description = "Right", found = true}},
+        {"h", new Command { description = "Left", found = false}},
+        {"j", new Command { description = "Down", found = false}},
+        {"k", new Command { description = "Up", found = false}},
+        {"l", new Command { description = "Right", found = false}},
         {"x", new Command { description = "Cut", found = false}},
+        {"1-5", new Command { description = "Multiply (Dash)", found = false}},
         {"d", new Command { description = "Delete", found = false}},
         {"y", new Command { description = "Paste", found = false}},
         {"/", new Command { description = "Search", found = false}},

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -78,6 +79,9 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueString line = dialogueList[currentDialogueIndex];
             line.startDialogueEvent?.Invoke();
+
+            // Unlock commands in notebook
+            foreach (String cmd in line.unlockCommands) Notebook.findCommand(cmd);
 
             Coroutine typingCoroutine = StartCoroutine(typeText(line.text));
 

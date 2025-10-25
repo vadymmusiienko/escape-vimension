@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class DialogueTrigger : MonoBehaviour, IDialogueTrigger
 {
@@ -49,8 +50,9 @@ public class DialogueTrigger : MonoBehaviour, IDialogueTrigger
 }
 
 [System.Serializable]
-public class dialogueString { 
+public class dialogueString {
     public string text;
+    public List<String> unlockCommands;
     public bool isEnd;
 
     [Header("Triggered Event")]
