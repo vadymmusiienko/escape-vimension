@@ -1289,6 +1289,8 @@ MonoBehaviour:
   sfxVolume: 0.7
   levelUpSound: {fileID: 8300000, guid: e9eacdd3254a441a08783b885aabbdab, type: 3}
   levelUpVolume: 0.8
+  damageSound: {fileID: 8300000, guid: 86b20532555ea460398e6facb3936b38, type: 3}
+  damageVolume: 0.7
 --- !u!4 &150850359
 Transform:
   m_ObjectHideFlags: 0

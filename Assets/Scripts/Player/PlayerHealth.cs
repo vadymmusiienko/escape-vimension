@@ -28,6 +28,12 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Player health: " + currentHealth);
 
+        // Play damage sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayDamageSound();
+        }
+
         if (healthbar != null)
         {
             healthbar.UpdateHealthbar(currentHealth, maxHealth);

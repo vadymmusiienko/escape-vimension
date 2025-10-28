@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float sfxVolume = 0.7f;
     [SerializeField] private AudioClip levelUpSound;
     [SerializeField] private float levelUpVolume = 0.8f;
+    [SerializeField] private AudioClip damageSound;
+    [SerializeField] private float damageVolume = 0.7f;
     
     private void Awake()
     {
@@ -130,6 +132,14 @@ public class AudioManager : MonoBehaviour
         if (levelUpSound != null && sfxSource != null)
         {
             sfxSource.PlayOneShot(levelUpSound, levelUpVolume);
+        }
+    }
+    
+    public void PlayDamageSound()
+    {
+        if (damageSound != null && sfxSource != null)
+        {
+            sfxSource.PlayOneShot(damageSound, damageVolume);
         }
     }
     
