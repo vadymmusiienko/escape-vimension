@@ -124,6 +124,11 @@ public class Enemy : Entity
         OnEnemyDied?.Invoke(this);
 
         anim?.SetTrigger("Die");
+
+        // Apply erosion effect
+        EnemyErosionController erode = GetComponent<EnemyErosionController>();
+        if (erode) erode.TriggerErode();
+        
         Destroy(gameObject, 2f);
     }
 

@@ -14,8 +14,8 @@ Shader "Custom/EnemyErosionPattern"
 
         _PatternTex("Pattern (BW)", 2D) = "white" {}
         _PatternTiling("Pattern Tiling (world units)", Float) = 0.01
-        _Threshold("Pattern Threshold", Range(0.5, 1.5)) = 0.5
-        _EdgeWidth("Pattern Edge Width", Range(0.001,0.5)) = 0.25
+        _Threshold("Pattern Threshold", Range(0.5, 2)) = 0.5
+        _EdgeWidth("Pattern Edge Width", Range(0.001,1)) = 1
 
         _Opacity("Opacity", Range(0,1)) = 1
     }
