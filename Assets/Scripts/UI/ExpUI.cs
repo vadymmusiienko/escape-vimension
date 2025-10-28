@@ -1,23 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ExpUI : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI levelText; // Shows current level
-    public TextMeshProUGUI expText; // Shows exp progress (e.g., "150/200")
-    public Image expBarFill; // The experience bar fill
-    public Image expBarBackground; // The experience bar background
-    
-    [Header("Display Settings")]
-    public string levelLabel = "Level: ";
-    public string expLabel = "EXP: ";
+    public Slider expSlider; // The experience bar slider
     
     [Header("Bar Colors")]
     public Color expBarColor = Color.blue;
     public Color expBarBackgroundColor = Color.gray;
-    public Color expBarGlowColor = Color.cyan;
     
     
     private LevelSystem levelSystem;
@@ -26,6 +17,11 @@ public class ExpUI : MonoBehaviour
     {
         // Initialize display
         UpdateDisplay();
+    }
+    
+    void Awake()
+    {
+        if (expSlider == null) expSlider = GetComponent<Slider>();
     }
     
     /// <summary>
@@ -66,35 +62,10 @@ public class ExpUI : MonoBehaviour
         // Check if player is at max level
         bool isAtMaxLevel = levelSystem.IsAtMaxLevel();
         
-        // Update level text
-        if (levelText != null)
+        // Hide/show exp slider based on max level
+        if (expSlider != null)
         {
-            levelText.text = $"{levelLabel}{levelSystem.GetCurrentLevel()}";
-        }
-        
-        // Hide/show exp text based on max level
-        if (expText != null)
-        {
-            if (isAtMaxLevel)
-            {
-                expText.gameObject.SetActive(false);
-            }
-            else
-            {
-                expText.gameObject.SetActive(true);
-                expText.text = $"{expLabel}{levelSystem.GetCurrentExp()}/{levelSystem.GetExpToNextLevel()}";
-            }
-        }
-        
-        // Hide/show exp bar based on max level
-        if (expBarFill != null)
-        {
-            expBarFill.gameObject.SetActive(!isAtMaxLevel);
-        }
-        
-        if (expBarBackground != null)
-        {
-            expBarBackground.gameObject.SetActive(!isAtMaxLevel);
+            expSlider.gameObject.SetActive(!isAtMaxLevel);
         }
         
         // Update exp bar only if not at max level
@@ -109,19 +80,10 @@ public class ExpUI : MonoBehaviour
     /// </summary>
     private void UpdateExpBar()
     {
-        if (expBarFill == null) return;
+        if (expSlider == null) return;
         
         float progress = levelSystem.GetExpProgress();
-        expBarFill.fillAmount = progress;
-        
-        // Set bar color
-        expBarFill.color = expBarColor;
-        
-        // Set background color
-        if (expBarBackground != null)
-        {
-            expBarBackground.color = expBarBackgroundColor;
-        }
+        expSlider.value = progress;
     }
     
     

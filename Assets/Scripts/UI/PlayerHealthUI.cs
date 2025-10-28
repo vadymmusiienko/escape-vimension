@@ -3,18 +3,23 @@ using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
-    public Slider slider;
+    [Header("UI References")]
+    public Slider healthSlider;
+
+    [Header("Bar Colors")]
+    public Color healthBarColor = Color.red;
+    public Color healthBarBackgroundColor = Color.gray;
 
     public void Awake()
     {
-        if (slider == null) slider = GetComponent<Slider>();
+        if (healthSlider == null) healthSlider = GetComponent<Slider>();
     }
 
     public void UpdateHealthbar(float currentHealth, float maxHealth)
     {
-        if (slider == null) return;
+        if (healthSlider == null) return;
         float fillValue = currentHealth / maxHealth;
 
-        slider.value = fillValue;
+        healthSlider.value = fillValue;
     }
 }
