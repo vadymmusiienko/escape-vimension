@@ -14652,6 +14652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1087757584}
     - target: {fileID: 1977722649762494825, guid: 1b55ea7e33c97ac44b1076695c21ec0d, type: 3}
+      propertyPath: attackSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ebcf27a311124897ae74ccdb9f59cf1, type: 3}
+    - target: {fileID: 1977722649762494825, guid: 1b55ea7e33c97ac44b1076695c21ec0d, type: 3}
       propertyPath: hitEffectPrefab
       value: 
       objectReference: {fileID: 3647945643860337701, guid: a319b4ad2ca23f1469e0001475b8b6b8, type: 3}
