@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     
     [Header("Sound Effects")]
     [SerializeField] private float sfxVolume = 0.7f;
+    [SerializeField] private AudioClip levelUpSound;
+    [SerializeField] private float levelUpVolume = 0.8f;
     
     private void Awake()
     {
@@ -120,6 +122,14 @@ public class AudioManager : MonoBehaviour
         if (clip != null && sfxSource != null)
         {
             sfxSource.PlayOneShot(clip);
+        }
+    }
+    
+    public void PlayLevelUpSound()
+    {
+        if (levelUpSound != null && sfxSource != null)
+        {
+            sfxSource.PlayOneShot(levelUpSound, levelUpVolume);
         }
     }
     

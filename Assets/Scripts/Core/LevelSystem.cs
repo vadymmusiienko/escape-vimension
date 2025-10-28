@@ -111,6 +111,12 @@ public class LevelSystem : MonoBehaviour
         currentSpeed += speedIncrease;
         
         
+        // Play level up sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayLevelUpSound();
+        }
+        
         // Notify listeners
         OnLevelUp?.Invoke(currentLevel);
         OnStrengthGained?.Invoke(totalStrength);

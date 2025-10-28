@@ -1287,6 +1287,8 @@ MonoBehaviour:
   musicVolume: 0.01
   playOnStart: 1
   sfxVolume: 0.7
+  levelUpSound: {fileID: 8300000, guid: e9eacdd3254a441a08783b885aabbdab, type: 3}
+  levelUpVolume: 0.8
 --- !u!4 &150850359
 Transform:
   m_ObjectHideFlags: 0
