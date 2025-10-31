@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Enemy : Entity
 {
@@ -14,6 +17,9 @@ public class Enemy : Entity
     [Range(0, 360)] public float attackAngle = 90f;
     [SerializeField] private LayerMask playerLayer;
 
+    [Header("Spoils")]
+    [SerializeField] private GameObject[] itemsToDropOnDeath = new GameObject[2];
+
     [Header("Component")]
     public NavMeshAgent agent;
     public HealthbarEnemy healthBar;
@@ -21,9 +27,23 @@ public class Enemy : Entity
     [Header("AI behaviour")]
     public Transform[] patrolPoints;
 
+    [Header("Hit effect")]
+    [SerializeField] protected GameObject hitEffectPrefab;
+    [SerializeField] private float flashDuration = 0.15f;
+    private Renderer enemyRenderer;
+    private Color originalColor;
+
+    [Header("Boss Audio")]
+    [SerializeField] protected AudioClip attackSoundClip;
+    [SerializeField] protected float attackSoundVolume = 0.8f;
+    private AudioSource attackAudioSource;
+
     public float CurrentHealth {  get; private set; }
     public bool isDead = false;
     public float lastAttackTime;
+    
+    // Events for dialogue triggers
+    protected List<EnemyDeathDialogueTrigger> dialogueTriggers = new List<EnemyDeathDialogueTrigger>();
     
     // Health system events
     public static event Action<Enemy, float, float> OnEnemyHealthChanged; // enemy, currentHealth, maxHealth
@@ -42,11 +62,23 @@ public class Enemy : Entity
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
 
+        enemyRenderer = GetComponentInChildren<Renderer>();
+        if (enemyRenderer != null)
+        {
+            originalColor = enemyRenderer.material.color;
+        }
+
         stateMachine = new EnemyStateMachine();
         idleState = new EnemyIdleState(this, stateMachine, "Idle");
         chaseState = new EnemyChaseState(this, stateMachine, "Chase");
         attackState = new EnemyAttackState(this, stateMachine, "Attack");
         patrolState = new EnemyPatrolState(this, stateMachine, "Patrol");
+        
+        // Find all EnemyDeathDialogueTrigger components on this GameObject
+        dialogueTriggers.AddRange(GetComponents<EnemyDeathDialogueTrigger>());
+        
+        // Setup audio source for attack sounds
+        SetupAttackAudioSource();
     }
 
     protected override void Start()
@@ -80,7 +112,7 @@ public class Enemy : Entity
         stateMachine.currentState.Update();
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, Vector3 hitPoint)
     {
         if (isDead) return;
 
@@ -97,6 +129,8 @@ public class Enemy : Entity
         // Trigger health changed event
         OnEnemyHealthChanged?.Invoke(this, CurrentHealth, maxHealth);
 
+        TriggerHitEffects(hitPoint);
+        
         if (CurrentHealth <= 0)
         {
             CurrentHealth = 0;
@@ -107,7 +141,29 @@ public class Enemy : Entity
             anim?.SetTrigger("TakeDamage");
         }
     }
-    
+
+    private void TriggerHitEffects(Vector3 hitPoint)
+    {
+        if (hitEffectPrefab != null)
+        {
+            Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+        }
+
+        if (enemyRenderer != null)
+        {
+            StartCoroutine(FlashEffectCoroutine());
+        }
+    }
+
+    private IEnumerator FlashEffectCoroutine()
+    {
+        enemyRenderer.material.color = Color.white;
+
+        yield return new WaitForSeconds(flashDuration);
+
+        enemyRenderer.material.color = originalColor;
+    }
+
     public float GetHealthPercentage()
     {
         return CurrentHealth / maxHealth;
@@ -116,26 +172,77 @@ public class Enemy : Entity
     protected virtual void Die()
     {
         isDead = true;
-        Debug.Log($"{gameObject.name} is dead");
 
         if (agent != null) agent.isStopped = true;
         
+        // Always drop item immediately when enemy dies
+        DropItem();
+        
+        // Check if there are any dialogue triggers
+        bool hasDialogueTriggers = dialogueTriggers.Count > 0 && dialogueTriggers.Any(t => t != null);
+        
+        if (hasDialogueTriggers)
+        {
+            // Make enemy invisible but keep GameObject alive for dialogue
+            SetEnemyInvisible();
+            
+            // Trigger dialogue
+            foreach (var trigger in dialogueTriggers)
+            {
+                if (trigger != null)
+                {
+                    trigger.TriggerDialogue();
+                }
+            }
+            // Don't destroy - let the dialogue trigger handle it
+        }
+        else
+        {
+            // No dialogue triggers, proceed normally
+            anim?.SetTrigger("Die");
+            Destroy(gameObject, 2f);
+        }
+        
         // Trigger death event
         OnEnemyDied?.Invoke(this);
-
-        anim?.SetTrigger("Die");
-
-        // Apply erosion effect
-        EnemyErosionController erode = GetComponent<EnemyErosionController>();
-        if (erode) erode.TriggerErode();
+    }
+    
+    protected void SetEnemyInvisible()
+    {
+        // Disable all renderers to make enemy invisible
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false;
+        }
         
-        Destroy(gameObject, 2f);
+        // Disable colliders so player can't interact with it
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+        
+        // Disable the agent so it doesn't move
+        if (agent != null)
+        {
+            agent.enabled = false;
+        }
+        
+        // Destroy the healthbar
+        if (healthBar != null)
+        {
+            Destroy(healthBar.gameObject);
+        }
     }
 
     public virtual void Attack()
     {
         if (isDead) return;
 
+        // Play attack sound
+        PlayAttackSound();
+        
         CheckAttackRange();
     }
 
@@ -157,12 +264,104 @@ public class Enemy : Entity
                     if (playerHealth != null)
                     {
                         playerHealth.TakeDamage(attackDamage);
-                        Debug.Log($"Deal {attackDamage} to player");
                     }
                     break;
                 }
             }
         }
+    }
+
+    private void DropItem()
+    {
+        if (itemsToDropOnDeath != null && itemsToDropOnDeath.Length > 0)
+        {
+            foreach (GameObject item in itemsToDropOnDeath)
+            {
+                if (item != null)
+                {
+                    // Add slight random offset to prevent items from overlapping
+                    Vector3 randomOffset = new Vector3(
+                        UnityEngine.Random.Range(-0.5f, 0.5f),
+                        0f,
+                        UnityEngine.Random.Range(-0.5f, 0.5f)
+                    );
+                    Instantiate(item, transform.position + randomOffset, Quaternion.identity);
+                }
+            }
+        }
+    }
+
+    private void SetupAttackAudioSource()
+    {
+        // Create dedicated audio source for boss attack sounds
+        attackAudioSource = gameObject.AddComponent<AudioSource>();
+        attackAudioSource.clip = attackSoundClip;
+        attackAudioSource.loop = false;
+        attackAudioSource.volume = attackSoundVolume;
+        attackAudioSource.playOnAwake = false;
+        attackAudioSource.priority = 16; // Highest priority for boss attack sounds
+    }
+
+    protected virtual void PlayAttackSound()
+    {
+        if (attackSoundClip != null && attackAudioSource != null)
+        {
+            attackAudioSource.Play();
+        }
+        else if (attackSoundClip != null && AudioManager.Instance != null)
+        {
+            // Fallback to AudioManager if dedicated audio source is not available
+            AudioManager.Instance.PlaySFX(attackSoundClip);
+        }
+    }
+
+    // Public methods for external audio control
+    public void SetAttackSoundVolume(float volume)
+    {
+        attackSoundVolume = Mathf.Clamp01(volume);
+        if (attackAudioSource != null)
+        {
+            attackAudioSource.volume = attackSoundVolume;
+        }
+    }
+
+    public void SetAttackSoundClip(AudioClip newClip)
+    {
+        attackSoundClip = newClip;
+        if (attackAudioSource != null)
+        {
+            attackAudioSource.clip = attackSoundClip;
+        }
+    }
+
+    // Item drop management methods
+    public void SetDropItem(int index, GameObject item)
+    {
+        if (itemsToDropOnDeath != null && index >= 0 && index < itemsToDropOnDeath.Length)
+        {
+            itemsToDropOnDeath[index] = item;
+        }
+    }
+
+    public GameObject GetDropItem(int index)
+    {
+        if (itemsToDropOnDeath != null && index >= 0 && index < itemsToDropOnDeath.Length)
+        {
+            return itemsToDropOnDeath[index];
+        }
+        return null;
+    }
+
+    public int GetDropItemCount()
+    {
+        if (itemsToDropOnDeath == null) return 0;
+        
+        int count = 0;
+        foreach (GameObject item in itemsToDropOnDeath)
+        {
+            if (item != null) count++;
+        }
+        return count;
     }
 
     protected virtual void OnDrawGizmosSelected()

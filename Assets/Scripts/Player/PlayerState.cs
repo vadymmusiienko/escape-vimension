@@ -41,6 +41,15 @@ public class PlayerState
         // Handle input and pass to movement component
         if (player.movement != null)
         {
+            // Don't process input if movement is locked
+            if (player.movement.IsMovementLocked())
+            {
+                player.movement.InputX = 0;
+                player.movement.InputY = 0;
+                player.movement.Speed = 0;
+                return;
+            }
+            
             // Get input
             float inputX = 0;
             float inputY = 0;

@@ -107,7 +107,6 @@ public class Player : Entity
         if (!inventory.Contains(itemName))
         {
             inventory.Add(itemName);
-            Debug.Log($"Added {itemName} to inventory");
         }
     }
     
@@ -116,7 +115,6 @@ public class Player : Entity
         if (inventory.Contains(itemName))
         {
             inventory.Remove(itemName);
-            Debug.Log($"Removed {itemName} from inventory");
         }
     }
     
@@ -129,7 +127,6 @@ public class Player : Entity
     public void UnlockDash()
     {
         dashUnlocked = true;
-        Debug.Log("Dash ability unlocked! You can now use number keys to dash.");
     }
     
     public bool IsDashUnlocked()
@@ -143,7 +140,6 @@ public class Player : Entity
         // Check if dash is unlocked
         if (!dashUnlocked)
         {
-            Debug.Log("Dash not unlocked yet! Find the number 5 to unlock dash ability.");
             return;
         }
         
@@ -153,10 +149,10 @@ public class Player : Entity
             return;
         }
         
-        // Initialize and start dash
-        dashState.InitializeDash(multiplier, direction, dashInput.dashDuration, dashInput.dashDistance);
+        // Initialize and start dash with size-scaled distance
+        float effectiveDashDistance = dashInput.GetEffectiveDashDistance();
+        dashState.InitializeDash(multiplier, direction, dashInput.dashDuration, effectiveDashDistance);
         stateMachine.ChangeState(dashState);
         
-        Debug.Log($"Dashing {multiplier} units in direction {direction}");
     }
 }

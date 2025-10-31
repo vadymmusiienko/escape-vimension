@@ -3,8 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
+    public float baseMoveSpeed = 5f; // Base movement speed (for size 1.0)
     public float desiredRotationSpeed = 0.1f;
+    
     
     [Header("Gravity")]
     public float gravity = 9.8f;
@@ -15,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public float InputY { get; set; }
     public float Speed { get; set; }
     
+    // Properties
+    public float CurrentMoveSpeed => GetEffectiveMoveSpeed();
+    
     // Movement
     public Vector3 desiredMoveDirection;
     public float verticalVel;
@@ -22,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     
     // Components
     public CharacterController controller;
+    private LevelSystem levelSystem;
     
     // Gravity control
     private bool gravityEnabled = true;
@@ -29,6 +34,19 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        levelSystem = GetComponent<LevelSystem>();
+    }
+    
+    /// <summary>
+    /// Gets the effective movement speed based on player level
+    /// </summary>
+    private float GetEffectiveMoveSpeed()
+    {
+        if (levelSystem != null)
+        {
+            return levelSystem.GetCurrentSpeed();
+        }
+        return baseMoveSpeed; // Fallback if no level system
     }
     
     void Update()
@@ -46,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
     
     public void HandleMovement()
     {
+        // Don't allow movement if locked
+        if (IsMovementLocked())
+        {
+            return;
+        }
+        
         if (Speed > 0)
         {
             // For bird's eye view, use world space movement
@@ -63,15 +87,16 @@ public class PlayerMovement : MonoBehaviour
                 );
             }
             
-            // Move player
-            Vector3 horizontalMove = desiredMoveDirection * Time.deltaTime * moveSpeed;
+            // Move player with size-proportional speed
+            float effectiveSpeed = GetEffectiveMoveSpeed();
+            Vector3 horizontalMove = desiredMoveDirection * Time.deltaTime * effectiveSpeed;
             controller.Move(horizontalMove);
         }
     }
     
     private void HandleInput()
     {
-        // Handle input directly (fallback if InputManager not available)
+        // Handle input directly
         InputX = 0;
         InputY = 0;
         
@@ -115,5 +140,16 @@ public class PlayerMovement : MonoBehaviour
             verticalVel = 0; // Reset vertical velocity when disabling gravity
         }
     }
+    
+    public bool IsMovementLocked()
+    {
+        return IsDialogueActive();
+    }
+    
+    private bool IsDialogueActive()
+    {
+        return DialogueManager.instance != null && DialogueManager.instance.IsDialogueActive();
+    }
+    
     
 }

@@ -8,7 +8,6 @@ public class EnemyPatrolState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Patroling");
         enemy.agent?.SetDestination(enemy.patrolPoints[patrolPointIndex].position);
     }
 

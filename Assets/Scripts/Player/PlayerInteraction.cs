@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Pickup Settings")]
-    public float pickupRange = 2f;
+    public float basePickupRange = 2f; // Base pickup range for size 1.0
     public LayerMask itemLayer;
     
     [Header("Copy/Paste Settings")]
@@ -20,10 +20,12 @@ public class PlayerInteraction : MonoBehaviour
     public bool isCopying = false;
     
     private Animator anim;
+    private LevelSystem levelSystem;
     
     void Awake()
     {
         anim = GetComponent<Animator>();
+        levelSystem = GetComponent<LevelSystem>();
     }
     
     void Update()
@@ -62,7 +64,8 @@ public class PlayerInteraction : MonoBehaviour
     
     private void DetectNearbyItems()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, pickupRange, itemLayer);
+        float effectivePickupRange = GetEffectivePickupRange();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, effectivePickupRange, itemLayer);
         
         if (hitColliders.Length > 0)
         {
@@ -129,6 +132,13 @@ public class PlayerInteraction : MonoBehaviour
         isPickingUp = true;
         anim.SetTrigger("Pickup");
         
+        // Play pickup sound
+        PlayerAudioController audioController = GetComponent<PlayerAudioController>();
+        if (audioController != null)
+        {
+            audioController.PlayPickupSound();
+        }
+        
         // Pick up immediately
         nearbyItem.OnPickup(GetComponent<Player>());
         nearbyItem = null;
@@ -187,7 +197,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                    direction = cam.transform.forward;
+                direction = cam.transform.forward;
             }
         }
         else
@@ -261,6 +271,19 @@ public class PlayerInteraction : MonoBehaviour
         
         // If no intersection, return zero vector (will fall back to keyboard input)
         return Vector3.zero;
+    }
+    
+    /// <summary>
+    /// Gets the effective pickup range based on player size
+    /// </summary>
+    private float GetEffectivePickupRange()
+    {
+        if (levelSystem != null)
+        {
+            float playerSize = levelSystem.GetCurrentSize();
+            return basePickupRange * playerSize;
+        }
+        return basePickupRange; // Fallback if no level system
     }
     
 }

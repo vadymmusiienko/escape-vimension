@@ -10,6 +10,7 @@ public class PlayerDashState : PlayerState
     private Vector3 dashTargetPosition;
     private bool isDashing = false;
     private CharacterController characterController;
+    private PlayerAudioController audioController;
     
     public PlayerDashState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) 
         : base(_player, _stateMachine, _animBoolName) 
@@ -17,6 +18,7 @@ public class PlayerDashState : PlayerState
         dashDuration = 0.3f; // Default dash duration
         dashDistance = 1f;   // Default dash distance
         characterController = player.GetComponent<CharacterController>();
+        audioController = player.GetComponent<PlayerAudioController>();
     }
     
     public void InitializeDash(int multiplier, Vector2 direction, float duration, float distance)
@@ -40,6 +42,12 @@ public class PlayerDashState : PlayerState
         isDashing = true;
         stateTimer = dashDuration;
         
+        // Play dash sound effect
+        if (audioController != null)
+        {
+            audioController.PlayDashSound(dashDuration);
+        }
+        
         // Disable gravity during dash
         if (player.movement != null)
         {
@@ -59,6 +67,12 @@ public class PlayerDashState : PlayerState
     public override void Exit()
     {
         // Don't call base.Exit() to avoid setting animation bools
+        
+        // Stop dash sound effect
+        if (audioController != null)
+        {
+            audioController.StopDashSound();
+        }
         
         // Re-enable gravity
         if (player.movement != null)

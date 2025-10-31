@@ -1,23 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ExpUI : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI levelText; // Shows current level
-    public TextMeshProUGUI expText; // Shows exp progress (e.g., "150/200")
-    public Image expBarFill; // The experience bar fill
-    public Image expBarBackground; // The experience bar background
-    
-    [Header("Display Settings")]
-    public string levelLabel = "Level: ";
-    public string expLabel = "EXP: ";
+    public Slider expSlider; // The experience bar slider
     
     [Header("Bar Colors")]
     public Color expBarColor = Color.blue;
     public Color expBarBackgroundColor = Color.gray;
-    public Color expBarGlowColor = Color.cyan;
     
     
     private LevelSystem levelSystem;
@@ -26,6 +17,11 @@ public class ExpUI : MonoBehaviour
     {
         // Initialize display
         UpdateDisplay();
+    }
+    
+    void Awake()
+    {
+        if (expSlider == null) expSlider = GetComponent<Slider>();
     }
     
     /// <summary>
@@ -63,20 +59,20 @@ public class ExpUI : MonoBehaviour
     {
         if (levelSystem == null) return;
         
-        // Update level text
-        if (levelText != null)
+        // Check if player is at max level
+        bool isAtMaxLevel = levelSystem.IsAtMaxLevel();
+        
+        // Hide/show exp slider based on max level
+        if (expSlider != null)
         {
-            levelText.text = $"{levelLabel}{levelSystem.GetCurrentLevel()}";
+            expSlider.gameObject.SetActive(!isAtMaxLevel);
         }
         
-        // Update exp text
-        if (expText != null)
+        // Update exp bar only if not at max level
+        if (!isAtMaxLevel)
         {
-            expText.text = $"{expLabel}{levelSystem.GetCurrentExp()}/{levelSystem.GetExpToNextLevel()}";
+            UpdateExpBar();
         }
-        
-        // Update exp bar
-        UpdateExpBar();
     }
     
     /// <summary>
@@ -84,19 +80,10 @@ public class ExpUI : MonoBehaviour
     /// </summary>
     private void UpdateExpBar()
     {
-        if (expBarFill == null) return;
+        if (expSlider == null) return;
         
         float progress = levelSystem.GetExpProgress();
-        expBarFill.fillAmount = progress;
-        
-        // Set bar color
-        expBarFill.color = expBarColor;
-        
-        // Set background color
-        if (expBarBackground != null)
-        {
-            expBarBackground.color = expBarBackgroundColor;
-        }
+        expSlider.value = progress;
     }
     
     
@@ -106,7 +93,6 @@ public class ExpUI : MonoBehaviour
     /// <param name="newLevel">The new level</param>
     private void OnLevelUp(int newLevel)
     {
-        Debug.Log($"ExpUI: Player reached level {newLevel}!");
         UpdateDisplay();
     }
     
@@ -126,7 +112,6 @@ public class ExpUI : MonoBehaviour
     /// <param name="newStrength">New total strength</param>
     private void OnStrengthGained(int newStrength)
     {
-        Debug.Log($"ExpUI: Player strength is now {newStrength}!");
     }
     
 }

@@ -65,7 +65,6 @@ public class ProjectileController : MonoBehaviour
             if (enemy != null)
             {
                 // TODO: Add damage system to Entity class
-                Debug.Log($"Projectile hit enemy for {damage} damage!");
             }
             
         }

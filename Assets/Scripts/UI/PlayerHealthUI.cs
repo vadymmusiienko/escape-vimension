@@ -1,28 +1,25 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
-    [SerializeField] private Slider healthSlider;
+    [Header("UI References")]
+    public Slider healthSlider;
 
-    private void OnEnable()
+    [Header("Bar Colors")]
+    public Color healthBarColor = Color.red;
+    public Color healthBarBackgroundColor = Color.gray;
+
+    public void Awake()
     {
-        Debug.Log("HealthBar UI is ENABLED, subscribing to OnHealthChanged event.");
-        PlayerHealth.OnHealthChanged += UpdateHealthBar;
+        if (healthSlider == null) healthSlider = GetComponent<Slider>();
     }
 
-    private void OnDisable()
+    public void UpdateHealthbar(float currentHealth, float maxHealth)
     {
-        Debug.Log("HealthBar UI is DISABLED, unsubscribing from OnHealthChanged event.");
-        PlayerHealth.OnHealthChanged -= UpdateHealthBar;
-    }
+        if (healthSlider == null) return;
+        float fillValue = currentHealth / maxHealth;
 
-    private void UpdateHealthBar(float currentHealth, float maxHealth)
-    {
-        Debug.Log($"--- HealthBar UI has received an update! New Health: {currentHealth} ---");
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth / maxHealth;
-        }
+        healthSlider.value = fillValue;
     }
 }

@@ -24,7 +24,7 @@ public class HealthbarEnemy : MonoBehaviour
     {
         if (_healthbarSprite != null)
         {
-            _healthbarSprite.fillAmount = currentHealth / maxHealth;
+            _target = currentHealth / maxHealth;
         }
     }
 }
