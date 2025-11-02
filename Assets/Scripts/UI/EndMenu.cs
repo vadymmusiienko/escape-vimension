@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class EndMenu : MonoBehaviour
 {
-    private void OnTriggerEnter()
+    public void End()
     {
         SceneManager.LoadScene("EndScene");
     }

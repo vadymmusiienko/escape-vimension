@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 6905362}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 12.959378, z: -7.3005476}
+  m_LocalPosition: {x: 6.16, y: 12.959388, z: -7.3005533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 12.07994
+  CameraDistance: 12.07997
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
@@ -864,7 +864,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   itemsToDropOnDeath:
-  - {fileID: 0}
+  - {fileID: 2017920700809002287, guid: 3ad183f7c2b66b44da8eafec4a0b2f13, type: 3}
   - {fileID: 0}
   agent: {fileID: 0}
   healthBar: {fileID: 1943309168}
@@ -6142,7 +6142,7 @@ Transform:
   m_GameObject: {fileID: 829407139}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49297303, y: 0, z: 0, w: 0.8700446}
-  m_LocalPosition: {x: 6.16, y: 12.959378, z: -7.3005476}
+  m_LocalPosition: {x: 6.16, y: 12.959388, z: -7.3005533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7813,6 +7813,151 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c894162ae9cce424098d96a2aeab4af6, type: 3}
+--- !u!1001 &999851476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1349218200}
+    m_Modifications:
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.x
+      value: 2.8465586
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2092189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Size.z
+      value: 0.66858065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.x
+      value: -0.45494273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.y
+      value: 0.1046124
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Center.z
+      value: 0.24762477
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: deleteAfterDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].text
+      value: Here is the final boss.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: You need to kill the cursor to end the dominance of mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: You are the last hope to revive Vim.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: Beat it! And escape from Vimension!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].text
+      value: Beat it! And escape from Vimension!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_Name
+      value: Dialogue_trigger (Boss)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.838111
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.597
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.0341
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37a4747495d511d4999de37f253e5804, type: 3}
 --- !u!1001 &1020195528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8462,7 +8607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41709326287632681, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
       propertyPath: m_Size.z
-      value: 5.089443
+      value: 3.0539246
       objectReference: {fileID: 0}
     - target: {fileID: 41709326287632681, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
       propertyPath: m_Center.x
@@ -8470,7 +8615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 41709326287632681, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
       propertyPath: m_Center.z
-      value: 1.9972019
+      value: 0.38014603
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238721340435971092, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
+      propertyPath: MinDistance
+      value: 1.0424767
       objectReference: {fileID: 0}
     - target: {fileID: 5250653994134552958, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
       propertyPath: Door
@@ -8930,6 +9079,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00ea8881b0f20774797427ba811f2e66, type: 3}
+--- !u!4 &1201399670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+  m_PrefabInstance: {fileID: 999851476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1206828566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9588,6 +9742,7 @@ Transform:
   - {fileID: 1939164362}
   - {fileID: 1736831083}
   - {fileID: 1581143803}
+  - {fileID: 1201399670}
   - {fileID: 662428092}
   - {fileID: 753339496}
   - {fileID: 1459486697}
