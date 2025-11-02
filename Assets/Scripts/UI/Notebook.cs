@@ -24,9 +24,11 @@ public class Notebook : MonoBehaviour
         {"x", new Command { description = "Cut", found = false}},
         {"1-5", new Command { description = "Multiply (Dash)", found = false}},
         {"d", new Command { description = "Delete", found = false}},
-        {"y", new Command { description = "Paste", found = false}},
-        {"/", new Command { description = "Search", found = false}},
-        {"gg", new Command { description = "Go to beginning", found = false}},
+        // {"y", new Command { description = "Paste", found = false}},
+        // {"/", new Command { description = "Search", found = false}},
+        // {"gg", new Command { description = "Go to beginning", found = false}},
+        {":q", new Command { description = "Quit", found = false}},
+
     };
 
     private CanvasGroup canvasGroup;
