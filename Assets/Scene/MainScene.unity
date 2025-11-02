@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 119088124}
   - component: {fileID: 119088127}
   - component: {fileID: 119088128}
+  - component: {fileID: 119088129}
   m_Layer: 9
   m_Name: BossCursorPivot
   m_TagString: Enemy
@@ -854,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.5
-  maxHealth: 100
+  maxHealth: 500
   attackDamage: 10
   attackCooldown: 2
   attackRange: 4
@@ -864,8 +865,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   itemsToDropOnDeath:
-  - {fileID: 2017920700809002287, guid: 3ad183f7c2b66b44da8eafec4a0b2f13, type: 3}
-  - {fileID: 0}
+  - {fileID: 6800510950618195169, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
+  - {fileID: 6800510950618195169, guid: bea73c3af3c19b44ca43454345478e32, type: 3}
   agent: {fileID: 0}
   healthBar: {fileID: 1943309168}
   patrolPoints: []
@@ -944,6 +945,75 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &119088129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119088123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3f339d8bce2471b976ad4c87fd8dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStrings:
+  - text: "The Cursor fades\u2026 the endless motion finally stills."
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "You did it\u2014you\u2019ve conquered the VimEnsion itself."
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: From the remains of the Cursor, a storm of potions bursts forth!
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Each one radiates with pure Vim energy.
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "Collect them\u2026 and see what true mastery feels like."
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: 
+    unlockCommands: []
+    isEnd: 1
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  deleteAfterDialogue: 1
+  triggerOnlyOnce: 1
 --- !u!4 &120283670 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
@@ -2776,6 +2846,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1087757595}
+    - targetCorrespondingSourceObject: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1087757611}
   m_SourcePrefab: {fileID: 100100000, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
 --- !u!1 &356831287 stripped
 GameObject:
@@ -6526,6 +6599,170 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1954709115183033765, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
   m_PrefabInstance: {fileID: 350596050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &868038962
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1349218200}
+    m_Modifications:
+    - target: {fileID: 2833430335298853480, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Size.x
+      value: 51.99032
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833430335298853480, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0700731
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833430335298853480, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Size.z
+      value: 26.463978
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833430335298853480, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Center.x
+      value: -7.173458
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833430335298853480, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Center.z
+      value: -5.010355
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: triggerOnlyOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: deleteAfterDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[0].text
+      value: "Power surges through you\u2014the Vim energy overflows!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[1].text
+      value: "You grow\u2026 taller\u2026 larger\u2026 unstoppable."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].text
+      value: "The walls crack, the floor bends\u2014you no longer fit inside the
+        VimEnsion."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[3].text
+      value: "You\u2019ve surpassed its limits."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[4].text
+      value: You are Vim.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[5].text
+      value: "You\u2019ve learned all there is to know\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].text
+      value: "You always had the power to leave this world\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].text
+      value: "\u2026you just didn\u2019t know the command."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[8].text
+      value: Type it now, and return to reality.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[9].text
+      value: :q
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[10].text
+      value: It was always within you
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[11].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[2].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[11].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: dialogueStrings.Array.data[9].unlockCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3121043364932249727, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[9].unlockCommands.Array.data[0]'
+      value: :q
+      objectReference: {fileID: 0}
+    - target: {fileID: 5051804938782962328, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 702368101}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190502484423769198, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+      propertyPath: m_Name
+      value: Dialogue_trigger (Grown-end)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5051804938782962328, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+--- !u!4 &868038963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5965537807693100351, guid: fea1247694e2ba14fa9bf840878e0e74, type: 3}
+  m_PrefabInstance: {fileID: 868038962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &871680940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7846,36 +8083,48 @@ PrefabInstance:
       value: 0.24762477
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: triggerOnlyOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: deleteAfterDialogue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
-      value: Here is the final boss.
+      value: The door slams shut behind you.
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[1].text
-      value: You need to kill the cursor to end the dominance of mouse
+      value: "Then, from the darkness, it appears\u2014"
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[2].text
-      value: You are the last hope to revive Vim.
+      value: The Cursor. The heart of the VimEnsion.
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[3].text
-      value: Beat it! And escape from Vimension!
+      value: To escape, you must stop it.
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].text
-      value: 
+      value: "Remember everything you\u2019ve learned\u2014movement, precision, deletion."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].text
-      value: Beat it! And escape from Vimension!
+      value: "\u201CD\u201D will be your blade."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].text
+      value: Good luck, Master of Normal Mode.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].isEnd
@@ -7895,7 +8144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[4].isEnd
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].isEnd
@@ -7903,11 +8152,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[6].isEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].isEnd
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7017567965384996032, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Name
-      value: Dialogue_trigger (Boss)
+      value: Dialogue_trigger (Final Boss)
       objectReference: {fileID: 0}
     - target: {fileID: 8279285616148337374, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_LocalScale.y
@@ -8464,6 +8717,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12345678901234567890123456789014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1087757611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356831287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379926c0957b84f4882b3785ad2a1479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStrings:
+  - text: "You quit Vim\u2026 and the VimEnsion collapses behind you."
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Freedom at last.
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "\u2026But somewhere deep inside, a whisper remains\u2014"
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: "\u201CNext time, try :wq.\u201D"
+    unlockCommands: []
+    isEnd: 0
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: 
+    unlockCommands: []
+    isEnd: 1
+    startDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endDialogueEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  endSceneName: EndScene
+  triggerOnlyOnce: 1
+  commandTimeout: 2
 --- !u!1001 &1098285340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9742,11 +10056,12 @@ Transform:
   - {fileID: 1939164362}
   - {fileID: 1736831083}
   - {fileID: 1581143803}
-  - {fileID: 1201399670}
   - {fileID: 662428092}
   - {fileID: 753339496}
   - {fileID: 1459486697}
   - {fileID: 2118188954}
+  - {fileID: 1201399670}
+  - {fileID: 868038963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1349576172 stripped
@@ -14966,63 +15281,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c8856d178bfde94185767746b32fd15, type: 3}
---- !u!1001 &4759943921868971651
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4650193249417415882, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_Name
-      value: WinTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.59775
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 43.17848
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302505709580603495, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a1c0daf208f13ae43951cc71651e8471, type: 3}
 --- !u!1001 &7654263097902926248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15271,7 +15529,6 @@ SceneRoots:
   - {fileID: 1820115577}
   - {fileID: 1193740389}
   - {fileID: 150850359}
-  - {fileID: 4759943921868971651}
   - {fileID: 911821220}
   - {fileID: 899120361}
   - {fileID: 119088126}
