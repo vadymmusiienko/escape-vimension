@@ -6,10 +6,9 @@ public class EnemyErosionController : MonoBehaviour
     [SerializeField] private Renderer[] renderers;
 
     [SerializeField] private string thresholdName = "_Threshold";
-    [SerializeField] private float aliveValue = 0.5f;
+    [SerializeField] private float aliveValue = 0.1f;
     [SerializeField] private float deadValue  = 2.0f;
-
-    [SerializeField] private float duration = 2.0f;
+    [SerializeField] private float duration = 2.5f;
 
     private static int _thresholdId = -1;
     private MaterialPropertyBlock _mpb;

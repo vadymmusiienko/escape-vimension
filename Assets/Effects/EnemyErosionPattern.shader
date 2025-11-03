@@ -13,9 +13,9 @@ Shader "Custom/EnemyErosionPattern"
         [ToggleOff] _GlossyReflections("Reflections", Float) = 1
 
         _PatternTex("Pattern (BW)", 2D) = "white" {}
-        _PatternTiling("Pattern Tiling (world units)", Float) = 0.01
-        _Threshold("Pattern Threshold", Range(0.5, 2)) = 0.5
-        _EdgeWidth("Pattern Edge Width", Range(0.001,1)) = 1
+        _PatternTiling("Pattern Tiling (world units)", Float) = 0.02
+        _Threshold("Pattern Threshold", Range(0.1, 2.0)) = 0.1
+        _EdgeWidth("Pattern Edge Width", Range(0.001,1)) = 0.5
 
         _Opacity("Opacity", Range(0,1)) = 1
     }
