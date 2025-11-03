@@ -568,12 +568,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  itemsToDropOnDeath:
+  - {fileID: 0}
+  - {fileID: 0}
   agent: {fileID: 0}
   healthBar: {fileID: 7985416095925161292}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  hitStarEffectPrefab: {fileID: 6439425297312769838, guid: 7d75d873ce9894c8083ef1a3f29050d8, type: 3}
+  flashDuration: 0.15
+  attackSoundClip: {fileID: 0}
+  attackSoundVolume: 0.8
   isDead: 0
   lastAttackTime: 0
   playerTarget: {fileID: 0}

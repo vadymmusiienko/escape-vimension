@@ -30,9 +30,9 @@ public class EnemyTurtle : Enemy
 
         base.TakeDamage(damage, hitPoint);
 
-        if (hitEffectPrefab != null)
+        if (hitStarEffectPrefab != null)
         {
-            Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+            Instantiate(hitStarEffectPrefab, hitPoint, Quaternion.identity);
         }
 
         if (!isDead)

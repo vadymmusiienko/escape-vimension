@@ -28,7 +28,7 @@ public class Enemy : Entity
     public Transform[] patrolPoints;
 
     [Header("Hit effect")]
-    [SerializeField] protected GameObject hitEffectPrefab;
+    [SerializeField] protected GameObject hitStarEffectPrefab;
     [SerializeField] private float flashDuration = 0.15f;
     private Renderer enemyRenderer;
     private Color originalColor;
@@ -144,9 +144,9 @@ public class Enemy : Entity
 
     private void TriggerHitEffects(Vector3 hitPoint)
     {
-        if (hitEffectPrefab != null)
+        if (hitStarEffectPrefab != null)
         {
-            Instantiate(hitEffectPrefab, hitPoint, Quaternion.identity);
+            Instantiate(hitStarEffectPrefab, hitPoint, Quaternion.identity);
         }
 
         if (enemyRenderer != null)

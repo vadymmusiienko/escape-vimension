@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class EnemyHitEffect : MonoBehaviour
+{
+    [SerializeField] private ParticleSystem hitEffectPrefab;
+
+    public void SpawnHitEffect(Vector3 point, Vector3 normal)
+    {
+        if (!hitEffectPrefab) return;
+
+        // orient the cone to shoot outward from the surface
+        Quaternion rot = Quaternion.LookRotation(normal);
+        var fx = Instantiate(hitEffectPrefab, point, rot);
+        fx.Play(); // Stop Action = Destroy handles cleanup
+    }
+}
