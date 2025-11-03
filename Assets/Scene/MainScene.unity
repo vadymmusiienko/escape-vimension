@@ -870,7 +870,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   healthBar: {fileID: 1943309168}
   patrolPoints: []
-  hitEffectPrefab: {fileID: 3647945643860337701, guid: a319b4ad2ca23f1469e0001475b8b6b8, type: 3}
+  hitStarEffectPrefab: {fileID: 6439425297312769838, guid: 7d75d873ce9894c8083ef1a3f29050d8, type: 3}
   flashDuration: 0.15
   attackSoundClip: {fileID: 8300000, guid: 7a08f49913261438a8af770e0f3019df, type: 3}
   attackSoundVolume: 0.8

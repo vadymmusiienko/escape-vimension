@@ -214,12 +214,19 @@ public class Enemy : Entity
     
     protected void SetEnemyInvisible()
     {
-        // Disable all renderers to make enemy invisible
-        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        /* Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
             renderer.enabled = false;
+        } */
+        
+        // Disable all renderers to make enemy invisible via dissolve effect
+        EnemyErosionController erode = GetComponent<EnemyErosionController>();
+        if (erode)
+        {
+            erode.TriggerErode();
         }
+
         
         // Disable colliders so player can't interact with it
         Collider[] colliders = GetComponentsInChildren<Collider>();
