@@ -200,6 +200,11 @@ public class Enemy : Entity
         {
             // No dialogue triggers, proceed normally
             anim?.SetTrigger("Die");
+
+            // Apply erosion effect
+            EnemyErosionController erode = GetComponent<EnemyErosionController>();
+            if (erode) erode.TriggerErode();
+            
             Destroy(gameObject, 2f);
         }
         
