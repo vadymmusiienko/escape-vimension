@@ -3,7 +3,7 @@ Shader "Custom/EnemyErosionPattern"
     Properties
     {
         _MainTexture("Texture", 2D) = "white" {}
-        _BaseColour("Base colour", Color) = (0.3, 0.6, 0.8, 1)
+        _Color("Base colour", Color) = (0.3, 0.6, 0.8, 1)
 
         _GlowIntensity("Glow Intensity", Range(0, 8)) = 2
         _GlowColor("Glow Color", Color) = (0.8, 1, 0.8, 1)
@@ -41,7 +41,7 @@ Shader "Custom/EnemyErosionPattern"
             struct v2f { float4 pos:SV_POSITION; float2 uv:TEXCOORD0; float3 wPos:TEXCOORD1; float3 wNormal:TEXCOORD2; };
 
             sampler2D _MainTexture; float4 _MainTexture_ST;
-            fixed4 _BaseColour, _GlowColor;
+            fixed4 _Color, _GlowColor;
             float _GlowIntensity, _Opacity;
             float _Shininess, _Reflectivity;
 
@@ -85,7 +85,7 @@ Shader "Custom/EnemyErosionPattern"
                 float3 L = normalize(_WorldSpaceLightPos0.xyz);
                 float3 lightColor = _LightColor0.rgb;
 
-                float3 albedo = tex2D(_MainTexture, i.uv).rgb * _BaseColour.rgb;
+                float3 albedo = tex2D(_MainTexture, i.uv).rgb * _Color.rgb;
 
                 float nDotL = max(0.0, dot(N, L));
                 float3 diffuse = albedo * lightColor * nDotL;
