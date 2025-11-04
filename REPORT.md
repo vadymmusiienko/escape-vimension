@@ -396,6 +396,10 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 TODO - see specification for details
 **Zhukun He**: Player state machine, Player health bar, Enemy state machine, Enemy AI, Enemy boss, level build, dialogue system, trap event, fog cover, door trigger, damage system, boss sweep attack effect
 
+### Casey Watt-Calder
+- Recorded and produced gameplay video
+- Created notebook ui element with dialogue integration
+- Performed post-task walkthrough evaluation and made improvements according to the results
 
 
 ## References and External Resources
