@@ -15,21 +15,7 @@ public class Notebook : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Button notebookButton;
     [SerializeField] private TextMeshProUGUI commandText;
 
-    private static Dictionary<string, Command> commands = new Dictionary<string, Command>()
-    {
-        {"h", new Command { description = "Left", found = false}},
-        {"j", new Command { description = "Down", found = false}},
-        {"k", new Command { description = "Up", found = false}},
-        {"l", new Command { description = "Right", found = false}},
-        {"x", new Command { description = "Cut", found = false}},
-        {"1-5", new Command { description = "Multiply (Dash)", found = false}},
-        {"d", new Command { description = "Delete", found = false}},
-        // {"y", new Command { description = "Paste", found = false}},
-        // {"/", new Command { description = "Search", found = false}},
-        // {"gg", new Command { description = "Go to beginning", found = false}},
-        {":q", new Command { description = "Quit", found = false}},
-
-    };
+    private static Dictionary<string, Command> commands;
 
     private CanvasGroup canvasGroup;
 
@@ -38,6 +24,20 @@ public class Notebook : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
         notebookButton.onClick.AddListener(notebookClicked);
+
+        commands = new Dictionary<string, Command>()    {
+            {"h", new Command { description = "Left", found = false}},
+            {"j", new Command { description = "Down", found = false}},
+            {"k", new Command { description = "Up", found = false}},
+            {"l", new Command { description = "Right", found = false}},
+            {"x", new Command { description = "Cut", found = false}},
+            {"1-5", new Command { description = "Multiply (Dash)", found = false}},
+            {"d", new Command { description = "Delete", found = false}},
+            // {"y", new Command { description = "Paste", found = false}},
+            // {"/", new Command { description = "Search", found = false}},
+            // {"gg", new Command { description = "Go to beginning", found = false}},
+            {":q", new Command { description = "Quit", found = false}},
+        };
     }
 
     void Update()
@@ -85,6 +85,11 @@ public class Notebook : MonoBehaviour
             {
                 commandText.text += $"{key} - {cmd.description}\n";
             }
+        }
+
+        if (commandText.text == "")
+        {
+            commandText.text = "Commands will appear here\nwhen you discover them.";
         }
     }
 }
