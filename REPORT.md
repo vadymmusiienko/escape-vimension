@@ -253,7 +253,7 @@ Overall, the survey evaluation indicates that players found the game enjoyable, 
 
 ## Shaders and Special Effects
 
-**Particle System**
+#### Particle System
 Particle System for Assessment: SweepEffect
 
 File Path: Assets/Effects/SweepEffect.prefab
@@ -298,21 +298,21 @@ In this specific effect, randomness was deliberately avoided in key areas like S
     Rationale: The primary purpose of this particle system is clarity-to serve as an unambiguous AoE indicator. Introducing randomness to the size or color of the warning could make the attack's boundaries look "fuzzy" or inconsistent, potentially confusing the player. By using constant values, we ensure the warning is clean, sharp, and identical every time, which is crucial for fair, learnable gameplay. The autoRandomSeed: 1  setting provides sufficient internal variation without compromising the effect's core purpose.
 
 
-**Shaders**
+#### Shaders
 In the game, two non-trivial custom shaders were designed and implemented, including a glowing potion effect (<Assets/Effects/PotionGlowNew.shader>) and an enemy erosion effect (<Assets/Effects/EnemyErosionPattern.shader>). These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
 
-1. Glowing Potion Effect
-More specifically, the glowing potion shader follows the Forward Rendering logic of Unity’s Built-in Render Pipeline, implementing custom vertex and fragment functions defined through the UnityCG.cginc file. By tagging the pass as Transparent, enabling Blend SrcAlpha OneMinusSrcAlpha, disabling depth writes with ZWrite Off, and culling back faces, the shader ensures that the potion bottles render with realistic transparency, which perfectly matching the glass-like fantasy aesthetic the game aims for.
+1. **Glowing Potion Effect**
+    More specifically, the glowing potion shader follows the Forward Rendering logic of Unity’s Built-in Render Pipeline, implementing custom vertex and fragment functions defined through the UnityCG.cginc file. By tagging the pass as Transparent, enabling Blend SrcAlpha OneMinusSrcAlpha, disabling depth writes with ZWrite Off, and culling back faces, the shader ensures that the potion bottles render with realistic transparency, which perfectly matching the glass-like fantasy aesthetic the game aims for.
 
-The visual foundation of the shader begins with _MainTexture multiplied by _BaseColour, forming the base albedo. This is then enriched by diffuse, specular, and optional reflection components, controlled by _SpecularColor, _Shininess, _Reflectivity, and the _GlossyReflections toggle. These parameters collectively give the surface a polished, physically convincing finish, approaching the richness of Unity’s Standard shader while retaining custom artistic control.
-The signature repeating glow is driven by a sine wave, shaped through _GlowSpeed, _GlowIntensity, and _GlowColor, which modulate both an outer emission and a companion Fresnel-based inner glow for natural luminosity. On top of this, rim lighting, which is configured by _RimPower, _RimIntensity, and _RimColor, adds an additional layer of readability, highlighting object contours in synchrony with the animated glow. This creates a cohesive, dynamic lighting response that not only enhances the potion’s magical appearance but also serves as a clear in-game visual cue for the players.
+    The visual foundation of the shader begins with _MainTexture multiplied by _BaseColour, forming the base albedo. This is then enriched by diffuse, specular, and optional reflection components, controlled by _SpecularColor, _Shininess, _Reflectivity, and the _GlossyReflections toggle. These parameters collectively give the surface a polished, physically convincing finish, approaching the richness of Unity’s Standard shader while retaining custom artistic control.
+    The signature repeating glow is driven by a sine wave, shaped through _GlowSpeed, _GlowIntensity, and _GlowColor, which modulate both an outer emission and a companion Fresnel-based inner glow for natural luminosity. On top of this, rim lighting, which is configured by _RimPower, _RimIntensity, and _RimColor, adds an additional layer of readability, highlighting object contours in synchrony with the animated glow. This creates a cohesive, dynamic lighting response that not only enhances the potion’s magical appearance but also serves as a clear in-game visual cue for the players.
 
-2. Enemy Erosion Effect
-Similarly, the project implements an erosion effect to make enemy characters disappear in a more visually engaging way, thereby enhancing the overall game visuals. The shader targets the Built-in Render Pipeline and uses a custom vertex and fragment pass that includes UnityCG.cginc and Lighting.cginc. Unlike the earlier potion shader, this material renders in the geometry queue as an opaque surface with depth writes enabled and no alpha blending.
+2. **Enemy Erosion Effect**
+    Similarly, the project implements an erosion effect to make enemy characters disappear in a more visually engaging way, thereby enhancing the overall game visuals. The shader targets the Built-in Render Pipeline and uses a custom vertex and fragment pass that includes UnityCG.cginc and Lighting.cginc. Unlike the earlier potion shader, this material renders in the geometry queue as an opaque surface with depth writes enabled and no alpha blending.
 
-The dissolve effect is driven by the clip(patternEdge - 0.001) statement in the fragment stage, in which fragments that fail the comparison are discarded, producing the eroding effect. A triplanar sampling of the pattern texture blends world-space projections, ensuring the breakup follows surface orientation, while the Edge Width parameter softens the transition band. After testing several grayscale masks, we selected a soft cloud texture because it produced the smoothest breakup without visible seams.
+    The dissolve effect is driven by the clip(patternEdge - 0.001) statement in the fragment stage, in which fragments that fail the comparison are discarded, producing the eroding effect. A triplanar sampling of the pattern texture blends world-space projections, ensuring the breakup follows surface orientation, while the Edge Width parameter softens the transition band. After testing several grayscale masks, we selected a soft cloud texture because it produced the smoothest breakup without visible seams.
 
-Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the TriggerErode() method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
+    Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the TriggerErode() method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
 
 
 
