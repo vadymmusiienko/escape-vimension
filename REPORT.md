@@ -255,7 +255,7 @@ As a direct result of interview feedback:
 -   The development team acknowledged the need to **broaden accessibility** for players unfamiliar with Vim by providing clearer context and visual guidance early in the game.
 
 
-### Survey (By Moon Ren)
+### Survey (By Xinyi Ren)
 #### Purpose
 The purpose of the survey evaluation was to collect structured feedback from players regarding their overall gameplay experience. By using quantitative ratings and short qualitative comments, the survey aimed to measure aspects such as enjoyability, difficulty, clarity of instructions, audio-visual quality, and learning effectiveness.
 
@@ -379,7 +379,12 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
     More specifically, the glowing potion shader follows the Forward Rendering logic of Unity’s Built-in Render Pipeline, implementing custom vertex and fragment functions defined through the UnityCG.cginc file. By tagging the pass as Transparent, enabling Blend SrcAlpha OneMinusSrcAlpha, disabling depth writes with ZWrite Off, and culling back faces, the shader ensures that the potion bottles render with realistic transparency, which perfectly matching the glass-like fantasy aesthetic the game aims for.
 
     The visual foundation of the shader begins with _MainTexture multiplied by _BaseColour, forming the base albedo. This is then enriched by diffuse, specular, and optional reflection components, controlled by _SpecularColor, _Shininess, _Reflectivity, and the _GlossyReflections toggle. These parameters collectively give the surface a polished, physically convincing finish, approaching the richness of Unity’s Standard shader while retaining custom artistic control.
+
     The signature repeating glow is driven by a sine wave, shaped through _GlowSpeed, _GlowIntensity, and _GlowColor, which modulate both an outer emission and a companion Fresnel-based inner glow for natural luminosity. On top of this, rim lighting, which is configured by _RimPower, _RimIntensity, and _RimColor, adds an additional layer of readability, highlighting object contours in synchrony with the animated glow. This creates a cohesive, dynamic lighting response that not only enhances the potion’s magical appearance but also serves as a clear in-game visual cue for the players.
+
+    Moreover, our game is designed to help players familiarise themselves with Vim commands through an engaging and interactive gameplay experience. To achieve this goal, we aimed to make the clues within each puzzle as clear and intuitive as possible, ensuring that players can focus on learning command-based movement rather than struggling to identify objectives. The dynamic glowing effect applied to the potions provides a strong visual contrast against the otherwise static environment, naturally drawing the player’s attention toward key interactable elements.
+
+    In addition, because the overall lighting design of the game is intentionally dark to maintain a mysterious and immersive atmosphere, the glow effect plays a crucial role in visual readability. It helps the potions stand out from the background, acting as both a gameplay cue and an aesthetic feature that complements the game’s fantasy theme. By highlighting interactive objects through controlled luminance, the shader not only enhances visual appeal but also improves player guidance, therefore simplifying gameplay and supporting the game’s educational purpose.
 
 2. **Enemy Erosion Effect**
 
@@ -389,19 +394,55 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 
     Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the TriggerErode() method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
 
+    Furthermore, as mentioned earlier, the inclusion of the erosion effect was primarily intended to enhance the visual quality of the game and make enemy deaths appear more dynamic and engaging. During development, several mask textures were tested, including circle, square, and honeycomb patterns, with the aim of achieving a distinctive “torn apart” effect. After multiple trials, the cloud pattern produced the most visually appealing result, offering a smooth, organic breakup without noticeable seams.
+    
+    In addition, the decision to adopt this erosion-based dissolution also aligns with common practices in modern game design, where enemies rarely vanish instantly upon defeat. Instead, they often fade, burn, or dissolve in visually satisfying ways that reinforce narrative tone and polish. Our chosen dissolve style was partly inspired by the death sequence of Lord Voldemort in Harry Potter and the Deathly Hallows, as well as the advanced disintegration effects showcased in Resident Evil VIII: Village. By referencing these cinematic and AAA game examples, the effect adds both thematic depth and visual sophistication, elevating the overall presentation of enemy defeat in our game.
+    
+
 
 
 ## Summary of Contributions
 
-TODO - see specification for details
-**Zhukun He**: Player state machine, Player health bar, Enemy state machine, Enemy AI, Enemy boss, level build, dialogue system, trap event, fog cover, door trigger, damage system, boss sweep attack effect
+**Zhukun He**
+- Implemented features including:
+    - Player state machine
+    - layer health bar
+    - Enemy state machine
+    - Enemy AI
+    - Enemy boss
+    - Level build
+    - Dialogue system
+    - Trap event
+    - Fog cover
+    - Door trigger
+    - Damage system
+    - Boss sweep attack effect
 
-### Casey Watt-Calder
+**Casey Watt-Calder**
 - Recorded and produced gameplay video
 - Created notebook ui element with dialogue integration
 - Performed post-task walkthrough evaluation and made improvements according to the results
 
+**Xinyi Ren**
+- Included initial GDD models (removed due to their file sizes)
+- Implemented features including:
+    - Potion glowing shader
+    - Enemy erosion shader
+    - Star attack particle system
+- Constructed evaluation plan
+- Performed survey evaluation
+
 
 ## References and External Resources
 
-TODO - see specification for details
+**Shader references**
+- https://www.youtube.com/watch?v=kfM-yu0iQBk
+- https://www.youtube.com/watch?v=3mfvZ-mdtZQ
+- https://www.youtube.com/watch?v=f4s1h2YETNY
+- https://www.youtube.com/watch?v=k11wcndXrmc
+- https://www.youtube.com/watch?v=Nd4vKyDGidY 
+- https://www.youtube.com/watch?v=OrWBSN0yasQ&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=1
+- https://www.youtube.com/watch?v=6CECPjNAoZw&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=4
+- https://www.youtube.com/watch?v=pOT5n1ZLxcE&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=14
+- https://www.youtube.com/watch?v=RtevmyHKvWE&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=14
+- https://www.youtube.com/watch?v=7q6GSVfyUbQ
