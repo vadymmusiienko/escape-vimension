@@ -279,22 +279,12 @@ Overall, the survey evaluation indicates that players found the game enjoyable, 
 -   **Notebook Instructions**
         - We added an introductory dialogue early in the game explicitly mentioning the notebook and encouraging players to refer to it when needed.
 
-### Combat Clarity Observations:
 
-Two participants were observed attacking the EnemyTurtle repeatedly while it was in its defensive state, expressing confusion as to why it wasn't taking damage. This suggests the "defend" visual cue is not distinct enough from its normal state.
-
-### Summary of Insights
-The observational findings confirm that while Escape the VimEnsion is mechanically functional, its core educational premise is failing to connect with its target audience. Players without prior context see the hjkl controls not as a learning opportunity, but as a poor design choice. The game must explicitly state its purpose (teaching Vim) at the very beginning to frame the player's experience correctly. Combat feedback (for both the Boss and the Turtle) is also not as clear as it needs to be.
-
-### Impact on Development
-As a direct result of this cooperative evaluation and in conjunction with the interview findings:
--   **Clarify "Why"**: An introductory dialogue panel will be added at the start of the game, explicitly stating: "You are in the VimEnsion. To escape, you must master its controls: h, j, k, l." This directly addresses the feedback from Zhexian Song and Emil Musiienko.
--   **Improve Boss sweep attack**: The SweepAttack particle system will be made brighter and larger to more clearly define the attack's safe/unsafe zones.
 
 
 ## Shaders and Special Effects
 
-**Particle System**
+#### Particle System
 Particle System for Assessment: SweepEffect
 
 File Path: Assets/Effects/SweepEffect.prefab
@@ -337,6 +327,25 @@ Utilisation of Randomness
 In this specific effect, randomness was deliberately avoided in key areas like Start Size and Start Color  (both are set to constant values, not "Random Between...").
 
     Rationale: The primary purpose of this particle system is clarity-to serve as an unambiguous AoE indicator. Introducing randomness to the size or color of the warning could make the attack's boundaries look "fuzzy" or inconsistent, potentially confusing the player. By using constant values, we ensure the warning is clean, sharp, and identical every time, which is crucial for fair, learnable gameplay. The autoRandomSeed: 1  setting provides sufficient internal variation without compromising the effect's core purpose.
+
+
+#### Shaders
+In the game, two non-trivial custom shaders were designed and implemented, including a glowing potion effect (<Assets/Effects/PotionGlowNew.shader>) and an enemy erosion effect (<Assets/Effects/EnemyErosionPattern.shader>). These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
+
+1. **Glowing Potion Effect**
+
+    More specifically, the glowing potion shader follows the Forward Rendering logic of Unity’s Built-in Render Pipeline, implementing custom vertex and fragment functions defined through the UnityCG.cginc file. By tagging the pass as Transparent, enabling Blend SrcAlpha OneMinusSrcAlpha, disabling depth writes with ZWrite Off, and culling back faces, the shader ensures that the potion bottles render with realistic transparency, which perfectly matching the glass-like fantasy aesthetic the game aims for.
+
+    The visual foundation of the shader begins with _MainTexture multiplied by _BaseColour, forming the base albedo. This is then enriched by diffuse, specular, and optional reflection components, controlled by _SpecularColor, _Shininess, _Reflectivity, and the _GlossyReflections toggle. These parameters collectively give the surface a polished, physically convincing finish, approaching the richness of Unity’s Standard shader while retaining custom artistic control.
+    The signature repeating glow is driven by a sine wave, shaped through _GlowSpeed, _GlowIntensity, and _GlowColor, which modulate both an outer emission and a companion Fresnel-based inner glow for natural luminosity. On top of this, rim lighting, which is configured by _RimPower, _RimIntensity, and _RimColor, adds an additional layer of readability, highlighting object contours in synchrony with the animated glow. This creates a cohesive, dynamic lighting response that not only enhances the potion’s magical appearance but also serves as a clear in-game visual cue for the players.
+
+2. **Enemy Erosion Effect**
+
+    Similarly, the project implements an erosion effect to make enemy characters disappear in a more visually engaging way, thereby enhancing the overall game visuals. The shader targets the Built-in Render Pipeline and uses a custom vertex and fragment pass that includes UnityCG.cginc and Lighting.cginc. Unlike the earlier potion shader, this material renders in the geometry queue as an opaque surface with depth writes enabled and no alpha blending.
+
+    The dissolve effect is driven by the clip(patternEdge - 0.001) statement in the fragment stage, in which fragments that fail the comparison are discarded, producing the eroding effect. A triplanar sampling of the pattern texture blends world-space projections, ensuring the breakup follows surface orientation, while the Edge Width parameter softens the transition band. After testing several grayscale masks, we selected a soft cloud texture because it produced the smoothest breakup without visible seams.
+
+    Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the TriggerErode() method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
 
 
 
