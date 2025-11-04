@@ -197,7 +197,7 @@ Three participants were observed:
 
 -   **Zhexian Song** - A graduated student with extensive gaming experience (preferring WASD controls) but no prior knowledge of Vim.
 
-Participant 2 - An undergraduate student with some programming background but no direct Vim experience.
+-   **Yibo Zhang** - An undergraduate student with some programming background but no direct Vim experience.
 
 Participant 3 - An undergraduate student with no programming background.
 
@@ -213,6 +213,11 @@ General Impressions: Participants were generally able to navigate the game world
 -   The most critical feedback came from Zhexian Song. He stated that he is "more used to using WASD for movement" and "didn't understand why hjkl had to be used."
 -   This finding is a direct replication of the feedback from Emil Musiienko ("found the movement system... unintuitive and 'weird'").
 -   This strongly indicates that the game's educational goal is not being communicated effectively to its target audience of non-Vim users. The "why" is missing.
+
+### Feedback about some bugs (from Yibo Zhang):
+-   The player might be stuck by the door in front of the boss room.
+-   The dash ability is hard to use and sometimes player cannot pass the trap easily.
+-   Player may use dash ability to dash into the trap while the dialogue before the trap is running.
 
 ### Combat Clarity Observations:
 
