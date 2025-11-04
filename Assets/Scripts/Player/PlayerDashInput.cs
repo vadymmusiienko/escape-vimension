@@ -73,22 +73,22 @@ public class PlayerDashInput : MonoBehaviour
         bool directionPressed = false;
         
         // Check for direction keys (vim-style)
-        if (Input.GetKeyDown(KeyCode.J)) // Down
+        if (Input.GetKey(KeyCode.J)) // Down
         {
             direction = Vector2.down;
             directionPressed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.K)) // Up
+        else if (Input.GetKey(KeyCode.K)) // Up
         {
             direction = Vector2.up;
             directionPressed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.L)) // Right
+        else if (Input.GetKey(KeyCode.L)) // Right
         {
             direction = Vector2.right;
             directionPressed = true;
         }
-        else if (Input.GetKeyDown(KeyCode.H)) // Left
+        else if (Input.GetKey(KeyCode.H)) // Left
         {
             direction = Vector2.left;
             directionPressed = true;

@@ -2138,7 +2138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.83434
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4953,7 +4953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Size.z
-      value: 1.1110873
+      value: 3.4816003
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.x
@@ -4965,7 +4965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972091889279008554, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: m_Center.z
-      value: -0.058450773
+      value: -1.2437085
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: deleteAfterDialogue
@@ -4973,7 +4973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.size
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[0].text
@@ -4999,15 +4999,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[5].text
-      value: You might have to fight it.
-      objectReference: {fileID: 0}
-    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
-      propertyPath: dialogueStrings.Array.data[6].text
       value: " In Vim, \u201CD\u201D stands for delete. Use it to strike enemies."
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
-      propertyPath: dialogueStrings.Array.data[7].text
+      propertyPath: dialogueStrings.Array.data[6].text
       value: Just like text, remove what stands in your way!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[8].text
@@ -5034,12 +5034,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[7].isEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: dialogueStrings.Array.data[8].isEnd
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
-      propertyPath: dialogueStrings.Array.data[6].unlockCommands.Array.size
+      propertyPath: dialogueStrings.Array.data[5].unlockCommands.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: dialogueStrings.Array.data[6].unlockCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
+      propertyPath: 'dialogueStrings.Array.data[5].unlockCommands.Array.data[0]'
+      value: d
       objectReference: {fileID: 0}
     - target: {fileID: 2042708351040711447, guid: 37a4747495d511d4999de37f253e5804, type: 3}
       propertyPath: 'dialogueStrings.Array.data[6].unlockCommands.Array.data[0]'
@@ -7668,7 +7680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.83434
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11329,7 +11341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Dash ability
   canPickup: 1
-  unlockMessage: You found the number 5! Dash ability unlocked!
 --- !u!65 &1527960879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15079,7 +15090,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.83434
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
       propertyPath: m_LocalPosition.y
