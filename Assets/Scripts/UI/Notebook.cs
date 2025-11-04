@@ -42,10 +42,10 @@ public class Notebook : MonoBehaviour
 
     void Update()
     {
-        // close notebook if escape is pressed
+        // toggle notebook if escape is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            canvasGroup.alpha = 0;
+            notebookClicked();
         }
     }
 
