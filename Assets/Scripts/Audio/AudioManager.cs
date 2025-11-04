@@ -82,6 +82,12 @@ public class AudioManager : MonoBehaviour
     
     private void HandleSceneMusic(string sceneName)
     {
+        // Only play music automatically if playOnStart is enabled
+        if (!playOnStart)
+        {
+            return;
+        }
+        
         if (sceneName == "StartScene")
         {
             // Play start scene music
