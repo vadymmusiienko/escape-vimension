@@ -4,9 +4,6 @@ using System.Linq;
 
 public class Number5Item : Item
 {
-    [Header("Number 5 Settings")]
-    public string unlockMessage = "You found the number 5! Dash ability unlocked!";
-    
     public override void OnPickup(Player player)
     {
         // Check if there are any dialogue triggers
@@ -19,9 +16,6 @@ public class Number5Item : Item
             
             // Enable dash ability
             player.UnlockDash();
-            
-            // Show unlock message
-            Debug.Log(unlockMessage);
             
             // Make item invisible but keep GameObject alive for dialogue
             SetItemInvisible();
@@ -43,9 +37,6 @@ public class Number5Item : Item
             
             // Enable dash ability
             player.UnlockDash();
-            
-            // Show unlock message
-            Debug.Log(unlockMessage);
             
             // Destroy the object
             Destroy(gameObject);
