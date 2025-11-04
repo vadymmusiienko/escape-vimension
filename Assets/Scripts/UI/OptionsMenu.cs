@@ -34,7 +34,6 @@ public class OptionsMenu : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         
         // Set initial slider value
-        // Try to get current volume from AudioManager first
         float initialVolume = 1.0f;
         
         if (AudioManager.Instance != null)
