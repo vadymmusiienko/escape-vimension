@@ -15,17 +15,11 @@ placeholder for it [here](README.md).
   - [Table of Contents](#table-of-contents)
   - [Evaluation Plan](#evaluation-plan)
   - [Evaluation Report](#evaluation-report)
-    - [Interview Evaluation (By Vadym Musiienko)](#interview-evaluation-by-vadym-musiienko)
-      - [Purpose](#purpose)
-      - [Participants](#participants)
-      - [Interview Method](#interview-method)
-      - [Interview Questions](#interview-questions)
-      - [Findings and Observations](#findings-and-observations)
-      - [Summary of Insights](#summary-of-insights)
-      - [Impact on Development](#impact-on-development)
   - [Shaders and Special Effects](#shaders-and-special-effects)
   - [Summary of Contributions](#summary-of-contributions)
   - [References and External Resources](#references-and-external-resources)
+
+
 
 ## Evaluation Plan
 
@@ -63,10 +57,10 @@ placeholder for it [here](README.md).
 
 6. **Responsibilities**
 
-    - Cooperative Evaluation: Conduct tests with three participants
-    - Post-task Walkthrough: Conduct tests with three participants
-    - Interview: Prepare questions and interview three participants
-    - Survey: Create and distribute surveys to three participants
+    - Cooperative Evaluation: Conduct tests with at least three participants
+    - Post-task Walkthrough: Conduct tests with at least three participants
+    - Interview: Prepare questions and interview at least three participants
+    - Survey: Create and distribute surveys to at least three participants
 
 7. **Expected Outcomes**
     - Usability and interface feedback: Identify areas where instructions are unclear.
@@ -74,69 +68,77 @@ placeholder for it [here](README.md).
     - Players' overall satisfaction: Achieve positive post-game ratings on enjoyment and clarity.
     - Educational effectiveness: Demonstrate that players have gained familiarity with core Vim commands through gameplay.
 
+
+
 ## Evaluation Report
 
-### Evaluation Plan (By Zhukun He)
-### Evaluation Techniques
-
-Cooperative Evaluation (Observation Method): This will be the primary technique for our 3-person test. As Escape the VimEnsion is an educational game, this method allows for real-time observation of how players interpret tutorials and apply Vim commands. We can directly observe where players "get stuck," particularly when encountering EnemyTurtle's defense mechanism or the BossCursor's attack patterns.
-
-Interview Evaluation (Inquiry Method): This has already been completed by Vadym Musiienko. Our new findings from the Cooperative Evaluation will be used to supplement and reinforce these existing qualitative insights.
-
-Participants
-
--   **Zhexian Song** - a post graduate student famaliar with programming but knows nothing about Vim.
-
-Consent: All participants will be informed of the test's purpose and how their feedback will be used, and will provide verbal consent before the session begins.
-
-### Data Collection
-
-Data Type: The primary data will be Qualitative, gathered from observation notes.
-
-Method: We will use the Cooperative Evaluation (or "Think Aloud") method, asking the 3 participants to voice their thoughts as they play.
-
-Key Tasks for Observation:
-
-Onboarding: Can the player successfully learn and use the h, j, k, l movement commands?
-
-First Combat: How does the player react to the EnemyTurtle? Do they understand its defense mechanism?
-
-Boss Battle: Can the player identify the BossCursor's rotational sweep attack warning (the SweepAttack) and react appropriately?
-
-Data Analysis
-
-Method: We will analyze the observation notes to identify recurring themes and critical incidents (e.g., "All 3 players failed to dodge the Boss's first attack," or "2 out of 3 players expressed confusion about the hjkl controls").
-
-Impact: These findings will directly inform final-week development. For example, if players consistently fail to understand the boss's attack warning, the SweepAttack must be made larger or brighter.
-
-Timeline & Responsibilities
-
-Week 11/12: Conduct Cooperative Evaluation with 3 participants (Responsible: [Zhukun He]).
-
-### Interview Evaluation (By Vadym Musiienko)
-
+### Cooperative Evaluation (By Zhunkun He)
 #### Purpose
+The Cooperative Evaluation aimed to gather real-time, in-depth qualitative feedback. The focus was on observing player interaction with the core game mechanics (Vim controls) and identifying usability issues related to gameplay clarity (e.g., enemy attack warnings), in line with the goals of our original Evaluation Plan.
 
+#### Participants
+-   **Zhexian Song** - A graduated student with extensive gaming experience (preferring WASD controls) but no prior knowledge of Vim.
+Participant 2 - An undergraduate student with some programming background but no direct Vim experience.
+Participant 3 - An undergraduate student with no programming background.
+
+#### Evaluation Method
+Each session was conducted individually and lasted approximately 20-30 minutes. Participants were tasked with playing the game from the beginning while following the Cooperative Evaluation (or 'Think Aloud') protocol. They were encouraged to voice their thoughts, frustrations, and assumptions in real-time. Observational notes were recorded during the session.
+
+### Findings and Observations
+General Impressions: Participants were generally able to navigate the game world but expressed significant confusion regarding the game's core premise, mirroring findings from the Interview Evaluation.
+
+**Feedback on Core Controls (from Zhexian Song)**
+-   The most critical feedback came from Zhexian Song. He stated that he is "more used to using WASD for movement" and "didn't understand why hjkl had to be used."
+-   This finding is a direct replication of the feedback from Emil Musiienko ("found the movement system... unintuitive and 'weird'").
+-   This strongly indicates that the game's educational goal is not being communicated effectively to its target audience of non-Vim users. The "why" is missing.
+
+**Combat Clarity Observations**
+Two participants were observed attacking the EnemyTurtle repeatedly while it was in its defensive state, expressing confusion as to why it wasn't taking damage. This suggests the "defend" visual cue is not distinct enough from its normal state.
+
+#### Summary of Insights
+The observational findings confirm that while Escape the VimEnsion is mechanically functional, its core educational premise is failing to connect with its target audience. Players without prior context see the hjkl controls not as a learning opportunity, but as a poor design choice. The game must explicitly state its purpose (teaching Vim) at the very beginning to frame the player's experience correctly. Combat feedback (for both the Boss and the Turtle) is also not as clear as it needs to be.
+
+#### Impact on Development
+As a direct result of this cooperative evaluation and in conjunction with the interview findings:
+-   **Clarify "Why"**: An introductory dialogue panel will be added at the start of the game, explicitly stating: "You are in the VimEnsion. To escape, you must master its controls: h, j, k, l."
+-   **Improve Boss sweep attack**: The SweepAttack particle system will be made brighter and larger to more clearly define the attack's safe/unsafe zones.
+
+
+### Post-task Walkthrough (By Casey Watt-Calder)
+#### Purpose
+[TO BE FILLED]
+
+#### Participants
+[TO BE FILLED]
+
+#### Evaluation Method
+[TO BE FILLED]
+
+#### Findings and Observations
+[TO BE FILLED]
+
+#### Summary of Insights
+[TO BE FILLED]
+
+#### Impact on Development
+[TO BE FILLED]
+
+
+### Interview (By Vadym Musiienko)
+#### Purpose
 The interviews aimed to gather in-depth qualitative feedback on players' experiences, focusing on gameplay clarity, engagement, and overall learning effectiveness. Through direct conversations with participants, the goal was to identify emotional and motivational responses that quantitative methods could not capture.
 
 #### Participants
-
-Three participants were interviewed:
-
 -   **Henry Zhang** - an undergraduate student familiar with programming and basic text editors.
 -   **William Haspel** - an undergraduate programming student with prior exposure to Vim.
 -   **Emil Musiienko** - a non-student with no prior programming experience or familiarity with Vim.
-
 The participant pool was intentionally diverse to evaluate the game's accessibility and appeal across different experience levels.
 
-#### Interview Method
-
+#### Evaluation Method
 Each interview was conducted individually after the playtesting session and lasted approximately 10-15 minutes. The sessions were semi-structured, allowing for follow-up questions and open discussion. Interviews were held in person, with notes recorded during the session.
 
 #### Interview Questions
-
 Participants were asked a mix of structured and open-ended questions, including:
-
 1. What was your first impression of VimLand's visual design and interface?
 2. How easy or difficult was it to understand what you were supposed to do in the game?
 3. Did the game make learning Vim commands feel engaging or tedious?
@@ -148,12 +150,10 @@ Participants were asked a mix of structured and open-ended questions, including:
 9. If you could change or add one thing to improve the game, what would it be?
 
 #### Findings and Observations
-
 **General Impressions:**  
 All three participants found the game's visual style and concept unique, particularly the typing-based gameplay. However, feedback varied based on programming familiarity.
 
 **Feedback from Henry Zhang and William Haspel (programming background):**
-
 -   Both understood the game's purpose - to teach basic Vim commands - and appreciated how gameplay was directly tied to learning these commands.
 -   They reported that the controls felt intuitive once they recognized the Vim-based movement (using `h`, `j`, `k`, `l`).
 -   Henry described the experience as "surprisingly fun for something educational," noting that the humorous dialogue helped maintain engagement.
@@ -162,24 +162,20 @@ All three participants found the game's visual style and concept unique, particu
 -   Another issue they both noticed was **flickering lighting in the WebGL build**, which was subsequently resolved.
 
 **Feedback from Emil Musiienko (no programming background):**
-
 -   Emil found the movement system using `h`, `j`, `k`, and `l` unintuitive and "weird", noting that it felt inconvenient compared to typical arrow-key movement.
 -   He admitted he "didn't really get what the game was trying to teach," which highlighted that the **educational goal of VimLand might not be apparent to non-programmers**.
 -   Despite this, he enjoyed the playful writing and humor in the dialogues, which helped make the experience more approachable.
 
 **Overall Themes:**
-
 -   **Clarity and Accessibility:** Participants with prior coding knowledge quickly understood the concept and purpose, while complete beginners struggled. This indicates that the current design appeals more strongly to players who have at least heard of Vim or programming concepts.
 -   **User Interface:** The feedback led to tangible improvements - particularly in redesigning the health and experience bars to align with the theme.
 -   **Technical Stability:** Interviews helped uncover critical **WebGL issues** (lighting flicker, fullscreen UI misalignment), all of which were fixed after testing.
 -   **Engagement and Dialogue:** The humorous tone and character dialogue were consistently praised, leading to further refinement to make conversations more entertaining and dynamic.
 
 #### Summary of Insights
-
 The interview findings reveal that **Escape the VimEnsion successfully engages players familiar with programming** and effectively communicates its educational goals within that niche. However, **players without any Vim or coding context struggle to grasp the purpose**, suggesting the game's audience is relatively narrow. Future iterations could benefit from an introductory scene or tutorial explaining _why_ Vim is valuable and what commands the player is learning, to make the experience more inclusive.
 
 #### Impact on Development
-
 As a direct result of interview feedback:
 
 -   **UI elements** (health bar and EXP bar) were redesigned to match the book-style interface.
@@ -187,44 +183,66 @@ As a direct result of interview feedback:
 -   **Dialogue scripts** were improved to include light humor and greater narrative engagement.
 -   The development team acknowledged the need to **broaden accessibility** for players unfamiliar with Vim by providing clearer context and visual guidance early in the game.
 
-### Cooperative Evaluation (By [Zhukun He])
 
-### Purpose
-The Cooperative Evaluation aimed to gather real-time, in-depth qualitative feedback. The focus was on observing player interaction with the core game mechanics (Vim controls) and identifying usability issues related to gameplay clarity (e.g., enemy attack warnings), in line with the goals of our original Evaluation Plan.
+### Survey (By Moon Ren)
+#### Purpose
+The purpose of the survey evaluation was to collect structured feedback from players regarding their overall gameplay experience. By using quantitative ratings and short qualitative comments, the survey aimed to measure aspects such as enjoyability, difficulty, clarity of instructions, audio-visual quality, and learning effectiveness.
 
-### Participants
-Three participants were observed:
+#### Participants
+-   **Shun Fukui** - an undergraduate design student who is familiar with programming but not Vim.
+-   **Howie Hu** - an postgraduate software engineering student who is familiar with programming but never used vim.
+-   **Tarish Kadam** - an undergraduate science student who is familiar with programming but never used vim.
+-   **Daniel Lee** - an undergraduate biotechnology degree student who has no experience with programming.
+-   **Patrick Zhu** - an postgraduate psychology degree student who has no experience with programming.
 
--   **Zhexian Song** - A graduated student with extensive gaming experience (preferring WASD controls) but no prior knowledge of Vim.
+#### Evaluation Method
+Our team conducted a playtesting session with the participants to evaluate the overall enjoyability and effectiveness of our game. The participants were university students aged between 20 and 25, all had some general gaming experience and some were familiar with the concept of Vim but none of them had ever used it before.
 
-Participant 2 - An undergraduate student with some programming background but no direct Vim experience.
+#### Findings and Observations
+**Quantitative Feedback**
+Each participant completed a short survey about different aspects of the game. The average ratings were as follows:
+| Evaluation Aspect | Average Rating ( /5.0) |
+|--------------------|--------------------|
+| Overall Enjoyability | 4.0 |
+| Understanding of Rules | 4.4 |
+| Core Gameplay | 3.6 |
+| Graphics and Art Styles | 4.0 |
+| Music and Sound Effects | 4.4 |
+| Effectiveness of Teaching Vim Commands | 4.4 |
+| Clarity and Helpfulness of Instructions | 4.2 |
 
-Participant 3 - An undergraduate student with no programming background.
+Additionally, participants reported their completion times:
+-   66.7% finished within 5–10 minutes,
+-   33.3% finished within 10–15 minutes.
+Since the game was designed to take roughly 5–10 minutes, the feedback suggests the current difficulty and pacing are well aligned with the intended design.
 
-### Evaluation Method
-Each session was conducted individually and lasted approximately 20-30 minutes. Participants were tasked with playing the game from the beginning while following the Cooperative Evaluation (or 'Think Aloud') protocol. They were encouraged to voice their thoughts, frustrations, and assumptions in real-time. Observational notes were recorded during the session.
+**Qualitative Feedback**
+Participants were also asked to provide some comments highlighting both strengths and areas for improvement.
+-   + Positive feedback: Most players praised the game’s graphics and visuals, describing the dash mechanic as fun and engaging. Several appreciated the boss design (represented as a “cursor”) as a creative concept.
+-   - Negative feedback:
+        - Some players found the instructions being not specific enough, leading to confusion about when to input commands. For instance, several attempted to press keys during dialogues rather than after them.
+        - A few participants also remarked that the background music volume was too low compared to the sound effects, which reduced the overall auditory balance.
+        - Some participants explicitly commented that they could not see their character and recommended making obstructive walls fade away when the player moves behind them.
+        - A few participants mentioned the controls were difficult to use in the game.
 
-### Findings and Observations
-The findings from this observational test strongly reinforce the qualitative insights gathered during the "Interview Evaluation".
+**Additional Observations**
+-   The notebook feature located in the top-right corner, designed to record unlocked Vim commands and their descriptions. However, none of the participants noticed or used this feature during testing, indicating a need for stronger onboarding or visual cues to draw attention to its functionality.
 
-General Impressions: Participants were generally able to navigate the game world but expressed significant confusion regarding the game's core premise, mirroring findings from the Interview Evaluation.
+#### Summary of Insights
+Overall, the survey evaluation indicates that players found the game enjoyable, visually appealing, and effective in teaching basic Vim commands. The implemented changes successfully addressed key usability issues while maintaining the intended educational and design goals of the project.
 
-### Feedback on Core Controls (from Zhexian Song):
--   The most critical feedback came from Zhexian Song. He stated that he is "more used to using WASD for movement" and "didn't understand why hjkl had to be used."
--   This finding is a direct replication of the feedback from Emil Musiienko ("found the movement system... unintuitive and 'weird'").
--   This strongly indicates that the game's educational goal is not being communicated effectively to its target audience of non-Vim users. The "why" is missing.
+#### Impact on Development
+-   **Improved Instructions:**
+        - We refined dialogue text to improve clarity, adding “Press Space to continue” prompts to ensure players complete the dialogue before interacting.
+-   **Audio Balancing**
+        - The background music volume was increased to maintain consistency with sound effects.
+-   **Visual Adjustments**
+        - Walls that previously obscured the player’s view were made transparent, improving spatial awareness while maintaining gameplay constraints.
+-   **Vim Key Controls**
+        - Some participants found the Vim-based controls unintuitive at first but adapted quickly. Since the core design goal was to familiarise players with Vim commands, we retained the control scheme in its current form.
+-   **Notebook Instructions**
+        - We added an introductory dialogue early in the game explicitly mentioning the notebook and encouraging players to refer to it when needed.
 
-### Combat Clarity Observations:
-
-Two participants were observed attacking the EnemyTurtle repeatedly while it was in its defensive state, expressing confusion as to why it wasn't taking damage. This suggests the "defend" visual cue is not distinct enough from its normal state.
-
-### Summary of Insights
-The observational findings confirm that while Escape the VimEnsion is mechanically functional, its core educational premise is failing to connect with its target audience. Players without prior context see the hjkl controls not as a learning opportunity, but as a poor design choice. The game must explicitly state its purpose (teaching Vim) at the very beginning to frame the player's experience correctly. Combat feedback (for both the Boss and the Turtle) is also not as clear as it needs to be.
-
-### Impact on Development
-As a direct result of this cooperative evaluation and in conjunction with the interview findings:
--   **Clarify "Why"**: An introductory dialogue panel will be added at the start of the game, explicitly stating: "You are in the VimEnsion. To escape, you must master its controls: h, j, k, l." This directly addresses the feedback from Zhexian Song and Emil Musiienko.
--   **Improve Boss sweep attack**: The SweepAttack particle system will be made brighter and larger to more clearly define the attack's safe/unsafe zones.
 
 
 ## Shaders and Special Effects
@@ -273,10 +291,14 @@ In this specific effect, randomness was deliberately avoided in key areas like S
 
     Rationale: The primary purpose of this particle system is clarity-to serve as an unambiguous AoE indicator. Introducing randomness to the size or color of the warning could make the attack's boundaries look "fuzzy" or inconsistent, potentially confusing the player. By using constant values, we ensure the warning is clean, sharp, and identical every time, which is crucial for fair, learnable gameplay. The autoRandomSeed: 1  setting provides sufficient internal variation without compromising the effect's core purpose.
 
+
+
 ## Summary of Contributions
 
 TODO - see specification for details
 **Zhukun He**: Player state machine, Player health bar, Enemy state machine, Enemy AI, Enemy boss, level build, dialogue system, trap event, fog cover, door trigger, damage system, boss sweep attack effect
+
+
 
 ## References and External Resources
 
