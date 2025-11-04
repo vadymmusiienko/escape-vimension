@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class AudioManager : MonoBehaviour
     
     [Header("Background Music")]
     [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private AudioClip startSceneMusic;
     [SerializeField] private float musicVolume = 0.5f;
     [SerializeField] private bool playOnStart = true;
     
@@ -20,6 +22,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float levelUpVolume = 0.8f;
     [SerializeField] private AudioClip damageSound;
     [SerializeField] private float damageVolume = 0.7f;
+    
+    [Header("Master Volume")]
+    private float masterVolume = 1.0f;
     
     private void Awake()
     {
@@ -52,46 +57,91 @@ public class AudioManager : MonoBehaviour
         }
         
         SetupAudioSources();
+        
+        // Subscribe to scene loaded events to handle music switching
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDestroy()
+    {
+        // Unsubscribe from scene loaded events
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     
     private void Start()
     {
-        if (playOnStart && backgroundMusic != null)
+        // Handle music based on the current scene
+        HandleSceneMusic(SceneManager.GetActiveScene().name);
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Switch music when a new scene is loaded
+        HandleSceneMusic(scene.name);
+    }
+    
+    private void HandleSceneMusic(string sceneName)
+    {
+        if (sceneName == "StartScene")
         {
+            // Play start scene music
+            PlayStartSceneMusic();
+        }
+        else if (sceneName == "MainScene")
+        {
+            // Play main background music
             PlayBackgroundMusic();
         }
+        // For other scenes, you can add more conditions here if needed
     }
     
     private void SetupAudioSources()
     {
         // Configure music source for background music
         musicSource.loop = true;
-        musicSource.volume = musicVolume;
+        musicSource.volume = musicVolume * masterVolume;
         musicSource.playOnAwake = false;
         musicSource.priority = 0; // High priority for music
         
         // Configure SFX source for sound effects
         sfxSource.loop = false;
-        sfxSource.volume = sfxVolume;
+        sfxSource.volume = sfxVolume * masterVolume;
         sfxSource.playOnAwake = false;
         sfxSource.priority = 128; // Lower priority for SFX
         
         // Configure player audio source for movement sounds
         playerAudioSource.loop = true;
-        playerAudioSource.volume = 0.5f;
+        playerAudioSource.volume = 0.5f * masterVolume;
         playerAudioSource.playOnAwake = false;
         playerAudioSource.priority = 64; // Medium priority for player sounds
+        
+        // Initialize AudioListener volume
+        AudioListener.volume = masterVolume;
     }
     
     public void PlayBackgroundMusic()
     {
         if (backgroundMusic != null && musicSource != null)
         {
-            musicSource.clip = backgroundMusic;
-            musicSource.Play();
+            // Only switch if we're not already playing this music
+            if (musicSource.clip != backgroundMusic || !musicSource.isPlaying)
+            {
+                musicSource.clip = backgroundMusic;
+                musicSource.Play();
+            }
         }
-        else
+    }
+    
+    public void PlayStartSceneMusic()
+    {
+        if (startSceneMusic != null && musicSource != null)
         {
+            // Only switch if we're not already playing this music
+            if (musicSource.clip != startSceneMusic || !musicSource.isPlaying)
+            {
+                musicSource.clip = startSceneMusic;
+                musicSource.Play();
+            }
         }
     }
     
@@ -148,7 +198,7 @@ public class AudioManager : MonoBehaviour
         musicVolume = Mathf.Clamp01(volume);
         if (musicSource != null)
         {
-            musicSource.volume = musicVolume;
+            musicSource.volume = musicVolume * masterVolume;
         }
     }
     
@@ -157,8 +207,37 @@ public class AudioManager : MonoBehaviour
         sfxVolume = Mathf.Clamp01(volume);
         if (sfxSource != null)
         {
-            sfxSource.volume = sfxVolume;
+            sfxSource.volume = sfxVolume * masterVolume;
         }
+    }
+    
+    public void SetMasterVolume(float volume)
+    {
+        masterVolume = Mathf.Clamp01(volume);
+        
+        // Update AudioListener volume (affects all audio sources)
+        AudioListener.volume = masterVolume;
+        
+        // Also update our managed audio sources to maintain proper scaling
+        if (musicSource != null)
+        {
+            musicSource.volume = musicVolume * masterVolume;
+        }
+        
+        if (sfxSource != null)
+        {
+            sfxSource.volume = sfxVolume * masterVolume;
+        }
+        
+        if (playerAudioSource != null)
+        {
+            playerAudioSource.volume = 0.5f * masterVolume;
+        }
+    }
+    
+    public float GetMasterVolume()
+    {
+        return masterVolume;
     }
     
     public float GetMusicVolume()
@@ -199,7 +278,7 @@ public class AudioManager : MonoBehaviour
     {
         if (playerAudioSource != null)
         {
-            playerAudioSource.volume = Mathf.Clamp01(volume);
+            playerAudioSource.volume = Mathf.Clamp01(volume) * masterVolume;
         }
     }
     

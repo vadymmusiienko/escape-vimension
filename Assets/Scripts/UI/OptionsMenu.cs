@@ -39,9 +39,8 @@ public class OptionsMenu : MonoBehaviour
         
         if (AudioManager.Instance != null)
         {
-            // Use AudioManager's current volume settings
-            // Average of music and SFX volume, or use AudioListener volume
-            initialVolume = AudioListener.volume;
+            // Use AudioManager's master volume
+            initialVolume = AudioManager.Instance.GetMasterVolume();
         }
         else
         {
@@ -58,15 +57,16 @@ public class OptionsMenu : MonoBehaviour
         // Clamp value to valid range
         value = Mathf.Clamp01(value);
         
-        // Update AudioListener master volume (affects all audio)
-        AudioListener.volume = value;
-        
-        // Also update AudioManager volumes if it exists
+        // Update AudioManager master volume (affects all audio sources)
         if (AudioManager.Instance != null)
         {
-            // Update both music and SFX volumes proportionally
-            AudioManager.Instance.SetMusicVolume(value);
-            AudioManager.Instance.SetSFXVolume(value);
+            // Set master volume which will update AudioListener and all managed audio
+            AudioManager.Instance.SetMasterVolume(value);
+        }
+        else
+        {
+            // Fallback: Update AudioListener directly if AudioManager doesn't exist
+            AudioListener.volume = value;
         }
     }
     

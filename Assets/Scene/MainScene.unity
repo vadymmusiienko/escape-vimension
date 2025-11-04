@@ -1339,61 +1339,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
   m_PrefabInstance: {fileID: 104047229}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &150850357
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 150850359}
-  - component: {fileID: 150850358}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &150850358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150850357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb347cfac9dc41e7822d396379cd70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  playerAudioSource: {fileID: 0}
-  backgroundMusic: {fileID: 8300000, guid: 08e05c31553674a37bc3d36be1b2b37e, type: 3}
-  musicVolume: 0.01
-  playOnStart: 1
-  sfxVolume: 0.7
-  levelUpSound: {fileID: 8300000, guid: e9eacdd3254a441a08783b885aabbdab, type: 3}
-  levelUpVolume: 0.8
-  damageSound: {fileID: 8300000, guid: 86b20532555ea460398e6facb3936b38, type: 3}
-  damageVolume: 0.7
---- !u!4 &150850359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150850357}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.45022, y: -0.02757, z: 38.83875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &157658432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
@@ -15570,7 +15515,6 @@ SceneRoots:
   - {fileID: 4298125752962712561}
   - {fileID: 1820115577}
   - {fileID: 1193740389}
-  - {fileID: 150850359}
   - {fileID: 911821220}
   - {fileID: 899120361}
   - {fileID: 119088126}
