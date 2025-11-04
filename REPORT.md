@@ -111,23 +111,54 @@ As a direct result of this cooperative evaluation and in conjunction with the in
 
 ### Post-task Walkthrough (By Casey Watt-Calder)
 #### Purpose
-[TO BE FILLED]
+This evaluation method provides a direct impression of how players would naturally play the game and navigate its tasks, providing insight into the process and reflections of a new player. This is particularly useful for understanding player patterns and how effectively the game communicates how to play.
 
 #### Participants
-[TO BE FILLED]
+- Participant 1: Undergraduate computer science student with no vim experience
+- Participant 2: Undergraduate student with programming experience but no vim experience
 
 #### Evaluation Method
-[TO BE FILLED]
+For a post-task walkthrough, Participants were instructed to play the game without communication with as they did so, and were observed with note taking. Immediately after finishing I discussed the participant's thoughts thoughts and reflections with them, drawing attention to interesting gameplay behaviours.
 
 #### Findings and Observations
-[TO BE FILLED]
+##### Participant 1 Observations During Playthrough
+- Participant walked around a bit initially and stumbled into the potion room to the right before heading back and following the bones
+- Participant went left to the number 5 before triggering the dialogue mentioning that room
+- Participant completed the turtle fight quite easily after managing to hit the turtle the first time
+- Participant picked up item drops from the turtle before the dialogue drew attention to them
+- Participant finished both fights by mostly just repeating the attack action
+- Participant frequently looked at keyboard while playing and often seemed to mix up the buttons to move up and down.
+
+##### Participant 1  Reflections After Playthrough
+- Participant wanted to see what else there was before following they identified as the intended path.
+- Participant chose to go left at toward the number 5 as it looked more like an offshoot of the main path
+- Participant felt most of the difficulty in the game was in getting used to the controls
+- Participant liked the ending
+
+##### Participant 2 Observations During Playthrough
+- Participant clicked the notebook at the very beginning of the game
+- Participant intuitively pressed space to skip dialogue animations
+- Participant also looked at keyboard a lot and struggled to quickly find the correct key for an action
+- Participant also completed both fights with relative ease, mostly by repeating the attack action, sometimes looking at keyboard to orient the player toward the enemy
+- Participant restarted after finishing the game and opened the notebook which still contained all of the commands
+- Participant restarted and tried to use ":wq" command
+
+##### Participant 2 Reflections After Playthrough
+- Participant was initially confused about the purpose of the notebook
+- Participant found the sound effects, especially the door opening to be loud
+- Participant felt the lack of dash animation looked awkward
+- Participant noticed "you might have to fight it" repeated in the pre turtle dialogue
+- Participant expected ":wq" command to do something different to just ":q"
 
 #### Summary of Insights
-[TO BE FILLED]
+Both participants were able to progress to the end of the game without getting stuck, showing suffient intuitivity and readability. There were some minor confusions and bugs that can be fixed although they didn't significantly derail the game. The main struggle players reported was with managing the controls, however since the purpose of the game is to teach the player how to use vim, this is appropriate as part of doing so requires learning to navigate vim's difficult controls. Participant 1 showed that a curious player might explore some things out of order, but also fortunately that doing so did not break the game nor cause them to get lost.
 
 #### Impact on Development
-[TO BE FILLED]
-
+In response to this feedback the following changes have been made:
+- Adding a placeholder text if the notebook would otherwise be empty
+- Resetting the notebook when restarting the game
+- Rebalancing audio
+- Removing the repeated “you might have to fight it” dialogue line
 
 ### Interview (By Vadym Musiienko)
 #### Purpose
