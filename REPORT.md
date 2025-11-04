@@ -15,7 +15,42 @@ placeholder for it [here](README.md).
   - [Table of Contents](#table-of-contents)
   - [Evaluation Plan](#evaluation-plan)
   - [Evaluation Report](#evaluation-report)
+    - [Cooperative Evaluation (By Zhunkun He)](#cooperative-evaluation-by-zhunkun-he)
+      - [Purpose](#purpose)
+      - [Participants](#participants)
+      - [Evaluation Method](#evaluation-method)
+    - [Findings and Observations](#findings-and-observations)
+      - [Summary of Insights](#summary-of-insights)
+      - [Impact on Development](#impact-on-development)
+    - [Post-task Walkthrough (By Casey Watt-Calder)](#post-task-walkthrough-by-casey-watt-calder)
+      - [Purpose](#purpose-1)
+      - [Participants](#participants-1)
+      - [Evaluation Method](#evaluation-method-1)
+      - [Findings and Observations](#findings-and-observations-1)
+        - [Participant 1 Observations During Playthrough](#participant-1-observations-during-playthrough)
+        - [Participant 1  Reflections After Playthrough](#participant-1--reflections-after-playthrough)
+        - [Participant 2 Observations During Playthrough](#participant-2-observations-during-playthrough)
+        - [Participant 2 Reflections After Playthrough](#participant-2-reflections-after-playthrough)
+      - [Summary of Insights](#summary-of-insights-1)
+      - [Impact on Development](#impact-on-development-1)
+    - [Interview (By Vadym Musiienko)](#interview-by-vadym-musiienko)
+      - [Purpose](#purpose-2)
+      - [Participants](#participants-2)
+      - [Evaluation Method](#evaluation-method-2)
+      - [Interview Questions](#interview-questions)
+      - [Findings and Observations](#findings-and-observations-2)
+      - [Summary of Insights](#summary-of-insights-2)
+      - [Impact on Development](#impact-on-development-2)
+    - [Survey (By Moon Ren)](#survey-by-moon-ren)
+      - [Purpose](#purpose-3)
+      - [Participants](#participants-3)
+      - [Evaluation Method](#evaluation-method-3)
+      - [Findings and Observations](#findings-and-observations-3)
+      - [Summary of Insights](#summary-of-insights-3)
+      - [Impact on Development](#impact-on-development-3)
   - [Shaders and Special Effects](#shaders-and-special-effects)
+      - [Particle System](#particle-system)
+      - [Shaders](#shaders)
   - [Summary of Contributions](#summary-of-contributions)
   - [References and External Resources](#references-and-external-resources)
 
@@ -285,9 +320,9 @@ Overall, the survey evaluation indicates that players found the game enjoyable, 
 ## Shaders and Special Effects
 
 #### Particle System
-Particle System for Assessment: SweepEffect
+Particle System for Assessment: **SweepEffect**
 
-File Path: Assets/Effects/SweepEffect.prefab
+File Path: [Assets/Effects/SweepEffect.prefab](Assets/Effects/SweepEffect.prefab)
 
 Description and Rationale
 This particle system (SweepEffect) is a custom special effect designed for the final boss, the "Mouse Cursor." Its primary function is to serve as a clear and explicit Area of Effect (AoE) Indicator for the boss's "Rotational Sweep" attack.
@@ -330,7 +365,14 @@ In this specific effect, randomness was deliberately avoided in key areas like S
 
 
 #### Shaders
-In the game, two non-trivial custom shaders were designed and implemented, including a glowing potion effect (<Assets/Effects/PotionGlowNew.shader>) and an enemy erosion effect (<Assets/Effects/EnemyErosionPattern.shader>). These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
+
+Shaders for Assessment: **Glowing Potion Effect** and **Erosion Effect**
+
+Glowing Potion Effect Path: [`Assets/Effects/PotionGlowNew.shader`](Assets/Effects/PotionGlowNew.shader)
+
+Erosion Effect Path: [`Assets/Effects/EnemyErosionPattern.shader`](Assets/Effects/EnemyErosionPattern.shader)
+
+In the game, two non-trivial custom shaders were designed and implemented, including a glowing potion effect and an enemy erosion effect. These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
 
 1. **Glowing Potion Effect**
 
