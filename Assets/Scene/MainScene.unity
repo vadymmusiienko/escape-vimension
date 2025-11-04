@@ -6422,9 +6422,9 @@ MonoBehaviour:
   occlusionLayers:
     serializedVersion: 2
     m_Bits: 4096
-  targetAlpha: 0.3
-  fadeSpeed: 8
+  targetAlpha: 0.2
   playerOffset: {x: 0, y: 0.5, z: 0}
+  updateSkipFrames: 15
 --- !u!1001 &829566977
 PrefabInstance:
   m_ObjectHideFlags: 0

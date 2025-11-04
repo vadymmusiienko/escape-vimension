@@ -19,22 +19,29 @@ public class WallOcclusionTransparency : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float targetAlpha = 0.3f;
     
-    [Tooltip("Speed at which alpha changes")]
-    [SerializeField] private float fadeSpeed = 5f;
-    
     [Tooltip("Offset from player position for raycast target (to avoid hitting ground)")]
     [SerializeField] private Vector3 playerOffset = new Vector3(0, 0.5f, 0);
     
-    // Store original materials and current alpha values
+    [Header("Performance")]
+    [Tooltip("Update every N frames (0 = every frame, 1 = every 2 frames, etc.)")]
+    [SerializeField] private int updateSkipFrames = 0;
+    
+    // Store original materials and transparency state
     private Dictionary<Renderer, MaterialData> affectedRenderers = new Dictionary<Renderer, MaterialData>();
     private HashSet<Renderer> currentOccludingWalls = new HashSet<Renderer>();
+    private int frameCount = 0;
+    
+    // Cached property IDs for better performance
+    private static readonly int ModePropertyID = Shader.PropertyToID("_Mode");
+    private static readonly int SrcBlendPropertyID = Shader.PropertyToID("_SrcBlend");
+    private static readonly int DstBlendPropertyID = Shader.PropertyToID("_DstBlend");
+    private static readonly int ZWritePropertyID = Shader.PropertyToID("_ZWrite");
     
     private class MaterialData
     {
         public Material[] originalMaterials;
         public Material[] transparentMaterials;
-        public float currentAlpha;
-        public float targetAlpha;
+        public bool isTransparent;
         
         public MaterialData(Renderer renderer)
         {
@@ -46,10 +53,10 @@ public class WallOcclusionTransparency : MonoBehaviour
                 originalMaterials[i] = renderer.materials[i];
                 // Create a copy for transparency manipulation
                 transparentMaterials[i] = new Material(originalMaterials[i]);
-                transparentMaterials[i].SetFloat("_Mode", 3); // Fade mode
-                transparentMaterials[i].SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                transparentMaterials[i].SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                transparentMaterials[i].SetInt("_ZWrite", 0);
+                transparentMaterials[i].SetFloat(ModePropertyID, 3); // Fade mode
+                transparentMaterials[i].SetInt(SrcBlendPropertyID, (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                transparentMaterials[i].SetInt(DstBlendPropertyID, (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                transparentMaterials[i].SetInt(ZWritePropertyID, 0);
                 transparentMaterials[i].DisableKeyword("_ALPHATEST_ON");
                 transparentMaterials[i].EnableKeyword("_ALPHABLEND_ON");
                 transparentMaterials[i].DisableKeyword("_ALPHAPREMULTIPLY_ON");
@@ -58,33 +65,22 @@ public class WallOcclusionTransparency : MonoBehaviour
         }
     }
     
-    private void Awake()
-    {
-        // Auto-find references if not assigned
-        if (player == null)
-        {
-            Player playerObj = FindFirstObjectByType<Player>();
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
-            }
-        }
-        
-        if (mainCamera == null)
-        {
-            mainCamera = Camera.main;
-            if (mainCamera == null)
-            {
-                mainCamera = FindFirstObjectByType<Camera>();
-            }
-        }
-    }
     
     private void Update()
     {
         if (player == null || mainCamera == null)
         {
             return;
+        }
+        
+        // Skip frames for performance
+        if (updateSkipFrames > 0)
+        {
+            frameCount++;
+            if (frameCount % (updateSkipFrames + 1) != 0)
+            {
+                return;
+            }
         }
         
         // Clear current occluding walls
@@ -103,13 +99,17 @@ public class WallOcclusionTransparency : MonoBehaviour
     {
         Vector3 direction = to - from;
         float distance = direction.magnitude;
-        direction.Normalize();
+        
+        if (distance < 0.001f) return; // Too close, skip
+        
+        direction /= distance; // Normalize by division (faster than Normalize())
         
         RaycastHit[] hits = Physics.RaycastAll(from, direction, distance, occlusionLayers);
         
-        foreach (RaycastHit hit in hits)
+        // Pre-allocate HashSet capacity if we know approximate count
+        for (int i = 0; i < hits.Length; i++)
         {
-            Renderer renderer = hit.collider.GetComponent<Renderer>();
+            Renderer renderer = hits[i].collider.GetComponent<Renderer>();
             if (renderer != null && renderer.enabled)
             {
                 currentOccludingWalls.Add(renderer);
@@ -119,7 +119,7 @@ public class WallOcclusionTransparency : MonoBehaviour
     
     private void UpdateRendererTransparency()
     {
-        // Update renderers that are currently occluding
+        // Update renderers that are currently occluding - make them transparent
         foreach (Renderer renderer in currentOccludingWalls)
         {
             if (!affectedRenderers.ContainsKey(renderer))
@@ -129,16 +129,30 @@ public class WallOcclusionTransparency : MonoBehaviour
             }
             
             MaterialData data = affectedRenderers[renderer];
-            data.targetAlpha = targetAlpha;
             
-            // Apply transparent materials if not already applied
-            if (renderer.materials[0] != data.transparentMaterials[0])
+            // Only update if not already transparent
+            if (!data.isTransparent)
             {
+                // Apply transparent materials
                 renderer.materials = data.transparentMaterials;
+                
+                // Set alpha instantly
+                for (int i = 0; i < data.transparentMaterials.Length; i++)
+                {
+                    Material mat = data.transparentMaterials[i];
+                    if (mat != null)
+                    {
+                        Color color = mat.color;
+                        color.a = targetAlpha;
+                        mat.color = color;
+                    }
+                }
+                
+                data.isTransparent = true;
             }
         }
         
-        // Update alpha values for all tracked renderers
+        // Restore renderers that are no longer occluding
         List<Renderer> renderersToRemove = new List<Renderer>();
         
         foreach (var kvp in affectedRenderers)
@@ -152,42 +166,22 @@ public class WallOcclusionTransparency : MonoBehaviour
                 continue;
             }
             
-            // Set target alpha based on whether it's currently occluding
-            if (currentOccludingWalls.Contains(renderer))
+            // If not occluding and currently transparent, restore to opaque
+            if (!currentOccludingWalls.Contains(renderer) && data.isTransparent)
             {
-                data.targetAlpha = targetAlpha;
-            }
-            else
-            {
-                data.targetAlpha = 1f; // Fully opaque when not occluding
-            }
-            
-            // Smoothly interpolate current alpha to target
-            data.currentAlpha = Mathf.Lerp(data.currentAlpha, data.targetAlpha, fadeSpeed * Time.deltaTime);
-            
-            // Apply alpha to all materials
-            foreach (Material mat in data.transparentMaterials)
-            {
-                if (mat != null)
-                {
-                    Color color = mat.color;
-                    color.a = data.currentAlpha;
-                    mat.color = color;
-                }
-            }
-            
-            // If alpha is close to 1 and not occluding, restore original materials
-            if (data.currentAlpha > 0.99f && !currentOccludingWalls.Contains(renderer))
-            {
+                // Restore original materials instantly
                 renderer.materials = data.originalMaterials;
-                // Optionally remove from dictionary to save memory, but keep for reuse
+                data.isTransparent = false;
             }
         }
         
         // Clean up null renderers
-        foreach (Renderer renderer in renderersToRemove)
+        if (renderersToRemove.Count > 0)
         {
-            affectedRenderers.Remove(renderer);
+            foreach (Renderer renderer in renderersToRemove)
+            {
+                affectedRenderers.Remove(renderer);
+            }
         }
     }
     
