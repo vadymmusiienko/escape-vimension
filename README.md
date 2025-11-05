@@ -273,6 +273,19 @@ To create **Escape Vimension**, our team will use the following software and too
     - Potential misalignment between team members on development priorities
     - **Solution:** Weekly meetings, daily check-ins on Discord
 
+
+## Asset used
+1. **RPG Monster Duo PBR Polyart**
+    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762)
+
+2. **Rust Key**
+    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/props/rust-key-167590)
+
+3. **Lite Dungeon Pack - Low Poly 3D Art by Gridness**
+    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692)
+
+4. **Jammo Character | Mix and Jam**
+    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456)
 ## TODO
 
 This document will be updated and modified as the project progresses
