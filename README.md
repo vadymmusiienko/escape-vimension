@@ -178,9 +178,14 @@ Similar game references:
 
 Online image references:
 
--   Reference 1: [Dungeon reference](Images/DungeonReference.png)
--   Reference 2: [Dungeon map reference](Images/Dungeon.png)
--   Reference 3: [Third person game view from the top in dungeon example](Images/PerspectiveExample.png)
+-   **Reference 1:**  
+    ![Dungeon reference](Images/DungeonReference.png)
+
+-   **Reference 2:**  
+    ![Dungeon map reference](Images/Dungeon.png)
+
+-   **Reference 3:**  
+    ![Third person game view from the top in dungeon example](Images/PerspectiveExample.png)
 
 ---
 
@@ -189,20 +194,18 @@ Online image references:
 The game features atmospheric audio that enhances the dungeon exploration experience:
 
 -   **Background Music:** Atmospheric dungeon music that creates tension and mystery:
-
-    1. https://freetouse.com/music/walen/medieval-village
+    Source: [Medieval Village – Walen](https://freetouse.com/music/walen/medieval-village)
 
 -   **Sound Effects:**
+    Sourced from [Pixabay](https://pixabay.com/)
     -   Player movement sounds (walking, running):
-        -   https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/
-        -   https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/
     -   Combat sounds (attacks, enemy hits)
     -   Item pickup sounds (potions, keys)
     -   Level up sound effects
     -   Damage taken sounds
     -   Enemy attack sounds (turtle attacks, boss attacks)
 -   **Dialogue Audio:** Typing sounds accompany dialogue to maintain immersion
-    -   https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/
+    Source: [Epidemic Sound – Typing Effect](https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/)
 
 ---
 
@@ -223,20 +226,40 @@ Environment:
 
 Items:
 
--   **Experience Potions:** Glowing bottles that restore health and grant experience: 1. [Magic Potion 1](Images/Potion1.png) 2. [Magic Potion 2](Images/Potion2.png)
--   **Keys:** Metallic keys for unlocking doors - [Key](Images/Key.png)
--   **Ability Items:** Special collectibles like the Number 5 - [Number five](Images/Five.png)
+-   **Experience Potions:**  
+    Glowing bottles that restore health and grant experience:  
+    ![Magic Potion 1](Images/Potion1.png)  
+    ![Magic Potion 2](Images/Potion2.png)
+
+-   **Keys:**  
+    Metallic keys for unlocking doors:  
+    ![Key](Images/Key.png)
+
+-   **Ability Items:**  
+    Special collectibles like the Number 5:  
+    ![Number Five](Images/Five.png)
 
 ## User Interface (UI)
 
 The gameplay interface features:
 
-1. [Menu Page](Images/MenuPage.png)
-2. [Game main interface](Images/GameplayInterface.png)
-3. [Notebook interface](Images/NotebookDraft.png)
-4. [Death ending interface](Images/DeathEnding.png)
-5. [Game ending interface](Images/WinningEnding.png)
-6. [Game map](Images/MapDraft.png)
+1. **Menu Page**  
+   ![Menu Page](Images/MenuPage.png)
+
+2. **Game Main Interface**  
+   ![Gameplay Interface](Images/GameplayInterface.png)
+
+3. **Notebook Interface**  
+   ![Notebook Interface](Images/NotebookDraft.png)
+
+4. **Death Ending Interface**  
+   ![Death Ending Interface](Images/DeathEnding.png)
+
+5. **Game Ending Interface**  
+   ![Winning Ending Interface](Images/WinningEnding.png)
+
+6. **Game Map**  
+   ![Game Map](Images/MapDraft.png)
 
 -   **Experience Bar:** Verticle bar next to the health bar showing experience progress
 -   **Dialogue Box:** At the bottom for Vim Tutor guidance and story
