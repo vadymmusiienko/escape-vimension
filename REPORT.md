@@ -113,7 +113,7 @@ The Cooperative Evaluation aimed to gather real-time, in-depth qualitative feedb
 
 -   **Zhexian Song** - A graduated student with extensive gaming experience (preferring WASD controls) but no prior knowledge of Vim.
 -   **Yibo Zhang** - An undergraduate student with some programming background but no direct Vim experience.
--   **Participant 3** - An undergraduate student with no programming background.
+-   **Daniel Zhang** - An undergraduate student with some programming background and knows Vim.
 
 #### Evaluation Method
 
@@ -133,6 +133,9 @@ General Impressions: Participants were generally able to navigate the game world
 
 -   The player might be stuck by the door in front of the boss room.
 -   The dash ability is hard to use and sometimes player cannot pass the trap easily.
+
+**Feedback about something to improve (from Daniel Zhang)**
+-   The wall sometimes will block the camera
 -   Player may use dash ability to dash into the trap while the dialogue before the trap is running.
 
 **Combat Clarity Observations**
