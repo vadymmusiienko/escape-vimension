@@ -4,7 +4,7 @@
 
 ### Core Concept
 
-In **Escape Vimension**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside a mysterious dungeon.
+In **Escape the Vimension**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside a mysterious dungeon.
 
 To escape back to the real world, you, the player, must master Vim commands by exploring the dungeon, defeating enemies, and growing in size and power. The journey of learning Vim is not as easy as it may seem.
 
@@ -59,7 +59,7 @@ Unlike text-based Vim tutorials or 2D educational games, we create an immersive 
 
 You're a college student working late on a programming project. Frustrated with your slow editing speed, you stumble upon Vim. Eager to improve, you open a terminal and type `vim .`.
 
-Confused, you realise you have no idea how to edit code, navigate, or most importantly, exit. In frustration, you mash through countless keyboard shortcuts, but nothing works… until you accidentally enter **Vimension**. Suddenly, you're shrunk down to the size of a microbe and trapped in a mysterious dungeon!
+Confused, you realise you have no idea how to edit code, navigate, or most importantly, exit. In frustration, you mash through countless keyboard shortcuts, but nothing works… until you accidentally enter **the Vimension**. Suddenly, you're shrunk down to the size of a microbe and trapped in a mysterious dungeon!
 
 Now, the only way to return to reality is to master Vim, by exploring the dungeon, defeating enemies, and growing stronger with each command you learn.
 
@@ -269,7 +269,7 @@ The game is presented in 3D third-person perspective, with the camera following 
 
 ## Technology and Tools
 
-To create **Escape Vimension**, our team will use the following software and tools:
+To create **Escape the Vimension**, our team will use the following software and tools:
 
 -   **Unity 6000.1.9f1** ([Unity Hub](https://unity.com/)): The primary game engine
 -   **C#**: Scripting language

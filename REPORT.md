@@ -49,14 +49,14 @@
 
 1. **Evaluation Techniques**
 
-    - **Cooperative Evaluation**: Since VimLand involves learning through typing commands, cooperative evaluation enables real-time observation of how players interpret the tutorial and apply the commands. Compared to the traditional "Think Aloud" method, this technique allows players to ask the team clarifying questions during the game play, helping the team identify areas that could cause any confusion, lack of clarity, or ineffective delivery.
+    - **Cooperative Evaluation**: Since Escape the VimEnsion involves learning through typing commands, cooperative evaluation enables real-time observation of how players interpret the tutorial and apply the commands. Compared to the traditional "Think Aloud" method, this technique allows players to ask the team clarifying questions during the game play, helping the team identify areas that could cause any confusion, lack of clarity, or ineffective delivery.
     - **Post-Task Walkthrough**: This method allows the team to identify overall game experience and collect direct feedback on the level design, pacing, and command learning.
     - **Interview**: Interviews provide deeper qualitative insights into the overall player experience, including what aspects of the game they found engaging, confusing, or memorable. This helps uncover emotional and motivational responses that are not captured through observational methods.
     - **Survey/ Questionnaire**: Surveys efficiently gather quantitative data from multiple participants, measuring satisfaction, difficulty, and usability. They allow the team to analyse trends and overall player feedback using structured responses.
 
 2. **Participants**
 
-    - **Recruitment method**: As VimLand is an educational game designed to help beginners familiarise themselves with basic Vim commands, participants will be recruited from university peers.
+    - **Recruitment method**: As Escape the VimEnsion is an educational game designed to help beginners familiarise themselves with basic Vim commands, participants will be recruited from university peers.
     - **Target audience**: University students aged 18-25 with little or no prior experience using the Vim text editor.
     - **Number of participants**: Approximately 12 or more participants will be invited.
 
@@ -126,7 +126,7 @@ General Impressions: Participants were generally able to navigate the game world
 -   The dash ability is hard to use and sometimes player cannot pass the trap easily.
 
 **Feedback about something to improve (from Daniel Zhang)**
-    I liked the vim motion controls, I felt that the gameplay and attacks were a bit one dimensional though, since there doesn't seem to be a sequence of attacks that disables the cursor's attacks or enables a special ability. Graphics wise, the "dash" movement of the figurine could be made more dynamic to emphasis the speed and agility of the special powerup. Overall, its a game with a lot of potential if expanded upon!
+I liked the vim motion controls, I felt that the gameplay and attacks were a bit one dimensional though, since there doesn't seem to be a sequence of attacks that disables the cursor's attacks or enables a special ability. Graphics wise, the "dash" movement of the figurine could be made more dynamic to emphasis the speed and agility of the special powerup. Overall, its a game with a lot of potential if expanded upon!
 
 **Combat Clarity Observations**
 Two participants were observed attacking the EnemyTurtle repeatedly while it was in its defensive state, expressing confusion as to why it wasn't taking damage. This suggests the "defend" visual cue is not distinct enough from its normal state.
@@ -226,7 +226,7 @@ Each interview was conducted individually after the playtesting session and last
 
 Participants were asked a mix of structured and open-ended questions, including:
 
-1. What was your first impression of VimLand's visual design and interface?
+1. What was your first impression of Escape the VimEnsion visual design and interface?
 2. How easy or difficult was it to understand what you were supposed to do in the game?
 3. Did the game make learning Vim commands feel engaging or tedious?
 4. Were there any parts of the gameplay or UI that you found confusing or frustrating?
@@ -253,7 +253,7 @@ All three participants found the game's visual style and concept unique, particu
 **Feedback from Emil Musiienko (no programming background):**
 
 -   Emil found the movement system using `h`, `j`, `k`, and `l` unintuitive and "weird", noting that it felt inconvenient compared to typical arrow-key movement.
--   He admitted he "didn't really get what the game was trying to teach," which highlighted that the **educational goal of VimLand might not be apparent to non-programmers**.
+-   He admitted he "didn't really get what the game was trying to teach," which highlighted that the **educational goal of Escape the VimEnsion might not be apparent to non-programmers**.
 -   Despite this, he enjoyed the playful writing and humor in the dialogues, which helped make the experience more approachable.
 
 **Overall Themes:**
