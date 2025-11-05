@@ -292,6 +292,5 @@ To create **Escape Vimension**, our team will use the following software and too
 5. **Open Book** ([OpenGameArt](https://opengameart.org/content/open-book))
 
 6. **Casual Fantasy Book** ([Unity Asset Store](https://assetstore.unity.com/packages/2d/gui/icons/casual-fantasy-book-icon-pack-10-stylized-magic-books-320929))
-## TODO
 
-This document will be updated and modified as the project progresses
+7. **Experiece potion** ([Unity Asset Store](https://assetstore.unity.com/packages/3d/props/food/magic-potion-pack-free-low-poly-3d-model-319553))
