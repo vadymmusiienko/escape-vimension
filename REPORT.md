@@ -135,8 +135,7 @@ General Impressions: Participants were generally able to navigate the game world
 -   The dash ability is hard to use and sometimes player cannot pass the trap easily.
 
 **Feedback about something to improve (from Daniel Zhang)**
--   The wall sometimes will block the camera
--   Player may use dash ability to dash into the trap while the dialogue before the trap is running.
+    I liked the vim motion controls, I felt that the gameplay and attacks were a bit one dimensional though, since there doesn't seem to be a sequence of attacks that disables the cursor's attacks or enables a special ability. Graphics wise, the "dash" movement of the figurine could be made more dynamic to emphasis the speed and agility of the special powerup. Overall, its a game with a lot of potential if expanded upon!
 
 **Combat Clarity Observations**
 Two participants were observed attacking the EnemyTurtle repeatedly while it was in its defensive state, expressing confusion as to why it wasn't taking damage. This suggests the "defend" visual cue is not distinct enough from its normal state.
