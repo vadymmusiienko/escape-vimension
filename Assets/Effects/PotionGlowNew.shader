@@ -100,7 +100,6 @@ Shader "Custom/PotionGlowNew"
                 fixed4 texSample = tex2D(_MainTexture, INPUT.uv);
                 float3 albedo = texSample.rgb * _BaseColour.rgb;
 
-                // Basic lighting
                 float nDotL = max(0.0, dot(N, L));
                 float3 diffuse = albedo * lightColor * nDotL;
 
@@ -111,25 +110,20 @@ Shader "Custom/PotionGlowNew"
                 float3 Renv = reflect(-V, N);
                 float3 reflection = SampleReflection(normalize(Renv)) * _Reflectivity;
 
-                // Simple, natural pulsing glow
                 float time = _Time.y * _GlowSpeed;
-                float glow = (sin(time) * 0.5 + 0.5); // Smooth 0-1 pulsing
-                glow = pow(glow, 1.5); // Smooth the curve for natural feel
+                float glow = (sin(time) * 0.5 + 0.5);
+                glow = pow(glow, 1.5);
 
-                // Rim lighting for pickup indication (only during glow)
                 float rim = 1.0 - saturate(dot(V, N));
                 rim = pow(rim, _RimPower);
                 float3 rimLight = _RimColor.rgb * rim * _RimIntensity * glow;
                 
-                // Simple glow effect (limited to prevent white-out)
                 float3 simpleGlow = _GlowColor.rgb * glow * _GlowIntensity * 0.3;
                 
-                // Add a subtle inner glow that follows the surface (only when glowing)
                 float fresnel = 1.0 - saturate(dot(V, N));
                 fresnel = pow(fresnel, 2.0);
                 float3 innerGlow = _GlowColor.rgb * fresnel * glow * _GlowIntensity * 0.2;
 
-                // Combine all lighting and glow effects
                 float3 color = diffuse + specular + reflection + rimLight + simpleGlow + innerGlow;
 
                 float alpha = texSample.a * _Opacity * _BaseColour.a;
