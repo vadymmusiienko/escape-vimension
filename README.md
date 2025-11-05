@@ -107,14 +107,15 @@ The game uses a **third-person perspective** with a dynamic camera that follows 
 The player moves using **basic Vim commands**:
 
 -   `h`, `j`, `k`, `l` → Move the player (left, down, up, right)
--   `x` → Attack enemies
--   `5` + direction → Dash ability (unlocked by finding the Number 5 item)
+-   `x` → Pick up items
+-   `1-5` + direction → Dash ability (unlocked by finding the Number 5 item)
+-   `d` → Attack the enemy
 
 ---
 
 ### Progression
 
--   **Unlocked by default:** Basic movement (`h`, `j`, `k`, `l`) and attack (`x`)
+-   **Unlocked by default:** Basic movement (`h`, `j`, `k`, `l`) and attack (`d`)
 -   **As the game progresses:** Additional abilities are unlocked by finding special items in the dungeon
 -   **Leveling system:** Gain experience from potions and enemies to increase size, speed, and strength
 
@@ -175,21 +176,31 @@ Similar game references:
 -   Dark Souls (atmosphere)
 -   Hollow Knight (dungeon exploration)
 
+Online image references:
+-   Reference 1: [Dungeon reference](Images/DungeonReference.png)
+-   Reference 2: [Dungeon map reference](Images/Dungeon.png)
+-   Reference 3: [Third person game view from the top in dungeon example](Images/PerspectiveExample.png)
+
 ---
 
 ### Sound and Music
 
 The game features atmospheric audio that enhances the dungeon exploration experience:
 
--   **Background Music:** Atmospheric dungeon music that creates tension and mystery
+-   **Background Music:** Atmospheric dungeon music that creates tension and mystery:
+    1. https://freetouse.com/music/walen/medieval-village
+
 -   **Sound Effects:**
-    -   Player movement sounds (walking, running)
+    -   Player movement sounds (walking, running):
+        - https://www.epidemicsound.com/sound-effects/tracks/d5ca5d74-cdc1-4b0c-ba97-9314f36f7054/
+        - https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/
     -   Combat sounds (attacks, enemy hits)
     -   Item pickup sounds (potions, keys)
     -   Level up sound effects
     -   Damage taken sounds
     -   Enemy attack sounds (turtle attacks, boss attacks)
 -   **Dialogue Audio:** Typing sounds accompany dialogue to maintain immersion
+    - https://www.epidemicsound.com/sound-effects/tracks/11e80013-c1ae-4705-b557-8d8ff294d1ba/
 
 ---
 
@@ -197,9 +208,9 @@ The game features atmospheric audio that enhances the dungeon exploration experi
 
 Main characters:
 
--   **The Player:** A small humanoid figure that grows larger as you level up
--   **Turtle Enemies:** Defensive creatures that patrol the dungeon
--   **Cursor Boss:** A massive cursor that performs sweeping attacks
+-   **The Player:** A small humanoid figure that grows larger as you level up: [Main character](Images/MainCharacter.png)
+-   **Turtle Enemies:** Defensive creatures that patrol the dungeon: [Turtle enemy](Images/Turtle.png)
+-   **Cursor Boss:** A massive cursor that performs sweeping attacks: [Cursor Boss](Images/Cursor.png)
 
 Environment:
 
@@ -210,18 +221,29 @@ Environment:
 
 Items:
 
--   **Experience Potions:** Glowing bottles that restore health and grant experience
+-   **Experience Potions:** Glowing bottles that restore health and grant experience:
+        1. [Magic Potion 1](Images/Potion1.png)
+        2. [Magic Potion 2](Images/Potion2.png)
 -   **Keys:** Metallic keys for unlocking doors
+        - [Key](Images/Key.png)
 -   **Ability Items:** Special collectibles like the Number 5
+        - [Number five](Images/Five.png)
 
 ## User Interface (UI)
 
 The gameplay interface features:
 
+1. [Menu Page](Images/MenuPage.png)
+2. [Game main interface](Images/GameplayInterface.png)
+3. [Notebook interface](Images/NotebookDraft.png)
+4. [Death ending interface](Images/DeathEnding.png)
+5. [Game ending interface](Images/WinningEnding.png)
+6. [Game map](Images/MapDraft.png)
+
 -   **Health Bar:** Vertical bar on the left side showing current health
--   **Experience Bar:** Horizontal bar at the top showing experience progress
+-   **Experience Bar:** Vertical bar at the top showing experience progress
 -   **Dialogue Box:** At the bottom for Vim Tutor guidance and story
--   **Inventory:** Shows collected items and unlocked abilities
+-   **Notebook:** Shows all the currently unlocked Vim commands and their descriptions
 
 The game is presented in 3D third-person perspective, with the camera following the player's movements and adjusting distance based on player size.
 
