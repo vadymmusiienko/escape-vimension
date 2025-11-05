@@ -274,7 +274,7 @@ To create **Escape Vimension**, our team will use the following software and too
     - **Solution:** Weekly meetings, daily check-ins on Discord
 
 
-## Asset used
+## Art Resources used
 1. **RPG Monster Duo PBR Polyart**
     ([Unity Asset Store]https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762)
 
