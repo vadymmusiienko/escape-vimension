@@ -6,7 +6,7 @@
 
 In **Escape Vimension**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside a mysterious dungeon.
 
-To escape back to the real world, you—the player—must master Vim commands by exploring the dungeon, defeating enemies, and growing in size and power. The journey of learning Vim is not as easy as it may seem.
+To escape back to the real world, you, the player, must master Vim commands by exploring the dungeon, defeating enemies, and growing in size and power. The journey of learning Vim is not as easy as it may seem.
 
 Do you think you are built different? Can you master Vim? We will see…
 
@@ -42,7 +42,7 @@ Unlike text-based Vim tutorials or 2D educational games, we create an immersive 
 -   **Secondary:** Developers wanting to learn Vim in a fun way
 -   **Tertiary:** Action-adventure game enthusiasts who enjoy unique mechanics
 
-**Accessibility:** No prior Vim knowledge required—the game teaches from scratch.
+**Accessibility:** No prior Vim knowledge required, the game teaches from scratch.
 
 ---
 
@@ -59,9 +59,9 @@ Unlike text-based Vim tutorials or 2D educational games, we create an immersive 
 
 You're a college student working late on a programming project. Frustrated with your slow editing speed, you stumble upon Vim. Eager to improve, you open a terminal and type `vim .`.
 
-Confused, you realize you have no idea how to edit code, navigate, or—most importantly—exit. In frustration, you mash through countless keyboard shortcuts, but nothing works… until you accidentally enter **Vim Tutor**. Suddenly, you're shrunk down to the size of a microbe and trapped in a mysterious dungeon!
+Confused, you realise you have no idea how to edit code, navigate, or most importantly, exit. In frustration, you mash through countless keyboard shortcuts, but nothing works… until you accidentally enter **Vimension**. Suddenly, you're shrunk down to the size of a microbe and trapped in a mysterious dungeon!
 
-Now, the only way to return to reality is to master Vim—by exploring the dungeon, defeating enemies, and growing stronger with each command you learn.
+Now, the only way to return to reality is to master Vim, by exploring the dungeon, defeating enemies, and growing stronger with each command you learn.
 
 ---
 
@@ -78,7 +78,7 @@ The game takes place in a mysterious dungeon filled with ancient secrets and dan
 
 -   **Enemies**
 
-    -   **Turtle Guard:** Defensive enemy that patrol the dungeon corridors
+    -   **Turtle Guard:** Defensive enemy that patrols the dungeon corridors
     -   **Cursor Boss:** The final boss - a massive cursor that sweeps across the battlefield
 
 -   **Interactive Objects**
@@ -117,7 +117,7 @@ The player moves using **basic Vim commands**:
 
 -   **Unlocked by default:** Basic movement (`h`, `j`, `k`, `l`) and attack (`d`)
 -   **As the game progresses:** Additional abilities are unlocked by finding special items in the dungeon
--   **Leveling system:** Gain experience from potions and enemies to increase size, speed, and strength
+-   **Levelling system:** Gain experience from potions and enemies to increase size, speed, and strength
 
 ---
 
@@ -142,7 +142,7 @@ The world is set in a mysterious dungeon with:
 
 ### Objects
 
--   **Experience Potions:** Restore health and grant experience points for leveling
+-   **Experience Potions:** Restore health and grant experience points for levelling
 -   **Keys:** Unlock doors and secret passages
 -   **Ability Items:** Special collectibles that unlock new Vim commands
 -   **Enemies:** Turtle guards and the Cursor Boss
@@ -261,7 +261,7 @@ The gameplay interface features:
 6. **Game Map**  
    ![Game Map](Images/MapDraft.png)
 
--   **Experience Bar:** Verticle bar next to the health bar showing experience progress
+-   **Experience Bar:** Vertical bar next to the health bar showing experience progress
 -   **Dialogue Box:** At the bottom for Vim Tutor guidance and story
 -   **Notebook:** Shows unlocked abilities
 
@@ -274,7 +274,7 @@ To create **Escape Vimension**, our team will use the following software and too
 -   **Unity 6000.1.9f1** ([Unity Hub](https://unity.com/)): The primary game engine
 -   **C#**: Scripting language
 -   **GitHub** ([GitHub](https://github.com/)): Version control to manage code and collaborate
--   **Blender** ([Blender](https://www.blender.org/)): _Optional_ 3D modelling and animation tool to customize or create new models if needed
+-   **Blender** ([Blender](https://www.blender.org/)): _Optional_ 3D modelling and animation tool to customise or create new models if needed
 -   **Audacity** ([Audacity](https://www.audacityteam.org/)): _Optional_ audio editing for trimming or adjusting soundtracks
 -   **WhatsApp**: Primary communication channel
 -   **Discord**: Used for online meetings
@@ -293,7 +293,7 @@ To create **Escape Vimension**, our team will use the following software and too
 -   **Week 1-2:** Core mechanics implementation, player movement, and basic environment
 -   **Week 3-4:** Unlockable commands, puzzles, and initial UI setup
 -   **Week 5:** Sound integration, environmental polish, testing, and bug fixes
--   **Week 6:** Final milestone submission, bug resolution, optimization, and README documentation
+-   **Week 6:** Final milestone submission, bug resolution, optimisation, and README documentation
 
 ## Possible Challenges
 
@@ -304,8 +304,8 @@ To create **Escape Vimension**, our team will use the following software and too
 
 2. **Time Constraints**
 
-    - Limited time for polishing visuals, puzzles, and audio integration (As we are a team of 3)
-    - **Solution:** Prioritize core mechanics and gradually add secondary features
+    - Limited time for polishing visuals, puzzles, and audio integration (as we are a team of three)
+    - **Solution:** Prioritise core mechanics and gradually add secondary features
 
 3. **Asset Integration**
 
@@ -334,4 +334,4 @@ To create **Escape Vimension**, our team will use the following software and too
 
 6. **Casual Fantasy Book** ([Unity Asset Store](https://assetstore.unity.com/packages/2d/gui/icons/casual-fantasy-book-icon-pack-10-stylized-magic-books-320929))
 
-7. **Experiece potion** ([Unity Asset Store](https://assetstore.unity.com/packages/3d/props/food/magic-potion-pack-free-low-poly-3d-model-319553))
+7. **Experience Potion** ([Unity Asset Store](https://assetstore.unity.com/packages/3d/props/food/magic-potion-pack-free-low-poly-3d-model-319553))
