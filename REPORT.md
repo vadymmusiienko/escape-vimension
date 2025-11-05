@@ -1,14 +1,5 @@
 # Project 2 Report
 
-Read the [project 2
-specification](https://github.com/feit-comp30019/project-2-specification) for
-details on what needs to be covered here. You may modify this template as you
-see fit, but please keep the same general structure and headings.
-
-Remember that you should maintain the Game Design Document (GDD) in the
-`README.md` file (as discussed in the specification). We've provided a
-placeholder for it [here](README.md).
-
 ## Table of Contents
 
 - [Project 2 Report](#project-2-report)
@@ -511,5 +502,12 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 
 **Audio references**
 
--   Background music1: https://freetouse.com/music/walen/medieval-village
--   Running effect: https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/
+-   Background music (MainScene): https://freetouse.com/music/walen/medieval-village
+-   All sound effects were found here: https://pixabay.com/
+
+Notes and Future Improvements
+
+Here are some issues we ran into in WebGL and weren't able to fix in time.
+
+-   On some operating systems, there is a lighting glitch that appears only when the game is hosted in a browser via WebGL.
+-   The transparent wall effect also doesn’t work in the browser as intended.
