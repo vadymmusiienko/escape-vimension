@@ -439,6 +439,27 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 
 ## Summary of Contributions
 
+**Vadym Musiienko**
+
+-   Acted as **team lead**
+-   Designed and implemented **Start**, **Death**, and **End** scenes start to end.
+-   **Integrated and programmed** the entire audio system, including background music, sound effects, and event-based audio triggers.
+-   Implemented and integrated **character animations**, such as fighting, picking up items, and dashing.
+-   **Coded core gameplay mechanics**, including combat, item pickup, and dash functionalities.
+-   Developed the complete **level progression system**, including experience tracking and scaling.
+-   Built the full **health system** for both player and enemies, along with corresponding health bars.
+-   Conceived the **core game concept** (Vim-inspired gameplay) and contributed to the **overall game design direction**.
+-   Wrote and implemented the **narrative and dialogue system**.
+-   Implemented all **item-related systems**, such as experience potions and ability unlocks (e.g., dash).
+-   Developed **camera functionality**, including dynamic zoom during player growth.
+-   Programmed **scaling mechanics**, allowing the player’s size, movement and strength speed to increase with level.
+-   Managed all **Git merges** and manually resolved **merge conflicts**.
+-   Created and scripted the **game ending sequence**, including the `:q` mechanic to quit and complete the game.
+-   Contributed additional **polish, debugging, and system integration** across multiple gameplay areas.
+-   Contributed to the **project README**.
+-   Conducted **interview evaluations with three participants** as part of the user evaluation process.
+-   Implemented transparent wall feature
+
 **Zhukun He**
 
 -   Implemented features including:
