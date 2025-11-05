@@ -1,10 +1,10 @@
-# Game Design Document: Escape Vimension
+# Game Design Document: Escape VimEnsion
 
 ## Game Overview
 
 ### Core Concept
 
-In **Escape Vimension**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside a mysterious dungeon.
+In **Escape VimEnsion**, the player is a programmer who wants to write code faster with Vim. As a complete newbie, the player enters the Vim editor without knowing how to quit it. After spending hours trying to exit Vim, the player is shrunk down and trapped inside a mysterious dungeon.
 
 To escape back to the real world, you—the player—must master Vim commands by exploring the dungeon, defeating enemies, and growing in size and power. The journey of learning Vim is not as easy as it may seem.
 
@@ -246,7 +246,7 @@ The game is presented in 3D third-person perspective, with the camera following 
 
 ## Technology and Tools
 
-To create **Escape Vimension**, our team will use the following software and tools:
+To create **Escape VimEnsion**, our team will use the following software and tools:
 
 -   **Unity 6000.1.9f1** ([Unity Hub](https://unity.com/)): The primary game engine
 -   **C#**: Scripting language
