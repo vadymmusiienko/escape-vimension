@@ -430,7 +430,7 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
     - Enemy erosion shader
     - Star attack particle system
 - Constructed evaluation plan
-- Performed survey evaluation
+- Performed survey evaluation and made improvements according to the results
 
 
 ## References and External Resources
@@ -446,3 +446,10 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 - https://www.youtube.com/watch?v=pOT5n1ZLxcE&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=14
 - https://www.youtube.com/watch?v=RtevmyHKvWE&list=PLq4ehwQIHfrUHo2UcxDAl_gcPLb2f3T2y&index=14
 - https://www.youtube.com/watch?v=7q6GSVfyUbQ
+- Star png: https://www.rawpixel.com/image/5997620/illustration-png-sticker-elements
+- Cloud pattern: https://unsplash.com/photos/a-black-and-white-photo-of-clouds-in-the-sky-7Oq9r2CiTLg
+
+
+**Audio references**
+- Background music1: https://freetouse.com/music/walen/medieval-village
+- Running effect: https://www.epidemicsound.com/sound-effects/tracks/324b3f4f-15c7-43c3-b6e7-80a178597e0c/
