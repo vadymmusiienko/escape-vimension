@@ -78,7 +78,7 @@ The game takes place in a mysterious dungeon filled with ancient secrets and dan
 
 -   **Enemies**
 
-    -   **Turtle Guard:** Defensive enemie that patrol the dungeon corridors
+    -   **Turtle Guard:** Defensive enemy that patrol the dungeon corridors
     -   **Cursor Boss:** The final boss - a massive cursor that sweeps across the battlefield
 
 -   **Interactive Objects**
@@ -107,14 +107,15 @@ The game uses a **third-person perspective** with a dynamic camera that follows 
 The player moves using **basic Vim commands**:
 
 -   `h`, `j`, `k`, `l` → Move the player (left, down, up, right)
--   `x` → Attack enemies
+-   `x` → pick up items
 -   `5` + direction → Dash ability (unlocked by finding the Number 5 item)
+-   `d` → attack enemies
 
 ---
 
 ### Progression
 
--   **Unlocked by default:** Basic movement (`h`, `j`, `k`, `l`) and attack (`x`)
+-   **Unlocked immediately:** Basic movement (`h`, `j`, `k`, `l`)
 -   **As the game progresses:** Additional abilities are unlocked by finding special items in the dungeon
 -   **Leveling system:** Gain experience from potions and enemies to increase size, speed, and strength
 
@@ -219,9 +220,9 @@ Items:
 The gameplay interface features:
 
 -   **Health Bar:** Vertical bar on the left side showing current health
--   **Experience Bar:** Horizontal bar at the top showing experience progress
+-   **Experience Bar:** Verticle bar next to the health bar showing experience progress
 -   **Dialogue Box:** At the bottom for Vim Tutor guidance and story
--   **Inventory:** Shows collected items and unlocked abilities
+-   **Notebook:** Shows unlocked abilities
 
 The game is presented in 3D third-person perspective, with the camera following the player's movements and adjusting distance based on player size.
 
@@ -234,7 +235,8 @@ To create **Escape Vimension**, our team will use the following software and too
 -   **GitHub** ([GitHub](https://github.com/)): Version control to manage code and collaborate
 -   **Blender** ([Blender](https://www.blender.org/)): _Optional_ 3D modelling and animation tool to customize or create new models if needed
 -   **Audacity** ([Audacity](https://www.audacityteam.org/)): _Optional_ audio editing for trimming or adjusting soundtracks
--   **Discord**: Primary communication channel
+-   **WhatsApp**: Primary communication channel
+-   **Discord**: Used for online meetings
 
 ## Communication, Timeline
 
@@ -271,21 +273,25 @@ To create **Escape Vimension**, our team will use the following software and too
 
 4. **Team Coordination**
     - Potential misalignment between team members on development priorities
-    - **Solution:** Weekly meetings, daily check-ins on Discord
+    - **Solution:** Weekly meetings, daily check-ins on WhatsApp
 
 
 ## Art Resources used
 1. **RPG Monster Duo PBR Polyart**
-    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762)
+    ([Unity Asset Store](https://assetstore.unity.com/packages/3d/characters/creatures/rpg-monster-duo-pbr-polyart-157762))
 
 2. **Rust Key**
-    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/props/rust-key-167590)
+    ([Unity Asset Store](https://assetstore.unity.com/packages/3d/props/rust-key-167590))
 
 3. **Lite Dungeon Pack - Low Poly 3D Art by Gridness**
-    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692)
+    ([Unity Asset Store](https://assetstore.unity.com/packages/3d/environments/dungeons/lite-dungeon-pack-low-poly-3d-art-by-gridness-242692))
 
 4. **Jammo Character | Mix and Jam**
-    ([Unity Asset Store]https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456)
+    ([Unity Asset Store](https://assetstore.unity.com/packages/3d/characters/jammo-character-mix-and-jam-158456))
+
+5. **Open Book** ([OpenGameArt](https://opengameart.org/content/open-book))
+
+6. **Casual Fantasy Book** ([Unity Asset Store](https://assetstore.unity.com/packages/2d/gui/icons/casual-fantasy-book-icon-pack-10-stylized-magic-books-320929))
 ## TODO
 
 This document will be updated and modified as the project progresses

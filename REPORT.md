@@ -39,8 +39,8 @@ placeholder for it [here](README.md).
 3. **Data Collection**
 
     - Type of data collected:
-      i. Quantitative: Task completion time, number of deaths, task success rate
-      ii. Qualitative: player feedback, overall satisfaction, and understanding of Vim commands.
+      - Quantitative: Task completion time, number of deaths, task success rate
+      - Qualitative: player feedback, overall satisfaction, and understanding of Vim commands.
     - Data collection methods: Observation notes during playtesting (Microsoft Word), post-task forms, and online surveys (SurveyMonkey)
 
 4. **Data Analysis**
@@ -79,7 +79,7 @@ The Cooperative Evaluation aimed to gather real-time, in-depth qualitative feedb
 #### Participants
 -   **Zhexian Song** - A graduated student with extensive gaming experience (preferring WASD controls) but no prior knowledge of Vim.
 -   **Yibo Zhang** - An undergraduate student with some programming background but no direct Vim experience.
-Participant 3 - An undergraduate student with no programming background.
+- **Participant 3** - An undergraduate student with no programming background.
 
 #### Evaluation Method
 Each session was conducted individually and lasted approximately 20-30 minutes. Participants were tasked with playing the game from the beginning while following the Cooperative Evaluation (or 'Think Aloud') protocol. They were encouraged to voice their thoughts, frustrations, and assumptions in real-time. Observational notes were recorded during the session.
@@ -254,12 +254,12 @@ Since the game was designed to take roughly 5–10 minutes, the feedback suggest
 
 **Qualitative Feedback**
 Participants were also asked to provide some comments highlighting both strengths and areas for improvement.
--   + Positive feedback: Most players praised the game’s graphics and visuals, describing the dash mechanic as fun and engaging. Several appreciated the boss design (represented as a “cursor”) as a creative concept.
--   - Negative feedback:
-        - Some players found the instructions being not specific enough, leading to confusion about when to input commands. For instance, several attempted to press keys during dialogues rather than after them.
-        - A few participants also remarked that the background music volume was too low compared to the sound effects, which reduced the overall auditory balance.
-        - Some participants explicitly commented that they could not see their character and recommended making obstructive walls fade away when the player moves behind them.
-        - A few participants mentioned the controls were difficult to use in the game.
++ Positive feedback: Most players praised the game’s graphics and visuals, describing the dash mechanic as fun and engaging. Several appreciated the boss design (represented as a “cursor”) as a creative concept.
+- Negative feedback:
+    - Some players found the instructions being not specific enough, leading to confusion about when to input commands. For instance, several attempted to press keys during dialogues rather than after them.
+    - A few participants also remarked that the background music volume was too low compared to the sound effects, which reduced the overall auditory balance.
+    - Some participants explicitly commented that they could not see their character and recommended making obstructive walls fade away when the player moves behind them.
+    - A few participants mentioned the controls were difficult to use in the game.
 
 **Additional Observations**
 -   The notebook feature located in the top-right corner, designed to record unlocked Vim commands and their descriptions. However, none of the participants noticed or used this feature during testing, indicating a need for stronger onboarding or visual cues to draw attention to its functionality.
@@ -298,39 +298,42 @@ Particle System Attributes Varied
 To achieve the "horizontal slash" effect, several key modules were configured in a non-trivial way:
 
 Transform Orientation:
-    Settings: The prefab's Transform component is rotated 90 degrees on the X-axis (m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}).
-    Rationale: Particle systems emit "up" (along their Y-axis) by default. This rotation "flattens" the entire system, making it parallel to the ground. This is the foundational step that turns a vertical effect into a horizontal, ground-based slash.
+
+- Settings: The prefab's Transform component is rotated 90 degrees on the X-axis (m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}).
+
+- Rationale: Particle systems emit "up" (along their Y-axis) by default. This rotation "flattens" the entire system, making it parallel to the ground. This is the foundational step that turns a vertical effect into a horizontal, ground-based slash.
 
 Shape Module:
-    Settings: The Shape is set to Circle (type: 10) , with a Radius of 3 and an Arc of 180 degrees.
-    Rationale: This defines the precise size and semi-circular area of the boss's attack.
-    Key Setting: The Radius Thickness is set to 0. This is the most critical setting in this module, as it forces all particles to spawn only on the edge (the arc line) of the shape, not within the area. This creates the "slash trajectory" rather than a filled-in pie shape.
+- Settings: The Shape is set to Circle (type: 10) , with a Radius of 3 and an Arc of 180 degrees.
+- Rationale: This defines the precise size and semi-circular area of the boss's attack.
+- Key Setting: The Radius Thickness is set to 0. This is the most critical setting in this module, as it forces all particles to spawn only on the edge (the arc line) of the shape, not within the area. This creates the "slash trajectory" rather than a filled-in pie shape.
 
 Emission Module:
-    Settings: Rate over Time is 0. A single Burst is used, emitting 50 particles at Time = 0.
-    Rationale: The attack warning must be instantaneous. A single, large burst ensures the entire arc is "drawn" in a single frame, providing a clear and immediate warning to the player.
+- Settings: Rate over Time is 0. A single Burst is used, emitting 50 particles at Time = 0.
+- Rationale: The attack warning must be instantaneous. A single, large burst ensures the entire arc is "drawn" in a single frame, providing a clear and immediate warning to the player.
 
 Main Module (Speed & Lifetime):
-    Settings: Start Speed is set to 0. Start Lifetime is set to 1 second.
-    Rationale: Setting Start Speed to 0 is essential. It ensures the particles spawn and stay on the arc defined by the Shape module, rather than being fired from it. The 1-second lifetime gives them time to fade out gracefully.
+- Settings: Start Speed is set to 0. Start Lifetime is set to 1 second.
+- Rationale: Setting Start Speed to 0 is essential. It ensures the particles spawn and stay on the arc defined by the Shape module, rather than being fired from it. The 1-second lifetime gives them time to fade out gracefully.
 
 Size & Color over Lifetime Modules:
-    Settings: Size over Lifetime is a curve that linearly decreases from value: 1 to value: 0. Color over Lifetime is a gradient whose Alpha fades from 1 (opaque) to 0 (transparent).
-    Rationale: Both modules work together to make the particles smoothly fade from existence instead of abruptly disappearing, creating a more polished visual effect.
+- Settings: Size over Lifetime is a curve that linearly decreases from value: 1 to value: 0. Color over Lifetime is a gradient whose Alpha fades from 1 (opaque) to 0 (transparent).
+- Rationale: Both modules work together to make the particles smoothly fade from existence instead of abruptly disappearing, creating a more polished visual effect.
 
 Trails Module:
-    Settings: The module is enabled (enabled: 1) and set to Mode: Ribbon (mode: 1).
-    Rationale: This is the key module that creates the "slash" effect. The Ribbon mode connects the 50 discrete particles (spawned by the Burst ) into a single, continuous, flowing "blade" of light.
-    Refinement: Width over Trail and Color over Trail  are also set to fade from 1 to 0, ensuring the trail itself fades out elegantly along its length, which reinforces the feeling of a fast-moving, dissipating attack.
+- Settings: The module is enabled (enabled: 1) and set to Mode: Ribbon (mode: 1).
+- Rationale: This is the key module that creates the "slash" effect. The Ribbon mode connects the 50 discrete particles (spawned by the Burst ) into a single, continuous, flowing "blade" of light.
+- Refinement: Width over Trail and Color over Trail  are also set to fade from 1 to 0, ensuring the trail itself fades out elegantly along its length, which reinforces the feeling of a fast-moving, dissipating attack.
 
-Utilisation of Randomness
+Utilisation of Randomness:  
 In this specific effect, randomness was deliberately avoided in key areas like Start Size and Start Color  (both are set to constant values, not "Random Between...").
 
-    Rationale: The primary purpose of this particle system is clarity-to serve as an unambiguous AoE indicator. Introducing randomness to the size or color of the warning could make the attack's boundaries look "fuzzy" or inconsistent, potentially confusing the player. By using constant values, we ensure the warning is clean, sharp, and identical every time, which is crucial for fair, learnable gameplay. The autoRandomSeed: 1  setting provides sufficient internal variation without compromising the effect's core purpose.
+Rationale:  
+The primary purpose of this particle system is clarity - to serve as an unambiguous AoE indicator. Introducing randomness to the size or color of the warning could make the attack's boundaries look "fuzzy" or inconsistent, potentially confusing the player. By using constant values, we ensure the warning is clean, sharp, and identical every time, which is crucial for fair, learnable gameplay. The autoRandomSeed: 1  setting provides sufficient internal variation without compromising the effect's core purpose.
 
 
 #### Shaders
-In the game, two non-trivial custom shaders were designed and implemented, including a glowing potion effect (<Assets/Effects/PotionGlowNew.shader>) and an enemy erosion effect (<Assets/Effects/EnemyErosionPattern.shader>). These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
+In the game, two non-trivial custom shaders were designed and implemented, including a [glowing potion effect](<Assets/Effects/PotionGlowNew.shader>) and an [enemy erosion effect](<Assets/Effects/EnemyErosionPattern.shader>). These shaders not only enhance the overall visual quality but also align closely with the game’s background, reinforcing its fantasy atmosphere.
 
 1. **Glowing Potion Effect**
 
@@ -343,9 +346,9 @@ In the game, two non-trivial custom shaders were designed and implemented, inclu
 
     Similarly, the project implements an erosion effect to make enemy characters disappear in a more visually engaging way, thereby enhancing the overall game visuals. The shader targets the Built-in Render Pipeline and uses a custom vertex and fragment pass that includes UnityCG.cginc and Lighting.cginc. Unlike the earlier potion shader, this material renders in the geometry queue as an opaque surface with depth writes enabled and no alpha blending.
 
-    The dissolve effect is driven by the clip(patternEdge - 0.001) statement in the fragment stage, in which fragments that fail the comparison are discarded, producing the eroding effect. A triplanar sampling of the pattern texture blends world-space projections, ensuring the breakup follows surface orientation, while the Edge Width parameter softens the transition band. After testing several grayscale masks, we selected a soft cloud texture because it produced the smoothest breakup without visible seams.
+    The dissolve effect is driven by the `clip(patternEdge - 0.001)` statement in the fragment stage, in which fragments that fail the comparison are discarded, producing the eroding effect. A triplanar sampling of the pattern texture blends world-space projections, ensuring the breakup follows surface orientation, while the Edge Width parameter softens the transition band. After testing several grayscale masks, we selected a soft cloud texture because it produced the smoothest breakup without visible seams.
 
-    Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the TriggerErode() method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
+    Each enemy character using this shader consists of a _Threshold slider, while the materials tune _EdgeWidth, tiling, glow, and reflection options per prefab. To automate the effect in game, an EnemyErosionController script is created to manage the process. It gathers child renderers on Awake, caches a MaterialPropertyBlock, and restores the alive threshold in OnEnable so respawned enemies appear intact. When gameplay scripts detect an enemy’s death, they invoke the `TriggerErode()` method, which starts a coroutine that interpolates _Threshold from the alive value to the dead value over a specified duration. This design allows flexible per-enemy timing while maintaining consistent lighting and mask-based erosion visuals across the game.
 
 
 
