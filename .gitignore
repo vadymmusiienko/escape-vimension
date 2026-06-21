@@ -43,6 +43,7 @@ ExportedObj/
 *.csproj
 *.unityproj
 *.sln
+*.slnx
 *.suo
 *.tmp
 *.user
@@ -103,3 +104,6 @@ InitTestScene*.unity*
 
 # DS_Store
 .DS_Store
+
+# Stray nested Unity projects accidentally created inside the repo root
+/[Mm]y project/
